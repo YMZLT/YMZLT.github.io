@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -17,22 +17,23 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="计算机系统作业12.58编写过程is_little_endian, 当在小端法机器上编译和运行时返回1, 在大端法机器上编译运行时则返回0 。这个程序应该可以运行在任何机器上，无论机器的字长是多少。 解： 12345678910111213141516171819#include &lt;stdio.h&gt;typedef unsigned char *byte_pointer; &#x2F;&#x2F; 定义一个">
+  <meta name="description" content="本文为中科大计算机系统作业题目记录。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2022/10/30/SA22011137-%E6%9D%A8%E6%98%8E%E7%8F%A0-%E4%BD%9C%E4%B8%9A1/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="计算机系统作业12.58编写过程is_little_endian, 当在小端法机器上编译和运行时返回1, 在大端法机器上编译运行时则返回0 。这个程序应该可以运行在任何机器上，无论机器的字长是多少。 解： 12345678910111213141516171819#include &lt;stdio.h&gt;typedef unsigned char *byte_pointer; &#x2F;&#x2F; 定义一个">
-<meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-10-30T05:22:09.963Z">
-<meta property="article:modified_time" content="2022-10-12T06:22:00.508Z">
-<meta property="article:author" content="John Doe">
+<meta property="og:title" content="中科大计算机系统作业1">
+<meta property="og:url" content="http://example.com/post/8bdd78fc.html">
+<meta property="og:site_name" content="YMZ&#39;s Blog">
+<meta property="og:description" content="本文为中科大计算机系统作业题目记录。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-30T06:50:28.000Z">
+<meta property="article:modified_time" content="2022-10-30T07:56:00.199Z">
+<meta property="article:author" content="YMZ">
+<meta property="article:tag" content="作业">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2022/10/30/SA22011137-%E6%9D%A8%E6%98%8E%E7%8F%A0-%E4%BD%9C%E4%B8%9A1/">
+<link rel="canonical" href="http://example.com/post/8bdd78fc.html">
 
 
 <script id="page-configurations">
@@ -41,11 +42,11 @@
     sidebar: "",
     isHome : false,
     isPost : true,
-    lang   : 'en'
+    lang   : 'zh-CN'
   };
 </script>
 
-  <title> | Hexo</title>
+  <title>中科大计算机系统作业1 | YMZ's Blog</title>
   
 
 
@@ -85,7 +86,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -96,13 +97,14 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Hexo</h1>
+      <h1 class="site-title">YMZ's Blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -114,19 +116,46 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -136,6 +165,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -149,21 +179,21 @@
     
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/30/SA22011137-%E6%9D%A8%E6%98%8E%E7%8F%A0-%E4%BD%9C%E4%B8%9A1/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/post/8bdd78fc.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="YMZ">
+      <meta itemprop="description" content="When is the best time to plant a tree? Ten years ago. And when is the next best time? Today.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="YMZ's Blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
+          中科大计算机系统作业1
         </h1>
 
         <div class="post-meta">
@@ -171,19 +201,36 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="Created: 2022-10-30 13:22:09" itemprop="dateCreated datePublished" datetime="2022-10-30T13:22:09+08:00">2022-10-30</time>
+              <time title="创建时间：2022-10-30 14:50:28 / 修改时间：15:56:00" itemprop="dateCreated datePublished" datetime="2022-10-30T14:50:28+08:00">2022-10-30</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-10-12 14:22:00" itemprop="dateModified" datetime="2022-10-12T14:22:00+08:00">2022-10-12</time>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
               </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/csapp/" itemprop="url" rel="index"><span itemprop="name">csapp</span></a>
+                </span>
+            </span>
 
-          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -194,69 +241,115 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="计算机系统作业1"><a href="#计算机系统作业1" class="headerlink" title="计算机系统作业1"></a>计算机系统作业1</h1><h2 id="2-58"><a href="#2-58" class="headerlink" title="2.58"></a>2.58</h2><p>编写过程is_little_endian, 当在小端法机器上编译和运行时返回1, 在大端法机器上编译运行时则返回0 。这个程序应该可以运行在任何机器上，无论机器的字长是多少。</p>
+        <p>本文为中科大计算机系统作业题目记录。</p>
+<span id="more"></span>
+<h2 id="section">2.58</h2>
+<p>编写过程is_little_endian, 当在小端法机器上编译和运行时返回1,
+在大端法机器上编译运行时则返回0
+。这个程序应该可以运行在任何机器上，无论机器的字长是多少。</p>
 <p><strong>解：</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">char</span> *byte_pointer; <span class="comment">// 定义一个字节指针</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">is_little_endian</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> num = <span class="number">0xff</span>;                          <span class="comment">// 存储在内存中为 0x00 0x00 0x00 0xff</span></span><br><span class="line">    byte_pointer start = (byte_pointer)&amp;num; <span class="comment">// 强制转换为四个字节数组</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (start[<span class="number">0</span>] == <span class="number">0xff</span>) <span class="comment">// 小端模式读取的第一个字节为0xff</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// 大端模式读取的第一个字节为0x00</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, is_little_endian());</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-61"><a href="#2-61" class="headerlink" title="2.61"></a>2.61</h2><p>写一个C 表达式，在下列描述的条件下产生1, 而在其他情况下得到0 。假设x是int类型。</p>
+<h2 id="section-1">2.61</h2>
+<p>写一个C 表达式，在下列描述的条件下产生1, 而在其他情况下得到0
+。假设x是int类型。</p>
 <p>A. x的任何位都等于1 。</p>
 <p>B. x的任何位都等于0 。</p>
 <p>C. x的最低有效字节中的位都等于1 。</p>
 <p>D. x的最高有效字节中的位都等于0 。</p>
-<p>代码应该遵循位级整数编码规则，另外还有一个限制，你不能使用相等（&#x3D;&#x3D;）和不相等（!&#x3D;）测试。</p>
+<p>代码应该遵循位级整数编码规则，另外还有一个限制，你不能使用相等（==）和不相等（!=）测试。</p>
 <p><strong>解：</strong></p>
-<p>A.</p>
+<ol type="A">
+<li></li>
+</ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!~x</span><br></pre></td></tr></table></figure>
-
-<p>B.</p>
+<ol start="2" type="A">
+<li></li>
+</ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!x</span><br></pre></td></tr></table></figure>
-
-<p>C.</p>
+<ol start="3" type="A">
+<li></li>
+</ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">!((~x)&amp;<span class="number">0xff</span>)  或</span><br><span class="line">!~(x|~<span class="number">0xff</span>)</span><br></pre></td></tr></table></figure>
-
-<p>D.</p>
+<ol start="4" type="A">
+<li></li>
+</ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!((x &gt;&gt; ((<span class="keyword">sizeof</span>(<span class="type">int</span>)<span class="number">-1</span>) &lt;&lt; <span class="number">3</span>)) &amp; <span class="number">0xff</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-77"><a href="#2-77" class="headerlink" title="2.77"></a>2.77</h2><p>假设我们有一个任务：生成一段代码，将整数变量x 乘以不同的常数因子K 。为了提高效率，我们想只使用 + 、- 和&lt;&lt;运算。对于下列K的值，写出执行乘法运算的C表达式，每个表达式中最多使用3个运算。<br>A. K&#x3D;17<br>B. K&#x3D;-7<br>C. K&#x3D;60<br>D. K&#x3D;-112</p>
+<h2 id="section-2">2.77</h2>
+<p>假设我们有一个任务：生成一段代码，将整数变量x 乘以不同的常数因子K
+。为了提高效率，我们想只使用 + 、-
+和&lt;&lt;运算。对于下列K的值，写出执行乘法运算的C表达式，每个表达式中最多使用3个运算。</p>
+<p>A. K=17</p>
+<p>B. K=-7</p>
+<p>C. K=60</p>
+<p>D. K=-112</p>
 <p><strong>解：</strong></p>
-<p>A.</p>
+<ol type="A">
+<li></li>
+</ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(x&lt;&lt;<span class="number">4</span>)+x</span><br></pre></td></tr></table></figure>
-
-<p>B.</p>
+<ol start="2" type="A">
+<li></li>
+</ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x-(x&lt;&lt;<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-
-<p>C.</p>
+<ol start="3" type="A">
+<li></li>
+</ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(x&lt;&lt;<span class="number">6</span>)-(x&lt;&lt;<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-
-<p>D.</p>
+<ol start="4" type="A">
+<li></li>
+</ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(x&lt;&lt;<span class="number">4</span>)-(x&lt;&lt;<span class="number">7</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-84"><a href="#2-84" class="headerlink" title="2.84"></a>2.84</h2><p>填写下列程序的返回值，这个程序测试它的第一个参数是否小于或者等于第二个参数。假定函数f2u 返回一个无符号32 位数字，其位表示与它的浮点参数相同。你可以假设两个参数都不是NaN 。两种0, +0 和-0 被认为是相等的。</p>
+<h2 id="section-3">2.84</h2>
+<p>填写下列程序的返回值，这个程序测试它的第一个参数是否小于或者等于第二个参数。假定函数f2u
+返回一个无符号32
+位数字，其位表示与它的浮点参数相同。你可以假设两个参数都不是NaN 。两种0,
++0 和-0 被认为是相等的。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">float_le</span><span class="params">(<span class="type">float</span> x, <span class="type">float</span> y)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">unsigned</span> ux = f2u(x);</span><br><span class="line">    <span class="type">unsigned</span> uy = f2u(y);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*Get the sign bits*/</span> </span><br><span class="line">    <span class="type">unsigned</span> sx = ux &gt;&gt; <span class="number">31</span>;</span><br><span class="line">    <span class="type">unsigned</span> sy = uy &gt;&gt; <span class="number">31</span>;</span><br><span class="line">    <span class="comment">/*Give an expression using only ux, uy, sx, and sy*/</span></span><br><span class="line">    <span class="keyword">return</span>   ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><strong>解：</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="title function_">f2u</span><span class="params">(<span class="type">float</span> x)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> *(<span class="type">unsigned</span> *)&amp;x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">float_le：测试它的第一个参数是否小于或者等于第二个参数 x&lt;=y 则 true </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">float_le</span><span class="params">(<span class="type">float</span> x, <span class="type">float</span> y)</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//将浮点数按照无符号数解释（位不变）</span></span><br><span class="line">    <span class="type">unsigned</span> ux = f2u(x);</span><br><span class="line">    <span class="type">unsigned</span> uy = f2u(y);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获得符号位 0或1</span></span><br><span class="line">    <span class="type">unsigned</span> sx = ux &gt;&gt; <span class="number">31</span>; </span><br><span class="line">    <span class="type">unsigned</span> sy = uy &gt;&gt; <span class="number">31</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 四种x&lt;=y的情况返回true</span></span><br><span class="line">    <span class="keyword">return</span> (ux &lt;&lt; <span class="number">1</span> == <span class="number">0</span> &amp;&amp; uy &lt;&lt; <span class="number">1</span> == <span class="number">0</span>) || <span class="comment">// 1. +0或者-0都为0(左移一位去除符号位对0影响)</span></span><br><span class="line">           (sx &amp;&amp; !sy) ||                    <span class="comment">// 2. x为负（符号位sx为1），y为正（符号位sy为0）</span></span><br><span class="line">           (!sx &amp;&amp; !sy &amp;&amp; ux &lt;= uy) ||       <span class="comment">// 3. x,y都为正时，x&lt;=y等价于ux&lt;=uy</span></span><br><span class="line">           (sx &amp;&amp; sy &amp;&amp; ux &gt;= uy);           <span class="comment">// 4. x,y都为负时，x&lt;=y等价于ux&gt;=uy</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-89"><a href="#2-89" class="headerlink" title="2.89"></a>2.89</h2><p>我们在一个int 类型为32 位补码表示的机器上运行程序。float类型的值使用32 位IEEE 格式，而double 类型的值使用64 位IEEE 格式。我们产生随机整数x 、y 和z, 并且把它们转换成double 类型的值：</p>
+<h2 id="section-4">2.89</h2>
+<p>我们在一个int 类型为32
+位补码表示的机器上运行程序。float类型的值使用32 位IEEE 格式，而double
+类型的值使用64 位IEEE 格式。我们产生随机整数x 、y 和z,
+并且把它们转换成double 类型的值：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*Create some arbitrary values*/</span></span><br><span class="line"><span class="type">int</span> x = random();</span><br><span class="line"><span class="type">int</span> y = random();</span><br><span class="line"><span class="type">int</span> z = random();</span><br><span class="line"><span class="comment">/*Convert to double*/</span></span><br><span class="line"><span class="type">double</span> dx = (<span class="type">double</span>)x;</span><br><span class="line"><span class="type">double</span> dy = (<span class="type">double</span>)y;</span><br><span class="line"><span class="type">double</span> dz = (<span class="type">double</span>)z;</span><br></pre></td></tr></table></figure>
-
-<p>对于下列的每个C 表达式，你要指出表达式是否总是为1 。如果它总是为1, 描述其中的数学原理。否则，列举出使它为0的参数的例子。请注意，不能使用IA32 机器运行GCC 来测试你的答案，因为对于float 和double, 它使用的都是80 位的扩展精度表示。</p>
+<p>对于下列的每个C 表达式，你要指出表达式是否总是为1 。如果它总是为1,
+描述其中的数学原理。否则，列举出使它为0的参数的例子。请注意，不能使用IA32
+机器运行GCC 来测试你的答案，因为对于float 和double, 它使用的都是80
+位的扩展精度表示。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A. (<span class="type">float</span>)x==(<span class="type">float</span>)dx</span><br><span class="line">B. dx-dy==(<span class="type">double</span>)(x-y)</span><br><span class="line">C. (dx+dy)+dz==dx+(dy+dz)</span><br><span class="line">D. (dx*dy)*dz==dx*(dy*dz)</span><br><span class="line">E. dx/dx==dz/dz</span><br></pre></td></tr></table></figure>
-
 <p><strong>解：</strong></p>
-<p>A. 真。int类型转成double类型不会损失精度，此时，x 和 dx 转成float类型虽然可能会损失精度，但是在舍入原则相同的情况下得到的结果相同。</p>
-<p>B. 假。当x-y得到的结果溢出时，转成double类型的结果与真实结果不同，如y&#x3D;INT_MIN时。</p>
-<p>C. 真。两个int类型转成double类型后，相加得到的结果仍然在double类型可表示范围内，且不会因为舍入丢失精度，所以是可以结合的。</p>
-<p>D. 假。两个int类型转成double类型后，相乘得到的结果不一定在double类型可表示范围内，可能会发生溢出或者由于舍入导致失去精度，所以不具有结合性。</p>
-<p>E. 假。当dx !&#x3D; 0 且 dz &#x3D;&#x3D; 0时，左边结果为1，右边结果为无穷大，不相等。</p>
-<h2 id="2-91"><a href="#2-91" class="headerlink" title="2.91"></a>2.91</h2><p>大约公元前250 年，希腊数学家阿基米德证明了$ \frac{223}{71}&lt;\pi&lt;\frac{22}{7} $。如果当时有一台计算机和标准库&lt;math.h&gt;, 他就能够确定$\pi$的单精度浮点近似值的十六进制表示为 0x40490FDB 。当然，所有的这些都只是近似值，因为$\pi$不是有理数。<br>A. 这个浮点值表示的二进制小数是多少？<br>B. $ \frac{22}{7}$的二进制小数表示是什么？提示：参见家庭作业2. 83 。<br>C. 这两个$\pi$的近似值从哪一位（相对于二进制小数点）开始不同的？</p>
+<p>A. 真。int类型转成double类型不会损失精度，此时，x 和 dx
+转成float类型虽然可能会损失精度，但是在舍入原则相同的情况下得到的结果相同。</p>
+<p>B.
+假。当x-y得到的结果溢出时，转成double类型的结果与真实结果不同，如y=INT_MIN时。</p>
+<p>C.
+真。两个int类型转成double类型后，相加得到的结果仍然在double类型可表示范围内，且不会因为舍入丢失精度，所以是可以结合的。</p>
+<p>D.
+假。两个int类型转成double类型后，相乘得到的结果不一定在double类型可表示范围内，可能会发生溢出或者由于舍入导致失去精度，所以不具有结合性。</p>
+<p>E. 假。当dx != 0 且 dz ==
+0时，左边结果为1，右边结果为无穷大，不相等。</p>
+<h2 id="section-5">2.91</h2>
+<p>大约公元前250 年，希腊数学家阿基米德证明了<span
+class="math inline">\(\frac{223}{71}&lt;\pi&lt;\frac{22}{7}\)</span>。如果当时有一台计算机和标准库&lt;math.h&gt;,
+他就能够确定<span
+class="math inline">\(\pi\)</span>的单精度浮点近似值的十六进制表示为
+0x40490FDB 。当然，所有的这些都只是近似值，因为<span
+class="math inline">\(\pi\)</span>不是有理数。</p>
+<p>A. 这个浮点值表示的二进制小数是多少？</p>
+<p>B. <span
+class="math inline">\(\frac{22}{7}\)</span>的二进制小数表示是什么？提示：参见家庭作业2.
+83 。</p>
+<p>C. 这两个<span
+class="math inline">\(\pi\)</span>的近似值从哪一位（相对于二进制小数点）开始不同的？</p>
 <p><strong>解：</strong></p>
-<p>A.</p>
+<ol type="A">
+<li></li>
+</ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">十六进制：</span><br><span class="line">    <span class="number">0x40490FDB</span></span><br><span class="line">二进制：</span><br><span class="line">    <span class="number">0100</span> <span class="number">0000</span> <span class="number">0100</span> <span class="number">1001</span> <span class="number">0000</span> <span class="number">1111</span> <span class="number">1101</span> <span class="number">1011</span></span><br><span class="line">浮点格式：</span><br><span class="line">    <span class="number">0</span> <span class="number">10000000</span> <span class="number">10010010000111111011011</span>    </span><br><span class="line">    s:<span class="number">0</span> e=<span class="number">2</span>^<span class="number">7</span>=<span class="number">128</span> E=<span class="number">128</span><span class="number">-127</span>=<span class="number">1</span> f=<span class="number">0.10010010000111111011011</span> M=<span class="number">1.10010010000111111011011</span></span><br><span class="line">二进制小数：</span><br><span class="line">    <span class="number">11.0010010000111111011011</span></span><br></pre></td></tr></table></figure>
-
-<p>B. $ \frac{22}{7}&#x3D;3+\frac{1}{7}$</p>
+<p>B. <span
+class="math inline">\(\frac{22}{7}=3+\frac{1}{7}\)</span></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Y=<span class="number">1</span>，<span class="number">2</span>^k<span class="number">-1</span>=<span class="number">7</span>,k=<span class="number">3</span>,y=<span class="number">001</span></span><br><span class="line">二进制小数：<span class="number">11.001001001</span>...(y=<span class="number">001</span>)</span><br></pre></td></tr></table></figure>
-
 <p>C. 从小数点后第9位开始不同。</p>
 
     </div>
@@ -266,6 +359,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%BD%9C%E4%B8%9A/" rel="tag"># 作业</a>
+          </div>
 
         
 
@@ -273,8 +369,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/10/30/SA22011137-%E6%9D%A8%E6%98%8E%E7%8F%A0-%E5%AE%9E%E9%AA%8C1&2&3/" rel="prev" title="">
-      <i class="fa fa-chevron-left"></i> 
+    <a href="/post/4a17b156.html" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
     </a></div>
       <div class="post-nav-item"></div>
     </div>
@@ -326,32 +422,44 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          文章目录
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          站点概览
         </li>
       </ul>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E4%BD%9C%E4%B8%9A1"><span class="nav-number">1.</span> <span class="nav-text">计算机系统作业1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-58"><span class="nav-number">1.1.</span> <span class="nav-text">2.58</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-61"><span class="nav-number">1.2.</span> <span class="nav-text">2.61</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-77"><span class="nav-number">1.3.</span> <span class="nav-text">2.77</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-84"><span class="nav-number">1.4.</span> <span class="nav-text">2.84</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-89"><span class="nav-number">1.5.</span> <span class="nav-text">2.89</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-91"><span class="nav-number">1.6.</span> <span class="nav-text">2.91</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">2.58</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">2.61</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">2.77</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">2.84</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-4"><span class="nav-number">5.</span> <span class="nav-text">2.89</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-5"><span class="nav-number">6.</span> <span class="nav-text">2.91</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
-  <div class="site-description" itemprop="description"></div>
+    <img class="site-author-image" itemprop="image" alt="YMZ"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">YMZ</p>
+  <div class="site-description" itemprop="description">When is the best time to plant a tree? Ten years ago. And when is the next best time? Today.</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -381,9 +489,19 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">YMZ</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">4k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4 分钟</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
         
@@ -401,6 +519,7 @@
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -409,7 +528,7 @@
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>
@@ -422,6 +541,10 @@
 
 
 
+  
+<script src="/js/local-search.js"></script>
+
+
 
 
 
@@ -434,6 +557,61 @@
 
 
   
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 

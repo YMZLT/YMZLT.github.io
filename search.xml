@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>中科大计算机系统作业1</title>
+    <url>/post/8bdd78fc.html</url>
+    <content><![CDATA[<p>本文为中科大计算机系统作业题目记录。</p>
+<span id="more"></span>
+<h2 id="section">2.58</h2>
+<p>编写过程is_little_endian, 当在小端法机器上编译和运行时返回1,
+在大端法机器上编译运行时则返回0
+。这个程序应该可以运行在任何机器上，无论机器的字长是多少。</p>
+<p><strong>解：</strong></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">char</span> *byte_pointer; <span class="comment">// 定义一个字节指针</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">is_little_endian</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> num = <span class="number">0xff</span>;                          <span class="comment">// 存储在内存中为 0x00 0x00 0x00 0xff</span></span><br><span class="line">    byte_pointer start = (byte_pointer)&amp;num; <span class="comment">// 强制转换为四个字节数组</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (start[<span class="number">0</span>] == <span class="number">0xff</span>) <span class="comment">// 小端模式读取的第一个字节为0xff</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// 大端模式读取的第一个字节为0x00</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, is_little_endian());</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="section-1">2.61</h2>
+<p>写一个C 表达式，在下列描述的条件下产生1, 而在其他情况下得到0
+。假设x是int类型。</p>
+<p>A. x的任何位都等于1 。</p>
+<p>B. x的任何位都等于0 。</p>
+<p>C. x的最低有效字节中的位都等于1 。</p>
+<p>D. x的最高有效字节中的位都等于0 。</p>
+<p>代码应该遵循位级整数编码规则，另外还有一个限制，你不能使用相等（==）和不相等（!=）测试。</p>
+<p><strong>解：</strong></p>
+<ol type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">!~x</span><br></pre></td></tr></table></figure>
+<ol start="2" type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">!x</span><br></pre></td></tr></table></figure>
+<ol start="3" type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">!((~x)&amp;<span class="number">0xff</span>)  或</span><br><span class="line">!~(x|~<span class="number">0xff</span>)</span><br></pre></td></tr></table></figure>
+<ol start="4" type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">!((x &gt;&gt; ((<span class="keyword">sizeof</span>(<span class="type">int</span>)<span class="number">-1</span>) &lt;&lt; <span class="number">3</span>)) &amp; <span class="number">0xff</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="section-2">2.77</h2>
+<p>假设我们有一个任务：生成一段代码，将整数变量x 乘以不同的常数因子K
+。为了提高效率，我们想只使用 + 、-
+和&lt;&lt;运算。对于下列K的值，写出执行乘法运算的C表达式，每个表达式中最多使用3个运算。</p>
+<p>A. K=17</p>
+<p>B. K=-7</p>
+<p>C. K=60</p>
+<p>D. K=-112</p>
+<p><strong>解：</strong></p>
+<ol type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">(x&lt;&lt;<span class="number">4</span>)+x</span><br></pre></td></tr></table></figure>
+<ol start="2" type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">x-(x&lt;&lt;<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<ol start="3" type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">(x&lt;&lt;<span class="number">6</span>)-(x&lt;&lt;<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<ol start="4" type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">(x&lt;&lt;<span class="number">4</span>)-(x&lt;&lt;<span class="number">7</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="section-3">2.84</h2>
+<p>填写下列程序的返回值，这个程序测试它的第一个参数是否小于或者等于第二个参数。假定函数f2u
+返回一个无符号32
+位数字，其位表示与它的浮点参数相同。你可以假设两个参数都不是NaN 。两种0,
++0 和-0 被认为是相等的。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">float_le</span><span class="params">(<span class="type">float</span> x, <span class="type">float</span> y)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">unsigned</span> ux = f2u(x);</span><br><span class="line">    <span class="type">unsigned</span> uy = f2u(y);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*Get the sign bits*/</span> </span><br><span class="line">    <span class="type">unsigned</span> sx = ux &gt;&gt; <span class="number">31</span>;</span><br><span class="line">    <span class="type">unsigned</span> sy = uy &gt;&gt; <span class="number">31</span>;</span><br><span class="line">    <span class="comment">/*Give an expression using only ux, uy, sx, and sy*/</span></span><br><span class="line">    <span class="keyword">return</span>   ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>解：</strong></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="title function_">f2u</span><span class="params">(<span class="type">float</span> x)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> *(<span class="type">unsigned</span> *)&amp;x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">float_le：测试它的第一个参数是否小于或者等于第二个参数 x&lt;=y 则 true </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">float_le</span><span class="params">(<span class="type">float</span> x, <span class="type">float</span> y)</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//将浮点数按照无符号数解释（位不变）</span></span><br><span class="line">    <span class="type">unsigned</span> ux = f2u(x);</span><br><span class="line">    <span class="type">unsigned</span> uy = f2u(y);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获得符号位 0或1</span></span><br><span class="line">    <span class="type">unsigned</span> sx = ux &gt;&gt; <span class="number">31</span>; </span><br><span class="line">    <span class="type">unsigned</span> sy = uy &gt;&gt; <span class="number">31</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 四种x&lt;=y的情况返回true</span></span><br><span class="line">    <span class="keyword">return</span> (ux &lt;&lt; <span class="number">1</span> == <span class="number">0</span> &amp;&amp; uy &lt;&lt; <span class="number">1</span> == <span class="number">0</span>) || <span class="comment">// 1. +0或者-0都为0(左移一位去除符号位对0影响)</span></span><br><span class="line">           (sx &amp;&amp; !sy) ||                    <span class="comment">// 2. x为负（符号位sx为1），y为正（符号位sy为0）</span></span><br><span class="line">           (!sx &amp;&amp; !sy &amp;&amp; ux &lt;= uy) ||       <span class="comment">// 3. x,y都为正时，x&lt;=y等价于ux&lt;=uy</span></span><br><span class="line">           (sx &amp;&amp; sy &amp;&amp; ux &gt;= uy);           <span class="comment">// 4. x,y都为负时，x&lt;=y等价于ux&gt;=uy</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="section-4">2.89</h2>
+<p>我们在一个int 类型为32
+位补码表示的机器上运行程序。float类型的值使用32 位IEEE 格式，而double
+类型的值使用64 位IEEE 格式。我们产生随机整数x 、y 和z,
+并且把它们转换成double 类型的值：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*Create some arbitrary values*/</span></span><br><span class="line"><span class="type">int</span> x = random();</span><br><span class="line"><span class="type">int</span> y = random();</span><br><span class="line"><span class="type">int</span> z = random();</span><br><span class="line"><span class="comment">/*Convert to double*/</span></span><br><span class="line"><span class="type">double</span> dx = (<span class="type">double</span>)x;</span><br><span class="line"><span class="type">double</span> dy = (<span class="type">double</span>)y;</span><br><span class="line"><span class="type">double</span> dz = (<span class="type">double</span>)z;</span><br></pre></td></tr></table></figure>
+<p>对于下列的每个C 表达式，你要指出表达式是否总是为1 。如果它总是为1,
+描述其中的数学原理。否则，列举出使它为0的参数的例子。请注意，不能使用IA32
+机器运行GCC 来测试你的答案，因为对于float 和double, 它使用的都是80
+位的扩展精度表示。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">A. (<span class="type">float</span>)x==(<span class="type">float</span>)dx</span><br><span class="line">B. dx-dy==(<span class="type">double</span>)(x-y)</span><br><span class="line">C. (dx+dy)+dz==dx+(dy+dz)</span><br><span class="line">D. (dx*dy)*dz==dx*(dy*dz)</span><br><span class="line">E. dx/dx==dz/dz</span><br></pre></td></tr></table></figure>
+<p><strong>解：</strong></p>
+<p>A. 真。int类型转成double类型不会损失精度，此时，x 和 dx
+转成float类型虽然可能会损失精度，但是在舍入原则相同的情况下得到的结果相同。</p>
+<p>B.
+假。当x-y得到的结果溢出时，转成double类型的结果与真实结果不同，如y=INT_MIN时。</p>
+<p>C.
+真。两个int类型转成double类型后，相加得到的结果仍然在double类型可表示范围内，且不会因为舍入丢失精度，所以是可以结合的。</p>
+<p>D.
+假。两个int类型转成double类型后，相乘得到的结果不一定在double类型可表示范围内，可能会发生溢出或者由于舍入导致失去精度，所以不具有结合性。</p>
+<p>E. 假。当dx != 0 且 dz ==
+0时，左边结果为1，右边结果为无穷大，不相等。</p>
+<h2 id="section-5">2.91</h2>
+<p>大约公元前250 年，希腊数学家阿基米德证明了<span
+class="math inline">\(\frac{223}{71}&lt;\pi&lt;\frac{22}{7}\)</span>。如果当时有一台计算机和标准库&lt;math.h&gt;,
+他就能够确定<span
+class="math inline">\(\pi\)</span>的单精度浮点近似值的十六进制表示为
+0x40490FDB 。当然，所有的这些都只是近似值，因为<span
+class="math inline">\(\pi\)</span>不是有理数。</p>
+<p>A. 这个浮点值表示的二进制小数是多少？</p>
+<p>B. <span
+class="math inline">\(\frac{22}{7}\)</span>的二进制小数表示是什么？提示：参见家庭作业2.
+83 。</p>
+<p>C. 这两个<span
+class="math inline">\(\pi\)</span>的近似值从哪一位（相对于二进制小数点）开始不同的？</p>
+<p><strong>解：</strong></p>
+<ol type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">十六进制：</span><br><span class="line">    <span class="number">0x40490FDB</span></span><br><span class="line">二进制：</span><br><span class="line">    <span class="number">0100</span> <span class="number">0000</span> <span class="number">0100</span> <span class="number">1001</span> <span class="number">0000</span> <span class="number">1111</span> <span class="number">1101</span> <span class="number">1011</span></span><br><span class="line">浮点格式：</span><br><span class="line">    <span class="number">0</span> <span class="number">10000000</span> <span class="number">10010010000111111011011</span>    </span><br><span class="line">    s:<span class="number">0</span> e=<span class="number">2</span>^<span class="number">7</span>=<span class="number">128</span> E=<span class="number">128</span><span class="number">-127</span>=<span class="number">1</span> f=<span class="number">0.10010010000111111011011</span> M=<span class="number">1.10010010000111111011011</span></span><br><span class="line">二进制小数：</span><br><span class="line">    <span class="number">11.0010010000111111011011</span></span><br></pre></td></tr></table></figure>
+<p>B. <span
+class="math inline">\(\frac{22}{7}=3+\frac{1}{7}\)</span></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Y=<span class="number">1</span>，<span class="number">2</span>^k<span class="number">-1</span>=<span class="number">7</span>,k=<span class="number">3</span>,y=<span class="number">001</span></span><br><span class="line">二进制小数：<span class="number">11.001001001</span>...(y=<span class="number">001</span>)</span><br></pre></td></tr></table></figure>
+<p>C. 从小数点后第9位开始不同。</p>
+]]></content>
+      <categories>
+        <category>csapp</category>
+      </categories>
+      <tags>
+        <tag>作业</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/post/4a17b156.html</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a
+href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a
+href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+</search>
