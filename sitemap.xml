@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://ymzlt.github.io/google2de90c3289b2bd38.html</loc>
-    
-    <lastmod>2022-10-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://ymzlt.github.io/post/5d434990.html</loc>
     
     <lastmod>2022-10-30</lastmod>
@@ -90,14 +81,14 @@
   </url>
   
   <url>
-    <loc>https://ymzlt.github.io/tags/%E6%95%B4%E7%90%86/</loc>
+    <loc>https://ymzlt.github.io/tags/%E4%BD%9C%E4%B8%9A/</loc>
     <lastmod>2022-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://ymzlt.github.io/tags/%E4%BD%9C%E4%B8%9A/</loc>
+    <loc>https://ymzlt.github.io/tags/%E6%95%B4%E7%90%86/</loc>
     <lastmod>2022-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
