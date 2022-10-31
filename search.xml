@@ -1,124 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>中科大计算机系统作业1</title>
-    <url>/post/8bdd78fc.html</url>
-    <content><![CDATA[<p>本文为中科大研究生课程——计算机系统作业1的题目解答记录。使用的教材为《深入理解计算机系统》。</p>
-<span id="more"></span>
-<h1 id="题目与解答">题目与解答</h1>
-<h2 id="section">2.58</h2>
-<p>编写过程is_little_endian, 当在小端法机器上编译和运行时返回1,
-在大端法机器上编译运行时则返回0
-。这个程序应该可以运行在任何机器上，无论机器的字长是多少。</p>
-<p><strong>解：</strong></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">char</span> *byte_pointer; <span class="comment">// 定义一个字节指针</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">is_little_endian</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> num = <span class="number">0xff</span>;                          <span class="comment">// 存储在内存中为 0x00 0x00 0x00 0xff</span></span><br><span class="line">    byte_pointer start = (byte_pointer)&amp;num; <span class="comment">// 强制转换为四个字节数组</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (start[<span class="number">0</span>] == <span class="number">0xff</span>) <span class="comment">// 小端模式读取的第一个字节为0xff</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// 大端模式读取的第一个字节为0x00</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, is_little_endian());</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="section-1">2.61</h2>
-<p>写一个C 表达式，在下列描述的条件下产生1, 而在其他情况下得到0
-。假设x是int类型。</p>
-<p>A. x的任何位都等于1 。</p>
-<p>B. x的任何位都等于0 。</p>
-<p>C. x的最低有效字节中的位都等于1 。</p>
-<p>D. x的最高有效字节中的位都等于0 。</p>
-<p>代码应该遵循位级整数编码规则，另外还有一个限制，你不能使用相等（==）和不相等（!=）测试。</p>
-<p><strong>解：</strong></p>
-<ol type="A">
-<li></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">!~x</span><br></pre></td></tr></table></figure>
-<ol start="2" type="A">
-<li></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">!x</span><br></pre></td></tr></table></figure>
-<ol start="3" type="A">
-<li></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">!((~x)&amp;<span class="number">0xff</span>)  或</span><br><span class="line">!~(x|~<span class="number">0xff</span>)</span><br></pre></td></tr></table></figure>
-<ol start="4" type="A">
-<li></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">!((x &gt;&gt; ((<span class="keyword">sizeof</span>(<span class="type">int</span>)<span class="number">-1</span>) &lt;&lt; <span class="number">3</span>)) &amp; <span class="number">0xff</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="section-2">2.77</h2>
-<p>假设我们有一个任务：生成一段代码，将整数变量x 乘以不同的常数因子K
-。为了提高效率，我们想只使用 + 、-
-和&lt;&lt;运算。对于下列K的值，写出执行乘法运算的C表达式，每个表达式中最多使用3个运算。</p>
-<p>A. K=17</p>
-<p>B. K=-7</p>
-<p>C. K=60</p>
-<p>D. K=-112</p>
-<p><strong>解：</strong></p>
-<ol type="A">
-<li></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">(x&lt;&lt;<span class="number">4</span>)+x</span><br></pre></td></tr></table></figure>
-<ol start="2" type="A">
-<li></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">x-(x&lt;&lt;<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-<ol start="3" type="A">
-<li></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">(x&lt;&lt;<span class="number">6</span>)-(x&lt;&lt;<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-<ol start="4" type="A">
-<li></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">(x&lt;&lt;<span class="number">4</span>)-(x&lt;&lt;<span class="number">7</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="section-3">2.84</h2>
-<p>填写下列程序的返回值，这个程序测试它的第一个参数是否小于或者等于第二个参数。假定函数f2u
-返回一个无符号32
-位数字，其位表示与它的浮点参数相同。你可以假设两个参数都不是NaN 。两种0,
-+0 和-0 被认为是相等的。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">float_le</span><span class="params">(<span class="type">float</span> x, <span class="type">float</span> y)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">unsigned</span> ux = f2u(x);</span><br><span class="line">    <span class="type">unsigned</span> uy = f2u(y);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*Get the sign bits*/</span> </span><br><span class="line">    <span class="type">unsigned</span> sx = ux &gt;&gt; <span class="number">31</span>;</span><br><span class="line">    <span class="type">unsigned</span> sy = uy &gt;&gt; <span class="number">31</span>;</span><br><span class="line">    <span class="comment">/*Give an expression using only ux, uy, sx, and sy*/</span></span><br><span class="line">    <span class="keyword">return</span>   ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>解：</strong></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="title function_">f2u</span><span class="params">(<span class="type">float</span> x)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> *(<span class="type">unsigned</span> *)&amp;x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">float_le：测试它的第一个参数是否小于或者等于第二个参数 x&lt;=y 则 true </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">float_le</span><span class="params">(<span class="type">float</span> x, <span class="type">float</span> y)</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//将浮点数按照无符号数解释（位不变）</span></span><br><span class="line">    <span class="type">unsigned</span> ux = f2u(x);</span><br><span class="line">    <span class="type">unsigned</span> uy = f2u(y);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获得符号位 0或1</span></span><br><span class="line">    <span class="type">unsigned</span> sx = ux &gt;&gt; <span class="number">31</span>; </span><br><span class="line">    <span class="type">unsigned</span> sy = uy &gt;&gt; <span class="number">31</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 四种x&lt;=y的情况返回true</span></span><br><span class="line">    <span class="keyword">return</span> (ux &lt;&lt; <span class="number">1</span> == <span class="number">0</span> &amp;&amp; uy &lt;&lt; <span class="number">1</span> == <span class="number">0</span>) || <span class="comment">// 1. +0或者-0都为0(左移一位去除符号位对0影响)</span></span><br><span class="line">           (sx &amp;&amp; !sy) ||                    <span class="comment">// 2. x为负（符号位sx为1），y为正（符号位sy为0）</span></span><br><span class="line">           (!sx &amp;&amp; !sy &amp;&amp; ux &lt;= uy) ||       <span class="comment">// 3. x,y都为正时，x&lt;=y等价于ux&lt;=uy</span></span><br><span class="line">           (sx &amp;&amp; sy &amp;&amp; ux &gt;= uy);           <span class="comment">// 4. x,y都为负时，x&lt;=y等价于ux&gt;=uy</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="section-4">2.89</h2>
-<p>我们在一个int 类型为32
-位补码表示的机器上运行程序。float类型的值使用32 位IEEE 格式，而double
-类型的值使用64 位IEEE 格式。我们产生随机整数x 、y 和z,
-并且把它们转换成double 类型的值：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*Create some arbitrary values*/</span></span><br><span class="line"><span class="type">int</span> x = random();</span><br><span class="line"><span class="type">int</span> y = random();</span><br><span class="line"><span class="type">int</span> z = random();</span><br><span class="line"><span class="comment">/*Convert to double*/</span></span><br><span class="line"><span class="type">double</span> dx = (<span class="type">double</span>)x;</span><br><span class="line"><span class="type">double</span> dy = (<span class="type">double</span>)y;</span><br><span class="line"><span class="type">double</span> dz = (<span class="type">double</span>)z;</span><br></pre></td></tr></table></figure>
-<p>对于下列的每个C 表达式，你要指出表达式是否总是为1 。如果它总是为1,
-描述其中的数学原理。否则，列举出使它为0的参数的例子。请注意，不能使用IA32
-机器运行GCC 来测试你的答案，因为对于float 和double, 它使用的都是80
-位的扩展精度表示。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">A. (<span class="type">float</span>)x==(<span class="type">float</span>)dx</span><br><span class="line">B. dx-dy==(<span class="type">double</span>)(x-y)</span><br><span class="line">C. (dx+dy)+dz==dx+(dy+dz)</span><br><span class="line">D. (dx*dy)*dz==dx*(dy*dz)</span><br><span class="line">E. dx/dx==dz/dz</span><br></pre></td></tr></table></figure>
-<p><strong>解：</strong></p>
-<p>A. 真。int类型转成double类型不会损失精度，此时，x 和 dx
-转成float类型虽然可能会损失精度，但是在舍入原则相同的情况下得到的结果相同。</p>
-<p>B.
-假。当x-y得到的结果溢出时，转成double类型的结果与真实结果不同，如y=INT_MIN时。</p>
-<p>C.
-真。两个int类型转成double类型后，相加得到的结果仍然在double类型可表示范围内，且不会因为舍入丢失精度，所以是可以结合的。</p>
-<p>D.
-假。两个int类型转成double类型后，相乘得到的结果不一定在double类型可表示范围内，可能会发生溢出或者由于舍入导致失去精度，所以不具有结合性。</p>
-<p>E. 假。当dx != 0 且 dz ==
-0时，左边结果为1，右边结果为无穷大，不相等。</p>
-<h2 id="section-5">2.91</h2>
-<p>大约公元前250 年，希腊数学家阿基米德证明了<span class="math inline">\(\frac{223}{71}&lt;\pi&lt;\frac{22}{7}\)</span>。如果当时有一台计算机和标准库&lt;math.h&gt;,
-他就能够确定<span class="math inline">\(\pi\)</span>的单精度浮点近似值的十六进制表示为
-0x40490FDB 。当然，所有的这些都只是近似值，因为<span class="math inline">\(\pi\)</span>不是有理数。</p>
-<p>A. 这个浮点值表示的二进制小数是多少？</p>
-<p>B. <span class="math inline">\(\frac{22}{7}\)</span>的二进制小数表示是什么？提示：参见家庭作业2.
-83 。</p>
-<p>C. 这两个<span class="math inline">\(\pi\)</span>的近似值从哪一位（相对于二进制小数点）开始不同的？</p>
-<p><strong>解：</strong></p>
-<ol type="A">
-<li></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">十六进制：</span><br><span class="line">    <span class="number">0x40490FDB</span></span><br><span class="line">二进制：</span><br><span class="line">    <span class="number">0100</span> <span class="number">0000</span> <span class="number">0100</span> <span class="number">1001</span> <span class="number">0000</span> <span class="number">1111</span> <span class="number">1101</span> <span class="number">1011</span></span><br><span class="line">浮点格式：</span><br><span class="line">    <span class="number">0</span> <span class="number">10000000</span> <span class="number">10010010000111111011011</span>    </span><br><span class="line">    s:<span class="number">0</span> e=<span class="number">2</span>^<span class="number">7</span>=<span class="number">128</span> E=<span class="number">128</span><span class="number">-127</span>=<span class="number">1</span> f=<span class="number">0.10010010000111111011011</span> M=<span class="number">1.10010010000111111011011</span></span><br><span class="line">二进制小数：</span><br><span class="line">    <span class="number">11.0010010000111111011011</span></span><br></pre></td></tr></table></figure>
-<p>B. <span class="math inline">\(\frac{22}{7}=3+\frac{1}{7}\)</span></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Y=<span class="number">1</span>，<span class="number">2</span>^k<span class="number">-1</span>=<span class="number">7</span>,k=<span class="number">3</span>,y=<span class="number">001</span></span><br><span class="line">二进制小数：<span class="number">11.001001001</span>...(y=<span class="number">001</span>)</span><br></pre></td></tr></table></figure>
-<p>C. 从小数点后第9位开始不同。</p>
-<h1 id="参考">参考</h1>
-<p><a href="https://dreamanddead.github.io/CSAPP-3e-Solutions/">CSAPP-3E-SOLUTIONS</a></p>
-]]></content>
-      <categories>
-        <category>csapp</category>
-      </categories>
-      <tags>
-        <tag>作业</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2022中科大CS考研面试记录</title>
     <url>/post/7ad1122c.html</url>
     <content><![CDATA[<p>一开始保研失败，被列在候补名单中，只能去专项计划中的北京某高校，反复横跳了好久还是放弃了，然后才从零开始复习，慌得一批，考完觉得应该是陪跑了。寒假都没有复习直接去面试工作，没想到最后居然过了，果然不到最后一刻不能放弃。但是因为初试分比较低，最后踩线录取，感觉用光了半辈子的运气。。。现在记录一下中科大计算机考研复试的面试经历吧，希望对大家能有一点帮助，再给自己攒攒欧气。。。</p>
@@ -290,6 +172,124 @@
 <li></li>
 </ol>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">proc</span><span class="params">(<span class="keyword">union</span> ele *up)</span>&#123;</span><br><span class="line">    up-&gt;e2.x= *((up-&gt;e2.next)-&gt;e1.p) - (up-&gt;e2.next)-&gt;e1.y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考">参考</h1>
+<p><a href="https://dreamanddead.github.io/CSAPP-3e-Solutions/">CSAPP-3E-SOLUTIONS</a></p>
+]]></content>
+      <categories>
+        <category>csapp</category>
+      </categories>
+      <tags>
+        <tag>作业</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>中科大计算机系统作业1</title>
+    <url>/post/8bdd78fc.html</url>
+    <content><![CDATA[<p>本文为中科大研究生课程——计算机系统作业1的题目解答记录。使用的教材为《深入理解计算机系统》。</p>
+<span id="more"></span>
+<h1 id="题目与解答">题目与解答</h1>
+<h2 id="section">2.58</h2>
+<p>编写过程is_little_endian, 当在小端法机器上编译和运行时返回1,
+在大端法机器上编译运行时则返回0
+。这个程序应该可以运行在任何机器上，无论机器的字长是多少。</p>
+<p><strong>解：</strong></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">char</span> *byte_pointer; <span class="comment">// 定义一个字节指针</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">is_little_endian</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> num = <span class="number">0xff</span>;                          <span class="comment">// 存储在内存中为 0x00 0x00 0x00 0xff</span></span><br><span class="line">    byte_pointer start = (byte_pointer)&amp;num; <span class="comment">// 强制转换为四个字节数组</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (start[<span class="number">0</span>] == <span class="number">0xff</span>) <span class="comment">// 小端模式读取的第一个字节为0xff</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// 大端模式读取的第一个字节为0x00</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, is_little_endian());</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="section-1">2.61</h2>
+<p>写一个C 表达式，在下列描述的条件下产生1, 而在其他情况下得到0
+。假设x是int类型。</p>
+<p>A. x的任何位都等于1 。</p>
+<p>B. x的任何位都等于0 。</p>
+<p>C. x的最低有效字节中的位都等于1 。</p>
+<p>D. x的最高有效字节中的位都等于0 。</p>
+<p>代码应该遵循位级整数编码规则，另外还有一个限制，你不能使用相等（==）和不相等（!=）测试。</p>
+<p><strong>解：</strong></p>
+<ol type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">!~x</span><br></pre></td></tr></table></figure>
+<ol start="2" type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">!x</span><br></pre></td></tr></table></figure>
+<ol start="3" type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">!((~x)&amp;<span class="number">0xff</span>)  或</span><br><span class="line">!~(x|~<span class="number">0xff</span>)</span><br></pre></td></tr></table></figure>
+<ol start="4" type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">!((x &gt;&gt; ((<span class="keyword">sizeof</span>(<span class="type">int</span>)<span class="number">-1</span>) &lt;&lt; <span class="number">3</span>)) &amp; <span class="number">0xff</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="section-2">2.77</h2>
+<p>假设我们有一个任务：生成一段代码，将整数变量x 乘以不同的常数因子K
+。为了提高效率，我们想只使用 + 、-
+和&lt;&lt;运算。对于下列K的值，写出执行乘法运算的C表达式，每个表达式中最多使用3个运算。</p>
+<p>A. K=17</p>
+<p>B. K=-7</p>
+<p>C. K=60</p>
+<p>D. K=-112</p>
+<p><strong>解：</strong></p>
+<ol type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">(x&lt;&lt;<span class="number">4</span>)+x</span><br></pre></td></tr></table></figure>
+<ol start="2" type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">x-(x&lt;&lt;<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<ol start="3" type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">(x&lt;&lt;<span class="number">6</span>)-(x&lt;&lt;<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<ol start="4" type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">(x&lt;&lt;<span class="number">4</span>)-(x&lt;&lt;<span class="number">7</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="section-3">2.84</h2>
+<p>填写下列程序的返回值，这个程序测试它的第一个参数是否小于或者等于第二个参数。假定函数f2u
+返回一个无符号32
+位数字，其位表示与它的浮点参数相同。你可以假设两个参数都不是NaN 。两种0,
++0 和-0 被认为是相等的。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">float_le</span><span class="params">(<span class="type">float</span> x, <span class="type">float</span> y)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">unsigned</span> ux = f2u(x);</span><br><span class="line">    <span class="type">unsigned</span> uy = f2u(y);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*Get the sign bits*/</span> </span><br><span class="line">    <span class="type">unsigned</span> sx = ux &gt;&gt; <span class="number">31</span>;</span><br><span class="line">    <span class="type">unsigned</span> sy = uy &gt;&gt; <span class="number">31</span>;</span><br><span class="line">    <span class="comment">/*Give an expression using only ux, uy, sx, and sy*/</span></span><br><span class="line">    <span class="keyword">return</span>   ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>解：</strong></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="title function_">f2u</span><span class="params">(<span class="type">float</span> x)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> *(<span class="type">unsigned</span> *)&amp;x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">float_le：测试它的第一个参数是否小于或者等于第二个参数 x&lt;=y 则 true </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">float_le</span><span class="params">(<span class="type">float</span> x, <span class="type">float</span> y)</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//将浮点数按照无符号数解释（位不变）</span></span><br><span class="line">    <span class="type">unsigned</span> ux = f2u(x);</span><br><span class="line">    <span class="type">unsigned</span> uy = f2u(y);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获得符号位 0或1</span></span><br><span class="line">    <span class="type">unsigned</span> sx = ux &gt;&gt; <span class="number">31</span>; </span><br><span class="line">    <span class="type">unsigned</span> sy = uy &gt;&gt; <span class="number">31</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 四种x&lt;=y的情况返回true</span></span><br><span class="line">    <span class="keyword">return</span> (ux &lt;&lt; <span class="number">1</span> == <span class="number">0</span> &amp;&amp; uy &lt;&lt; <span class="number">1</span> == <span class="number">0</span>) || <span class="comment">// 1. +0或者-0都为0(左移一位去除符号位对0影响)</span></span><br><span class="line">           (sx &amp;&amp; !sy) ||                    <span class="comment">// 2. x为负（符号位sx为1），y为正（符号位sy为0）</span></span><br><span class="line">           (!sx &amp;&amp; !sy &amp;&amp; ux &lt;= uy) ||       <span class="comment">// 3. x,y都为正时，x&lt;=y等价于ux&lt;=uy</span></span><br><span class="line">           (sx &amp;&amp; sy &amp;&amp; ux &gt;= uy);           <span class="comment">// 4. x,y都为负时，x&lt;=y等价于ux&gt;=uy</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="section-4">2.89</h2>
+<p>我们在一个int 类型为32
+位补码表示的机器上运行程序。float类型的值使用32 位IEEE 格式，而double
+类型的值使用64 位IEEE 格式。我们产生随机整数x 、y 和z,
+并且把它们转换成double 类型的值：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*Create some arbitrary values*/</span></span><br><span class="line"><span class="type">int</span> x = random();</span><br><span class="line"><span class="type">int</span> y = random();</span><br><span class="line"><span class="type">int</span> z = random();</span><br><span class="line"><span class="comment">/*Convert to double*/</span></span><br><span class="line"><span class="type">double</span> dx = (<span class="type">double</span>)x;</span><br><span class="line"><span class="type">double</span> dy = (<span class="type">double</span>)y;</span><br><span class="line"><span class="type">double</span> dz = (<span class="type">double</span>)z;</span><br></pre></td></tr></table></figure>
+<p>对于下列的每个C 表达式，你要指出表达式是否总是为1 。如果它总是为1,
+描述其中的数学原理。否则，列举出使它为0的参数的例子。请注意，不能使用IA32
+机器运行GCC 来测试你的答案，因为对于float 和double, 它使用的都是80
+位的扩展精度表示。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">A. (<span class="type">float</span>)x==(<span class="type">float</span>)dx</span><br><span class="line">B. dx-dy==(<span class="type">double</span>)(x-y)</span><br><span class="line">C. (dx+dy)+dz==dx+(dy+dz)</span><br><span class="line">D. (dx*dy)*dz==dx*(dy*dz)</span><br><span class="line">E. dx/dx==dz/dz</span><br></pre></td></tr></table></figure>
+<p><strong>解：</strong></p>
+<p>A. 真。int类型转成double类型不会损失精度，此时，x 和 dx
+转成float类型虽然可能会损失精度，但是在舍入原则相同的情况下得到的结果相同。</p>
+<p>B.
+假。当x-y得到的结果溢出时，转成double类型的结果与真实结果不同，如y=INT_MIN时。</p>
+<p>C.
+真。两个int类型转成double类型后，相加得到的结果仍然在double类型可表示范围内，且不会因为舍入丢失精度，所以是可以结合的。</p>
+<p>D.
+假。两个int类型转成double类型后，相乘得到的结果不一定在double类型可表示范围内，可能会发生溢出或者由于舍入导致失去精度，所以不具有结合性。</p>
+<p>E. 假。当dx != 0 且 dz ==
+0时，左边结果为1，右边结果为无穷大，不相等。</p>
+<h2 id="section-5">2.91</h2>
+<p>大约公元前250 年，希腊数学家阿基米德证明了<span class="math inline">\(\frac{223}{71}&lt;\pi&lt;\frac{22}{7}\)</span>。如果当时有一台计算机和标准库&lt;math.h&gt;,
+他就能够确定<span class="math inline">\(\pi\)</span>的单精度浮点近似值的十六进制表示为
+0x40490FDB 。当然，所有的这些都只是近似值，因为<span class="math inline">\(\pi\)</span>不是有理数。</p>
+<p>A. 这个浮点值表示的二进制小数是多少？</p>
+<p>B. <span class="math inline">\(\frac{22}{7}\)</span>的二进制小数表示是什么？提示：参见家庭作业2.
+83 。</p>
+<p>C. 这两个<span class="math inline">\(\pi\)</span>的近似值从哪一位（相对于二进制小数点）开始不同的？</p>
+<p><strong>解：</strong></p>
+<ol type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">十六进制：</span><br><span class="line">    <span class="number">0x40490FDB</span></span><br><span class="line">二进制：</span><br><span class="line">    <span class="number">0100</span> <span class="number">0000</span> <span class="number">0100</span> <span class="number">1001</span> <span class="number">0000</span> <span class="number">1111</span> <span class="number">1101</span> <span class="number">1011</span></span><br><span class="line">浮点格式：</span><br><span class="line">    <span class="number">0</span> <span class="number">10000000</span> <span class="number">10010010000111111011011</span>    </span><br><span class="line">    s:<span class="number">0</span> e=<span class="number">2</span>^<span class="number">7</span>=<span class="number">128</span> E=<span class="number">128</span><span class="number">-127</span>=<span class="number">1</span> f=<span class="number">0.10010010000111111011011</span> M=<span class="number">1.10010010000111111011011</span></span><br><span class="line">二进制小数：</span><br><span class="line">    <span class="number">11.0010010000111111011011</span></span><br></pre></td></tr></table></figure>
+<p>B. <span class="math inline">\(\frac{22}{7}=3+\frac{1}{7}\)</span></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Y=<span class="number">1</span>，<span class="number">2</span>^k<span class="number">-1</span>=<span class="number">7</span>,k=<span class="number">3</span>,y=<span class="number">001</span></span><br><span class="line">二进制小数：<span class="number">11.001001001</span>...(y=<span class="number">001</span>)</span><br></pre></td></tr></table></figure>
+<p>C. 从小数点后第9位开始不同。</p>
 <h1 id="参考">参考</h1>
 <p><a href="https://dreamanddead.github.io/CSAPP-3e-Solutions/">CSAPP-3E-SOLUTIONS</a></p>
 ]]></content>
@@ -1134,6 +1134,111 @@ Image Processing，简称 DIP。输入的是图像，输出的也是图像。Pho
       </categories>
       <tags>
         <tag>整理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo+NexT主题配置备份及还原</title>
+    <url>/post/3f7b24f8.html</url>
+    <content><![CDATA[<p>第三次搭建github pages+hexo+NexT
+主题的博客了，之前总是因为各种原因中途放弃，这次一定要坚持！这里记录一下备份及今后还原的流程，方便之后的维护。</p>
+<span id="more"></span>
+<h1 id="备份说明">备份说明</h1>
+<p>由于博客发布的远程仓库的 <code>master</code>
+分支是经过编译的静态网页文件，而我们需要保存源文件、更改后的配置等以进行新机器上的还原。我对备份的要求就是：</p>
+<ul>
+<li>备份站点配置文件</li>
+<li>备份主题配置文件</li>
+<li>能方便地更新NexT主题（所以最好是能保留原来的.git文件方便拉取官方最近的更新）</li>
+</ul>
+<p>一般的做法是使用 <code>master</code>
+分支展示博客页面，再创建另一个分支用来备份源文件，这样就可以将文件都备份在一个仓库下。</p>
+<p>但是实际操作中发现，因为使用的是最新的<a href="https://github.com/theme-next/hexo-theme-next">NexT Release
+v7.8.0</a>
+版本，theme主题上传到GitHub时，只有主题名，主题文件夹下并没有主题对应文件，所以说这种方式只能备份站点配置文件，主题配置文件无法备份。这部分往往是最重要的，因为包括了很多自己定义的配置。如果直接删除themes/next文件夹下的.git文件，那么任何自定义的修改都会使合并上游的改动变得困难。</p>
+<p>对此我找到了一种比较优雅的策略：使用子模块（ submodule
+）进行多个仓库的嵌套。</p>
+<blockquote>
+<p>子模块允许你将一个 Git 仓库作为另一个 Git 仓库的子目录。
+它能让你将另一个仓库克隆到自己的项目中，同时还保持提交的独立。</p>
+</blockquote>
+<h1 id="开始备份">开始备份</h1>
+<blockquote>
+<p><strong>为防止备份过程中出现失误，请先提前复制一份自己的博客文件作为备用，一旦失败可以删档重来。</strong></p>
+</blockquote>
+<h2 id="站点仓库公开">站点仓库（公开）</h2>
+<p>站点仓库使用两个分支，一个<code>master</code>分支存放博客静态页面文件，另一个<code>source</code>分支用来备份站点配置的源文件。配置步骤如下：</p>
+<ol type="1">
+<li><p>先把themes目录下自己定义过的主题文件删除，防止后面出现子模块冲突。(这一步非常重要，不然后面还得删掉重来)</p></li>
+<li><p>在博客目录下初始化本地 git 并添加远程仓库</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add origin https://github.com/your_name/your_name.github.io.git</span><br></pre></td></tr></table></figure></li>
+<li><p>创建 <code>source</code> 分支并推送源文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git checkout -b source</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;Initial backup&quot;</span><br><span class="line">git push origin source:source # 这里 source source 会在远端自动创建分支</span><br></pre></td></tr></table></figure></li>
+<li><p>查看自己的github仓库是否已经推送成功</p></li>
+<li><p>在每次修改博客之后，需要做 deploy 到 <code>master</code> 分支和
+push 到 <code>source</code> 分支两件事</p>
+<blockquote>
+<p>在 github仓库的 settings 中将 source 分支改为默认分支，可以简化为
+<code>git push</code></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo d</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;your comment&quot;</span><br><span class="line">git push origin source:source</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="主题仓库私有">主题仓库（私有）</h2>
+<ol type="1">
+<li><p>在 github 中创建一个私人仓库
+<code>hexo-theme-next</code>，用于存放主题配置文件。私人仓库是为了保存主题中的隐私文件。</p></li>
+<li><p>从原来的主题仓库中将代码 clone
+下来，初始化远端的私人仓库，这里以NexT仓库为例：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd themes</span><br><span class="line">git clone https://github.com/theme-next/hexo-theme-next.git</span><br><span class="line">git push --mirror https://github.com/your_name/hexo-theme-next.git #该仓库作为子模块</span><br></pre></td></tr></table></figure></li>
+<li><p>将一个已初始化的主题私人仓库添加为站点仓库的子模块</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git submodule add https://github.com/your_name/hexo-theme-next.git themes/next</span><br></pre></td></tr></table></figure></li>
+<li><p>检查子模块是否创建成功</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git status</span></span><br><span class="line">...</span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</span><br><span class="line"></span><br><span class="line">	new file:   .gitmodules # 出现.gitmodules 文件即代表创建成功了</span><br><span class="line">	new file:   themes/next</span><br></pre></td></tr></table></figure></li>
+<li><p>进入新创建的themes/next主题文件夹，为仓库添加
+<code>upstream</code>，用于同步源仓库的更新</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> themes/next</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git remote add upstream https://github.com/theme-next/hexo-theme-next.git</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git remote -v   <span class="comment"># 查看配置</span></span></span><br><span class="line">origin  https://github.com/your_name/your_name.github.io.git (fetch)</span><br><span class="line">origin  https://github.com/your_name/your_name.github.io.git (push)</span><br><span class="line">upstream        https://github.com/theme-next/hexo-theme-next.git (fetch)</span><br><span class="line">upstream        https://github.com/theme-next/hexo-theme-next.git (push)</span><br></pre></td></tr></table></figure>
+<p>这样就可以进入到目录中运行 <code>git fetch</code> 与
+<code>git merge</code>来合并上游分支来更新本地代码。同步操作如下：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git fetch upstream master</span></span><br><span class="line">From https://github.com/theme-next/hexo-theme-next</span><br><span class="line"> * branch            master     -&gt; FETCH_HEAD</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git merge origin/master</span></span><br></pre></td></tr></table></figure></li>
+<li><p>推送更改到站点仓库</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;add submodule&quot;</span><br><span class="line">git push origin source:source</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>到此为止我们已经成功创建并配置好了两个备份仓库，但是主题私人仓库中储存的仍然是原始文件，下面还要把自定义的配置备份一下：</p>
+<h2 id="备份主题配置">备份主题配置</h2>
+<ol type="1">
+<li><p>将自己修改后的主题文件覆盖themes/next下的原始文件（注意不要把.git文件复制过来！！！，构建子模块后themes/next目录中已经不存在.git文件了）</p></li>
+<li><p>进入themes/next文件夹下，提交更新到远程私人仓库</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;update ...&quot;</span><br><span class="line">git push origin HEAD:master</span><br></pre></td></tr></table></figure>
+<p>以后每次对themes/next更新都要从该目录下独立地推送到远程仓库，也就是说对于更新操作，两个仓库是分开的。只在博客根目录的提交并不会同步提交themes/next的更改。</p></li>
+</ol>
+<h1 id="还原">还原</h1>
+<ol type="1">
+<li><p>先安装好 git、ssh、node、hexo</p></li>
+<li><p>使用 <code>git clone</code> 克隆 <code>source</code>
+分支的源文件，<code>--recursive</code> 参数可以同步还原
+submodule，相当于我们只用一条命令就克隆了两个仓库。</p>
+<blockquote>
+<p>如果已将 <code>source</code> 分支设置为默认分支，可省略
+<code>-b source</code> 参数；</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone -b source https://github.com/your_name/your_name.github.io.git --recurse-submodules</span><br></pre></td></tr></table></figure>
+<p>如果你已经克隆了项目但忘记了
+<code>--recurse-submodules</code>，也可以在下载完仓库后，使用<code>git submodule init</code>
+和 <code>git submodule update</code> 进行子模块的还原。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone -b source https://your_name/your_name.github.io.git</span><br><span class="line">git init</span><br><span class="line">git submodule init</span><br><span class="line">git submodule update</span><br></pre></td></tr></table></figure></li>
+<li><p>安装依赖</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="参考链接">参考链接</h1>
+<p><a href="https://quareia.github.io/blog/6efb1d64/">Github
+Pages+hexo+NexT 博客搭建、备份及还原</a></p>
+<p><a href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97">Git
+工具 - 子模块</a></p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>备份</tag>
       </tags>
   </entry>
   <entry>
