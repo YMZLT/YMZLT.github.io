@@ -4,13 +4,14 @@ top: false
 cover: false
 toc: true
 mathjax: false
+tags:
+  - 备份
+categories:
+  - hexo
+abbrlink: 3f7b24f8
 date: 2022-10-31 14:50:24
 password:
 summary:
-tags:
-	- 备份
-categories:
-	- hexo
 ---
 
 
