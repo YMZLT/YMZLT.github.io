@@ -137,8 +137,17 @@ categories:
 
 ## 备份主题配置
 
-1. 将自己修改后的主题文件覆盖themes/next下的原始文件（注意不要把.git文件复制过来，构建子模块后themes/next目录中不存在.git文件）
-2. 
+1. 将自己修改后的主题文件覆盖themes/next下的原始文件（注意不要把.git文件复制过来！！！，构建子模块后themes/next目录中已经不存在.git文件了）
+
+2. 进入themes/next文件夹下，提交更新到远程私人仓库
+
+   ```shell
+   git add .
+   git commit -m "update ..."
+   git push origin HEAD:master
+   ```
+
+   以后每次对themes/next更新都要从该目录下独立地推送到远程仓库，也就是说对于更新操作，两个仓库是分开的。只在博客根目录的提交并不会同步提交themes/next的更改。
 
 # 还原
 
@@ -149,7 +158,7 @@ categories:
    > 如果已将 `source` 分支设置为默认分支，可省略 `-b source` 参数；
 
    ```shell
-   git clone -b source https://your_name/your_name.github.io.git --recurse-submodules
+   git clone -b source https://github.com/your_name/your_name.github.io.git --recurse-submodules
    ```
 
    如果你已经克隆了项目但忘记了 `--recurse-submodules`，也可以在下载完仓库后，使用`git submodule init` 和 `git submodule update` 进行子模块的还原。
@@ -160,8 +169,6 @@ categories:
    git submodule init
    git submodule update
    ```
-
-   
 
 3. 安装依赖
 
@@ -176,3 +183,4 @@ categories:
 [Github Pages+hexo+NexT 博客搭建、备份及还原](https://quareia.github.io/blog/6efb1d64/)
 
 [Git 工具 - 子模块](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97)
+
