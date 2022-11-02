@@ -33,6 +33,124 @@
       </tags>
   </entry>
   <entry>
+    <title>中科大计算机系统作业1</title>
+    <url>/post/8bdd78fc.html</url>
+    <content><![CDATA[<p>本文为中科大研究生课程——计算机系统作业1的题目解答记录。使用的教材为《深入理解计算机系统》。</p>
+<span id="more"></span>
+<h1 id="题目与解答">题目与解答</h1>
+<h2 id="section">2.58</h2>
+<p>编写过程is_little_endian, 当在小端法机器上编译和运行时返回1,
+在大端法机器上编译运行时则返回0
+。这个程序应该可以运行在任何机器上，无论机器的字长是多少。</p>
+<p><strong>解：</strong></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">char</span> *byte_pointer; <span class="comment">// 定义一个字节指针</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">is_little_endian</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> num = <span class="number">0xff</span>;                          <span class="comment">// 存储在内存中为 0x00 0x00 0x00 0xff</span></span><br><span class="line">    byte_pointer start = (byte_pointer)&amp;num; <span class="comment">// 强制转换为四个字节数组</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (start[<span class="number">0</span>] == <span class="number">0xff</span>) <span class="comment">// 小端模式读取的第一个字节为0xff</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// 大端模式读取的第一个字节为0x00</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, is_little_endian());</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="section-1">2.61</h2>
+<p>写一个C 表达式，在下列描述的条件下产生1, 而在其他情况下得到0
+。假设x是int类型。</p>
+<p>A. x的任何位都等于1 。</p>
+<p>B. x的任何位都等于0 。</p>
+<p>C. x的最低有效字节中的位都等于1 。</p>
+<p>D. x的最高有效字节中的位都等于0 。</p>
+<p>代码应该遵循位级整数编码规则，另外还有一个限制，你不能使用相等（==）和不相等（!=）测试。</p>
+<p><strong>解：</strong></p>
+<ol type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">!~x</span><br></pre></td></tr></table></figure>
+<ol start="2" type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">!x</span><br></pre></td></tr></table></figure>
+<ol start="3" type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">!((~x)&amp;<span class="number">0xff</span>)  或</span><br><span class="line">!~(x|~<span class="number">0xff</span>)</span><br></pre></td></tr></table></figure>
+<ol start="4" type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">!((x &gt;&gt; ((<span class="keyword">sizeof</span>(<span class="type">int</span>)<span class="number">-1</span>) &lt;&lt; <span class="number">3</span>)) &amp; <span class="number">0xff</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="section-2">2.77</h2>
+<p>假设我们有一个任务：生成一段代码，将整数变量x 乘以不同的常数因子K
+。为了提高效率，我们想只使用 + 、-
+和&lt;&lt;运算。对于下列K的值，写出执行乘法运算的C表达式，每个表达式中最多使用3个运算。</p>
+<p>A. K=17</p>
+<p>B. K=-7</p>
+<p>C. K=60</p>
+<p>D. K=-112</p>
+<p><strong>解：</strong></p>
+<ol type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">(x&lt;&lt;<span class="number">4</span>)+x</span><br></pre></td></tr></table></figure>
+<ol start="2" type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">x-(x&lt;&lt;<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<ol start="3" type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">(x&lt;&lt;<span class="number">6</span>)-(x&lt;&lt;<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<ol start="4" type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">(x&lt;&lt;<span class="number">4</span>)-(x&lt;&lt;<span class="number">7</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="section-3">2.84</h2>
+<p>填写下列程序的返回值，这个程序测试它的第一个参数是否小于或者等于第二个参数。假定函数f2u
+返回一个无符号32
+位数字，其位表示与它的浮点参数相同。你可以假设两个参数都不是NaN 。两种0,
++0 和-0 被认为是相等的。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">float_le</span><span class="params">(<span class="type">float</span> x, <span class="type">float</span> y)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">unsigned</span> ux = f2u(x);</span><br><span class="line">    <span class="type">unsigned</span> uy = f2u(y);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*Get the sign bits*/</span> </span><br><span class="line">    <span class="type">unsigned</span> sx = ux &gt;&gt; <span class="number">31</span>;</span><br><span class="line">    <span class="type">unsigned</span> sy = uy &gt;&gt; <span class="number">31</span>;</span><br><span class="line">    <span class="comment">/*Give an expression using only ux, uy, sx, and sy*/</span></span><br><span class="line">    <span class="keyword">return</span>   ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>解：</strong></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="title function_">f2u</span><span class="params">(<span class="type">float</span> x)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> *(<span class="type">unsigned</span> *)&amp;x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">float_le：测试它的第一个参数是否小于或者等于第二个参数 x&lt;=y 则 true </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">float_le</span><span class="params">(<span class="type">float</span> x, <span class="type">float</span> y)</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//将浮点数按照无符号数解释（位不变）</span></span><br><span class="line">    <span class="type">unsigned</span> ux = f2u(x);</span><br><span class="line">    <span class="type">unsigned</span> uy = f2u(y);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获得符号位 0或1</span></span><br><span class="line">    <span class="type">unsigned</span> sx = ux &gt;&gt; <span class="number">31</span>; </span><br><span class="line">    <span class="type">unsigned</span> sy = uy &gt;&gt; <span class="number">31</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 四种x&lt;=y的情况返回true</span></span><br><span class="line">    <span class="keyword">return</span> (ux &lt;&lt; <span class="number">1</span> == <span class="number">0</span> &amp;&amp; uy &lt;&lt; <span class="number">1</span> == <span class="number">0</span>) || <span class="comment">// 1. +0或者-0都为0(左移一位去除符号位对0影响)</span></span><br><span class="line">           (sx &amp;&amp; !sy) ||                    <span class="comment">// 2. x为负（符号位sx为1），y为正（符号位sy为0）</span></span><br><span class="line">           (!sx &amp;&amp; !sy &amp;&amp; ux &lt;= uy) ||       <span class="comment">// 3. x,y都为正时，x&lt;=y等价于ux&lt;=uy</span></span><br><span class="line">           (sx &amp;&amp; sy &amp;&amp; ux &gt;= uy);           <span class="comment">// 4. x,y都为负时，x&lt;=y等价于ux&gt;=uy</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="section-4">2.89</h2>
+<p>我们在一个int 类型为32
+位补码表示的机器上运行程序。float类型的值使用32 位IEEE 格式，而double
+类型的值使用64 位IEEE 格式。我们产生随机整数x 、y 和z,
+并且把它们转换成double 类型的值：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*Create some arbitrary values*/</span></span><br><span class="line"><span class="type">int</span> x = random();</span><br><span class="line"><span class="type">int</span> y = random();</span><br><span class="line"><span class="type">int</span> z = random();</span><br><span class="line"><span class="comment">/*Convert to double*/</span></span><br><span class="line"><span class="type">double</span> dx = (<span class="type">double</span>)x;</span><br><span class="line"><span class="type">double</span> dy = (<span class="type">double</span>)y;</span><br><span class="line"><span class="type">double</span> dz = (<span class="type">double</span>)z;</span><br></pre></td></tr></table></figure>
+<p>对于下列的每个C 表达式，你要指出表达式是否总是为1 。如果它总是为1,
+描述其中的数学原理。否则，列举出使它为0的参数的例子。请注意，不能使用IA32
+机器运行GCC 来测试你的答案，因为对于float 和double, 它使用的都是80
+位的扩展精度表示。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">A. (<span class="type">float</span>)x==(<span class="type">float</span>)dx</span><br><span class="line">B. dx-dy==(<span class="type">double</span>)(x-y)</span><br><span class="line">C. (dx+dy)+dz==dx+(dy+dz)</span><br><span class="line">D. (dx*dy)*dz==dx*(dy*dz)</span><br><span class="line">E. dx/dx==dz/dz</span><br></pre></td></tr></table></figure>
+<p><strong>解：</strong></p>
+<p>A. 真。int类型转成double类型不会损失精度，此时，x 和 dx
+转成float类型虽然可能会损失精度，但是在舍入原则相同的情况下得到的结果相同。</p>
+<p>B.
+假。当x-y得到的结果溢出时，转成double类型的结果与真实结果不同，如y=INT_MIN时。</p>
+<p>C.
+真。两个int类型转成double类型后，相加得到的结果仍然在double类型可表示范围内，且不会因为舍入丢失精度，所以是可以结合的。</p>
+<p>D.
+假。两个int类型转成double类型后，相乘得到的结果不一定在double类型可表示范围内，可能会发生溢出或者由于舍入导致失去精度，所以不具有结合性。</p>
+<p>E. 假。当dx != 0 且 dz ==
+0时，左边结果为1，右边结果为无穷大，不相等。</p>
+<h2 id="section-5">2.91</h2>
+<p>大约公元前250 年，希腊数学家阿基米德证明了<span class="math inline">\(\frac{223}{71}&lt;\pi&lt;\frac{22}{7}\)</span>。如果当时有一台计算机和标准库&lt;math.h&gt;,
+他就能够确定<span class="math inline">\(\pi\)</span>的单精度浮点近似值的十六进制表示为
+0x40490FDB 。当然，所有的这些都只是近似值，因为<span class="math inline">\(\pi\)</span>不是有理数。</p>
+<p>A. 这个浮点值表示的二进制小数是多少？</p>
+<p>B. <span class="math inline">\(\frac{22}{7}\)</span>的二进制小数表示是什么？提示：参见家庭作业2.
+83 。</p>
+<p>C. 这两个<span class="math inline">\(\pi\)</span>的近似值从哪一位（相对于二进制小数点）开始不同的？</p>
+<p><strong>解：</strong></p>
+<ol type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">十六进制：</span><br><span class="line">    <span class="number">0x40490FDB</span></span><br><span class="line">二进制：</span><br><span class="line">    <span class="number">0100</span> <span class="number">0000</span> <span class="number">0100</span> <span class="number">1001</span> <span class="number">0000</span> <span class="number">1111</span> <span class="number">1101</span> <span class="number">1011</span></span><br><span class="line">浮点格式：</span><br><span class="line">    <span class="number">0</span> <span class="number">10000000</span> <span class="number">10010010000111111011011</span>    </span><br><span class="line">    s:<span class="number">0</span> e=<span class="number">2</span>^<span class="number">7</span>=<span class="number">128</span> E=<span class="number">128</span><span class="number">-127</span>=<span class="number">1</span> f=<span class="number">0.10010010000111111011011</span> M=<span class="number">1.10010010000111111011011</span></span><br><span class="line">二进制小数：</span><br><span class="line">    <span class="number">11.0010010000111111011011</span></span><br></pre></td></tr></table></figure>
+<p>B. <span class="math inline">\(\frac{22}{7}=3+\frac{1}{7}\)</span></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Y=<span class="number">1</span>，<span class="number">2</span>^k<span class="number">-1</span>=<span class="number">7</span>,k=<span class="number">3</span>,y=<span class="number">001</span></span><br><span class="line">二进制小数：<span class="number">11.001001001</span>...(y=<span class="number">001</span>)</span><br></pre></td></tr></table></figure>
+<p>C. 从小数点后第9位开始不同。</p>
+<h1 id="参考">参考</h1>
+<p><a href="https://dreamanddead.github.io/CSAPP-3e-Solutions/">CSAPP-3E-SOLUTIONS</a></p>
+]]></content>
+      <categories>
+        <category>csapp</category>
+      </categories>
+      <tags>
+        <tag>作业</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>中科大计算机系统作业2</title>
     <url>/post/12d42946.html</url>
     <content><![CDATA[<p>本文为中科大研究生课程——计算机系统作业2的题目解答记录。使用的教材为《深入理解计算机系统》。</p>
@@ -172,124 +290,6 @@
 <li></li>
 </ol>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">proc</span><span class="params">(<span class="keyword">union</span> ele *up)</span>&#123;</span><br><span class="line">    up-&gt;e2.x= *((up-&gt;e2.next)-&gt;e1.p) - (up-&gt;e2.next)-&gt;e1.y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="参考">参考</h1>
-<p><a href="https://dreamanddead.github.io/CSAPP-3e-Solutions/">CSAPP-3E-SOLUTIONS</a></p>
-]]></content>
-      <categories>
-        <category>csapp</category>
-      </categories>
-      <tags>
-        <tag>作业</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>中科大计算机系统作业1</title>
-    <url>/post/8bdd78fc.html</url>
-    <content><![CDATA[<p>本文为中科大研究生课程——计算机系统作业1的题目解答记录。使用的教材为《深入理解计算机系统》。</p>
-<span id="more"></span>
-<h1 id="题目与解答">题目与解答</h1>
-<h2 id="section">2.58</h2>
-<p>编写过程is_little_endian, 当在小端法机器上编译和运行时返回1,
-在大端法机器上编译运行时则返回0
-。这个程序应该可以运行在任何机器上，无论机器的字长是多少。</p>
-<p><strong>解：</strong></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">char</span> *byte_pointer; <span class="comment">// 定义一个字节指针</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">is_little_endian</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> num = <span class="number">0xff</span>;                          <span class="comment">// 存储在内存中为 0x00 0x00 0x00 0xff</span></span><br><span class="line">    byte_pointer start = (byte_pointer)&amp;num; <span class="comment">// 强制转换为四个字节数组</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (start[<span class="number">0</span>] == <span class="number">0xff</span>) <span class="comment">// 小端模式读取的第一个字节为0xff</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// 大端模式读取的第一个字节为0x00</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, is_little_endian());</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="section-1">2.61</h2>
-<p>写一个C 表达式，在下列描述的条件下产生1, 而在其他情况下得到0
-。假设x是int类型。</p>
-<p>A. x的任何位都等于1 。</p>
-<p>B. x的任何位都等于0 。</p>
-<p>C. x的最低有效字节中的位都等于1 。</p>
-<p>D. x的最高有效字节中的位都等于0 。</p>
-<p>代码应该遵循位级整数编码规则，另外还有一个限制，你不能使用相等（==）和不相等（!=）测试。</p>
-<p><strong>解：</strong></p>
-<ol type="A">
-<li></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">!~x</span><br></pre></td></tr></table></figure>
-<ol start="2" type="A">
-<li></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">!x</span><br></pre></td></tr></table></figure>
-<ol start="3" type="A">
-<li></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">!((~x)&amp;<span class="number">0xff</span>)  或</span><br><span class="line">!~(x|~<span class="number">0xff</span>)</span><br></pre></td></tr></table></figure>
-<ol start="4" type="A">
-<li></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">!((x &gt;&gt; ((<span class="keyword">sizeof</span>(<span class="type">int</span>)<span class="number">-1</span>) &lt;&lt; <span class="number">3</span>)) &amp; <span class="number">0xff</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="section-2">2.77</h2>
-<p>假设我们有一个任务：生成一段代码，将整数变量x 乘以不同的常数因子K
-。为了提高效率，我们想只使用 + 、-
-和&lt;&lt;运算。对于下列K的值，写出执行乘法运算的C表达式，每个表达式中最多使用3个运算。</p>
-<p>A. K=17</p>
-<p>B. K=-7</p>
-<p>C. K=60</p>
-<p>D. K=-112</p>
-<p><strong>解：</strong></p>
-<ol type="A">
-<li></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">(x&lt;&lt;<span class="number">4</span>)+x</span><br></pre></td></tr></table></figure>
-<ol start="2" type="A">
-<li></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">x-(x&lt;&lt;<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-<ol start="3" type="A">
-<li></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">(x&lt;&lt;<span class="number">6</span>)-(x&lt;&lt;<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-<ol start="4" type="A">
-<li></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">(x&lt;&lt;<span class="number">4</span>)-(x&lt;&lt;<span class="number">7</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="section-3">2.84</h2>
-<p>填写下列程序的返回值，这个程序测试它的第一个参数是否小于或者等于第二个参数。假定函数f2u
-返回一个无符号32
-位数字，其位表示与它的浮点参数相同。你可以假设两个参数都不是NaN 。两种0,
-+0 和-0 被认为是相等的。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">float_le</span><span class="params">(<span class="type">float</span> x, <span class="type">float</span> y)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">unsigned</span> ux = f2u(x);</span><br><span class="line">    <span class="type">unsigned</span> uy = f2u(y);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*Get the sign bits*/</span> </span><br><span class="line">    <span class="type">unsigned</span> sx = ux &gt;&gt; <span class="number">31</span>;</span><br><span class="line">    <span class="type">unsigned</span> sy = uy &gt;&gt; <span class="number">31</span>;</span><br><span class="line">    <span class="comment">/*Give an expression using only ux, uy, sx, and sy*/</span></span><br><span class="line">    <span class="keyword">return</span>   ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>解：</strong></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="title function_">f2u</span><span class="params">(<span class="type">float</span> x)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> *(<span class="type">unsigned</span> *)&amp;x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">float_le：测试它的第一个参数是否小于或者等于第二个参数 x&lt;=y 则 true </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">float_le</span><span class="params">(<span class="type">float</span> x, <span class="type">float</span> y)</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//将浮点数按照无符号数解释（位不变）</span></span><br><span class="line">    <span class="type">unsigned</span> ux = f2u(x);</span><br><span class="line">    <span class="type">unsigned</span> uy = f2u(y);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获得符号位 0或1</span></span><br><span class="line">    <span class="type">unsigned</span> sx = ux &gt;&gt; <span class="number">31</span>; </span><br><span class="line">    <span class="type">unsigned</span> sy = uy &gt;&gt; <span class="number">31</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 四种x&lt;=y的情况返回true</span></span><br><span class="line">    <span class="keyword">return</span> (ux &lt;&lt; <span class="number">1</span> == <span class="number">0</span> &amp;&amp; uy &lt;&lt; <span class="number">1</span> == <span class="number">0</span>) || <span class="comment">// 1. +0或者-0都为0(左移一位去除符号位对0影响)</span></span><br><span class="line">           (sx &amp;&amp; !sy) ||                    <span class="comment">// 2. x为负（符号位sx为1），y为正（符号位sy为0）</span></span><br><span class="line">           (!sx &amp;&amp; !sy &amp;&amp; ux &lt;= uy) ||       <span class="comment">// 3. x,y都为正时，x&lt;=y等价于ux&lt;=uy</span></span><br><span class="line">           (sx &amp;&amp; sy &amp;&amp; ux &gt;= uy);           <span class="comment">// 4. x,y都为负时，x&lt;=y等价于ux&gt;=uy</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="section-4">2.89</h2>
-<p>我们在一个int 类型为32
-位补码表示的机器上运行程序。float类型的值使用32 位IEEE 格式，而double
-类型的值使用64 位IEEE 格式。我们产生随机整数x 、y 和z,
-并且把它们转换成double 类型的值：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*Create some arbitrary values*/</span></span><br><span class="line"><span class="type">int</span> x = random();</span><br><span class="line"><span class="type">int</span> y = random();</span><br><span class="line"><span class="type">int</span> z = random();</span><br><span class="line"><span class="comment">/*Convert to double*/</span></span><br><span class="line"><span class="type">double</span> dx = (<span class="type">double</span>)x;</span><br><span class="line"><span class="type">double</span> dy = (<span class="type">double</span>)y;</span><br><span class="line"><span class="type">double</span> dz = (<span class="type">double</span>)z;</span><br></pre></td></tr></table></figure>
-<p>对于下列的每个C 表达式，你要指出表达式是否总是为1 。如果它总是为1,
-描述其中的数学原理。否则，列举出使它为0的参数的例子。请注意，不能使用IA32
-机器运行GCC 来测试你的答案，因为对于float 和double, 它使用的都是80
-位的扩展精度表示。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">A. (<span class="type">float</span>)x==(<span class="type">float</span>)dx</span><br><span class="line">B. dx-dy==(<span class="type">double</span>)(x-y)</span><br><span class="line">C. (dx+dy)+dz==dx+(dy+dz)</span><br><span class="line">D. (dx*dy)*dz==dx*(dy*dz)</span><br><span class="line">E. dx/dx==dz/dz</span><br></pre></td></tr></table></figure>
-<p><strong>解：</strong></p>
-<p>A. 真。int类型转成double类型不会损失精度，此时，x 和 dx
-转成float类型虽然可能会损失精度，但是在舍入原则相同的情况下得到的结果相同。</p>
-<p>B.
-假。当x-y得到的结果溢出时，转成double类型的结果与真实结果不同，如y=INT_MIN时。</p>
-<p>C.
-真。两个int类型转成double类型后，相加得到的结果仍然在double类型可表示范围内，且不会因为舍入丢失精度，所以是可以结合的。</p>
-<p>D.
-假。两个int类型转成double类型后，相乘得到的结果不一定在double类型可表示范围内，可能会发生溢出或者由于舍入导致失去精度，所以不具有结合性。</p>
-<p>E. 假。当dx != 0 且 dz ==
-0时，左边结果为1，右边结果为无穷大，不相等。</p>
-<h2 id="section-5">2.91</h2>
-<p>大约公元前250 年，希腊数学家阿基米德证明了<span class="math inline">\(\frac{223}{71}&lt;\pi&lt;\frac{22}{7}\)</span>。如果当时有一台计算机和标准库&lt;math.h&gt;,
-他就能够确定<span class="math inline">\(\pi\)</span>的单精度浮点近似值的十六进制表示为
-0x40490FDB 。当然，所有的这些都只是近似值，因为<span class="math inline">\(\pi\)</span>不是有理数。</p>
-<p>A. 这个浮点值表示的二进制小数是多少？</p>
-<p>B. <span class="math inline">\(\frac{22}{7}\)</span>的二进制小数表示是什么？提示：参见家庭作业2.
-83 。</p>
-<p>C. 这两个<span class="math inline">\(\pi\)</span>的近似值从哪一位（相对于二进制小数点）开始不同的？</p>
-<p><strong>解：</strong></p>
-<ol type="A">
-<li></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">十六进制：</span><br><span class="line">    <span class="number">0x40490FDB</span></span><br><span class="line">二进制：</span><br><span class="line">    <span class="number">0100</span> <span class="number">0000</span> <span class="number">0100</span> <span class="number">1001</span> <span class="number">0000</span> <span class="number">1111</span> <span class="number">1101</span> <span class="number">1011</span></span><br><span class="line">浮点格式：</span><br><span class="line">    <span class="number">0</span> <span class="number">10000000</span> <span class="number">10010010000111111011011</span>    </span><br><span class="line">    s:<span class="number">0</span> e=<span class="number">2</span>^<span class="number">7</span>=<span class="number">128</span> E=<span class="number">128</span><span class="number">-127</span>=<span class="number">1</span> f=<span class="number">0.10010010000111111011011</span> M=<span class="number">1.10010010000111111011011</span></span><br><span class="line">二进制小数：</span><br><span class="line">    <span class="number">11.0010010000111111011011</span></span><br></pre></td></tr></table></figure>
-<p>B. <span class="math inline">\(\frac{22}{7}=3+\frac{1}{7}\)</span></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Y=<span class="number">1</span>，<span class="number">2</span>^k<span class="number">-1</span>=<span class="number">7</span>,k=<span class="number">3</span>,y=<span class="number">001</span></span><br><span class="line">二进制小数：<span class="number">11.001001001</span>...(y=<span class="number">001</span>)</span><br></pre></td></tr></table></figure>
-<p>C. 从小数点后第9位开始不同。</p>
 <h1 id="参考">参考</h1>
 <p><a href="https://dreamanddead.github.io/CSAPP-3e-Solutions/">CSAPP-3E-SOLUTIONS</a></p>
 ]]></content>
@@ -1134,6 +1134,127 @@ Image Processing，简称 DIP。输入的是图像，输出的也是图像。Pho
       </categories>
       <tags>
         <tag>整理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>USTC计科复试刷题记录/2011</title>
+    <url>/post/3a86b2e7.html</url>
+    <content><![CDATA[<p>本文为2011年中科大计算机学院复试机试刷题记录，使用C++作为编程语言，并在Linux
+平台下使用gcc编译器进行编译以及测试运行。输入输出风格偏向于C，有些题目会用到C++的STL标准函数库。</p>
+<span id="more"></span>
+<h2 id="题目详解">题目详解</h2>
+<h3 id="进制转换">进制转换</h3>
+<blockquote>
+<p>给两个十进制数，先异或，然后输出其二进制形式。</p>
+</blockquote>
+<p>C语言中的<code>printf</code>函数可以直接打印十进制，八进制，十六进制，输出控制符分别为%d,
+%o, %x, 但是它不能直接输出二进制，所以这里考虑使用位操作输出二进制。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 给两个十进制数，先异或，然后输出其二进制形式。 */</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;a, &amp;b);</span><br><span class="line">    <span class="type">int</span> c = a ^ b;</span><br><span class="line">    <span class="type">int</span> bits[<span class="number">32</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span>; i++) <span class="comment">// 每次取最低一位 得到逆位输出</span></span><br><span class="line">    &#123;</span><br><span class="line">        bits[i] = c &amp; <span class="number">1</span>;</span><br><span class="line">        c &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 反向输出即为正确答案</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">31</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, bits[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行与测试：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">g++ -o ex1 ex1.cpp</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./ex1</span></span><br><span class="line">1 2</span><br><span class="line">00000000000000000000000000000011</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./ex1</span></span><br><span class="line">3 5</span><br><span class="line">00000000000000000000000000000110</span><br></pre></td></tr></table></figure>
+<h3 id="球的取法">球的取法</h3>
+<blockquote>
+<p>一共有十二个球，其颜色有红、黄、黑三种，红黄黑分别有 x，y，k
+个，现在从其中取出八个球，共有多少种取法，输出到文件中？（x，y，k
+从键盘输入，同种颜色的球不区分）</p>
+</blockquote>
+<p>输出格式：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>  红球， 黄球， 黑球;</span><br><span class="line"><span class="number">2.</span>  红球， 黄球， 黑球;</span><br><span class="line"><span class="number">3.</span></span><br><span class="line">....</span><br></pre></td></tr></table></figure>
+<ul>
+<li>思路</li>
+</ul>
+<p>直接用双重循环暴力枚举前两种球被抽到的个数。注意这题要求输出到文件，使用C语言的fprint函数。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="type">int</span> x, y, k;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d %d %d&quot;</span>, &amp;x, &amp;y, &amp;k);</span><br><span class="line">  <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">  FILE * fp;</span><br><span class="line">  fp = <span class="built_in">fopen</span> (<span class="string">&quot;3.txt&quot;</span>, <span class="string">&quot;w+&quot;</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">8</span> &amp;&amp; i &lt;= x; i++)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt;= <span class="number">8</span> - i &amp;&amp; j &lt;= y; j++)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="number">8</span> - i - j &lt;= k)</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(fp,<span class="string">&quot;%2d. %d红球，%d黄球，%d黑球\n&quot;</span>, ++cnt, i, j, <span class="number">8</span> - i - j);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">fclose</span>(fp);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>运行与测试</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">g++ -o ex2 ex2.cpp</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./ex2  3 4 5</span></span><br><span class="line">// 3.txt</span><br><span class="line"> 1. 0红球，3黄球，5黑球</span><br><span class="line"> 2. 0红球，4黄球，4黑球</span><br><span class="line"> 3. 1红球，2黄球，5黑球</span><br><span class="line"> 4. 1红球，3黄球，4黑球</span><br><span class="line"> 5. 1红球，4黄球，3黑球</span><br><span class="line"> 6. 2红球，1黄球，5黑球</span><br><span class="line"> 7. 2红球，2黄球，4黑球</span><br><span class="line"> 8. 2红球，3黄球，3黑球</span><br><span class="line"> 9. 2红球，4黄球，2黑球</span><br><span class="line">10. 3红球，0黄球，5黑球</span><br><span class="line">11. 3红球，1黄球，4黑球</span><br><span class="line">12. 3红球，2黄球，3黑球</span><br><span class="line">13. 3红球，3黄球，2黑球</span><br><span class="line">14. 3红球，4黄球，1黑球</span><br></pre></td></tr></table></figure>
+<h3 id="模式匹配">模式匹配</h3>
+<p>在文件<code>3.txt</code>中查看是否有模式<code>abc*d?e</code>。若有，输出<code>找到abc*d?e匹配</code>；若无，则输出<code>没有找到abc*d?e匹配</code>，将结果输出到控制台。其中*代表任意个数（0或1或多个），？代表一个或零个，即正则表达式。</p>
+<ul>
+<li>思路：本题可以采用《编译原理》里面的确定的有限状态机（DFA）解决。先画出模式的DFA图，然后根据
+DFA 列出如下的状态跳转表，之后我们就可以采用 <strong>表驱动法</strong>
+进行编程实现了。可以参考力扣题目：<a href="https://leetcode.cn/problems/valid-number/">65.
+有效数字</a>，也是有关DFA的，有很详细的解答。</li>
+</ul>
+<p><img src="/post/3a86b2e7/image-20221102195829040.png" alt="image-20221102195829040" style="zoom:50%;"></p>
+<table>
+<thead>
+<tr class="header">
+<th>state</th>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+<th>d</th>
+<th>e</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>2</td>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>3</td>
+<td>4</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *fp;</span><br><span class="line">    fp = <span class="built_in">fopen</span>(<span class="string">&quot;3.txt&quot;</span>, <span class="string">&quot;r+&quot;</span>);</span><br><span class="line">    <span class="type">int</span> state;</span><br><span class="line">    <span class="type">int</span> move[<span class="number">5</span>][<span class="number">5</span>] = &#123;</span><br><span class="line">        &#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>&#125;, <span class="comment">// 多一行方便一一对应</span></span><br><span class="line">        &#123;<span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>&#125;,</span><br><span class="line">        &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>&#125;,</span><br><span class="line">        &#123;<span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>&#125;,</span><br><span class="line">        &#123;<span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>&#125;,</span><br><span class="line">    &#125;;</span><br><span class="line">    state = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> ((!<span class="built_in">feof</span>(fp)) &amp;&amp; (state != <span class="number">5</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">char</span> ch = <span class="built_in">fgetc</span>(fp);</span><br><span class="line">        <span class="keyword">if</span> ((<span class="string">&#x27;a&#x27;</span> &lt;= ch) &amp;&amp; (ch &lt;= <span class="string">&#x27;e&#x27;</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            state = move[state][ch - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            state = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (state == <span class="number">5</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;找到abc*d?e匹配\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;没有找到abc*d?e匹配\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="built_in">fclose</span>(fp);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">//3.txt</span><br><span class="line">aaaaaabbccddeeabeabccccde</span><br><span class="line">//run ex3</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">g++ -o ex3 ex3.cpp</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./ex3</span></span><br><span class="line">找到abc*d?e匹配</span><br></pre></td></tr></table></figure>
+<h3 id="二叉树后序遍历">二叉树后序遍历</h3>
+<p>从文件<code>4.txt</code>中读入一个二叉树，然后后序遍历该二叉树，将结果输出到文件<code>4.out</code>。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">输入格式：</span><br><span class="line"><span class="comment">// 表示节点个数</span></span><br><span class="line"><span class="comment">// 当前节点编号 左孩子编号 右孩子编号</span></span><br><span class="line"><span class="number">4</span> </span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">4</span> </span><br><span class="line"><span class="number">2</span> <span class="number">0</span> <span class="number">3</span></span><br><span class="line"><span class="number">3</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line"><span class="number">4</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">输出格式：</span><br><span class="line"><span class="number">3</span> <span class="number">2</span> <span class="number">4</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>思路</li>
+</ul>
+<p>这题的得分点其实挺多的，写出来树节点的结构体，创建树等等。读入每行树节点时，可以使用一个数组记录每个子树根节点的指针，方便使用节点编号就可以直接访问节点，从而添加孩子节点，最后从根即可访问到所有节点。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line">FILE *in_fp;</span><br><span class="line">FILE *out_fp;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 树节点</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> val;</span><br><span class="line">    node *lchild, *rchild;</span><br><span class="line">    <span class="built_in">node</span>(<span class="type">int</span> v) : <span class="built_in">val</span>(v), <span class="built_in">lchild</span>(<span class="literal">NULL</span>), <span class="built_in">rchild</span>(<span class="literal">NULL</span>) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 后序遍历（递归）</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">postOrder</span><span class="params">(node *root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">postOrder</span>(root-&gt;lchild);</span><br><span class="line">    <span class="built_in">postOrder</span>(root-&gt;rchild);</span><br><span class="line">    <span class="built_in">fprintf</span>(out_fp, <span class="string">&quot;%d &quot;</span>, root-&gt;val);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n; <span class="comment">// 树节点个数</span></span><br><span class="line">    in_fp = <span class="built_in">fopen</span>(<span class="string">&quot;4.txt&quot;</span>, <span class="string">&quot;r+&quot;</span>);</span><br><span class="line">    out_fp = <span class="built_in">fopen</span>(<span class="string">&quot;4.out&quot;</span>, <span class="string">&quot;w+&quot;</span>);</span><br><span class="line">    <span class="built_in">fscanf</span>(in_fp, <span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    node *tree[n + <span class="number">1</span>] = &#123;<span class="literal">NULL</span>&#125;; <span class="comment">// 保存节点的指针</span></span><br><span class="line">    <span class="type">int</span> r, a, b;</span><br><span class="line">    <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> rootId = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">fscanf</span>(in_fp, <span class="string">&quot;%d %d %d&quot;</span>, &amp;r, &amp;a, &amp;b)!=EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (cnt == <span class="number">0</span>)</span><br><span class="line">            rootId = r; <span class="comment">// 记录根节点的位置</span></span><br><span class="line">        <span class="keyword">if</span> (tree[r] == <span class="literal">NULL</span>)</span><br><span class="line">            tree[r] = <span class="keyword">new</span> <span class="built_in">node</span>(r);</span><br><span class="line">        <span class="keyword">if</span> (tree[a] == <span class="literal">NULL</span> &amp;&amp; a != <span class="number">0</span>)</span><br><span class="line">            tree[a] = <span class="keyword">new</span> <span class="built_in">node</span>(a);</span><br><span class="line">        <span class="keyword">if</span> (tree[b] == <span class="literal">NULL</span> &amp;&amp; b != <span class="number">0</span>)</span><br><span class="line">            tree[b] = <span class="keyword">new</span> <span class="built_in">node</span>(b);</span><br><span class="line">        tree[r]-&gt;lchild = tree[a];</span><br><span class="line">        tree[r]-&gt;rchild = tree[b];</span><br><span class="line">        cnt++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">postOrder</span>(tree[rootId]);</span><br><span class="line">    <span class="built_in">fclose</span>(in_fp);</span><br><span class="line">    <span class="built_in">fclose</span>(out_fp);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">// 4.txt</span><br><span class="line">4 </span><br><span class="line">1 2 4 </span><br><span class="line">2 0 3</span><br><span class="line">3 0 0</span><br><span class="line">4 0 0</span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">g++ -o ex4 ex4.cpp</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">./ex4</span></span><br><span class="line">// 4.out</span><br><span class="line">3 2 4 1 </span><br></pre></td></tr></table></figure>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><p><a href="https://zdszero.github.io/posts/ustc-test-2011/">中科大2011年复试机试题详解</a></p></li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/377692017">中科大计算机考研复试详解</a>
+这篇有很详细的复试介绍以及资料，非常推荐！</p></li>
+<li><p><a href="http://www.cskaoyan.com/thread-60279-1-10.html">中科大2011计算机考研复试上机(第三题)代码，附回忆版上机试题</a></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>考研</category>
+      </categories>
+      <tags>
+        <tag>刷题</tag>
+        <tag>代码</tag>
       </tags>
   </entry>
   <entry>
