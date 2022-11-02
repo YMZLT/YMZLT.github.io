@@ -232,7 +232,7 @@ chat:
 # ---------------------------------------------------------------
 
 # Automatically excerpt description in homepage as preamble text.
-excerpt_description: true
+excerpt_description: false
 
 # Read more button
 # If true, the read more button will be displayed in excerpt section.
@@ -626,7 +626,7 @@ valine:
   comment_count: true # If false, comment count will only be displayed in post page, not in home page
   recordIP: false # Whether to record the commenter IP
   serverURLs: # When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)
-  #post_meta_order: 0
+  post_meta_order: 0
 
 # LiveRe comments system
 # You can get your uid from https://livere.com/insight/myCode (General web site)
