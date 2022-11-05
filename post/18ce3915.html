@@ -22,20 +22,33 @@
     var CONFIG = {"hostname":"ymzlt.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="一开始保研失败，被列在候补名单中，只能去专项计划中的北京某高校，反复横跳了好久还是放弃了，然后才从零开始复习，慌得一批，考完觉得应该是陪跑了。寒假都没有复习直接去面试工作，没想到最后居然过了，果然不到最后一刻不能放弃。但是因为初试分比较低，最后踩线录取，感觉用光了半辈子的运气。。。现在记录一下中科大计算机考研复试的面试经历吧，希望对大家能有一点帮助，再给自己攒攒欧气。。。">
+  <meta name="description" content="记录一下高级数据库系统课程中的作业，作业一般是课堂重点内容或者拓展，认真做的话感觉对课堂内容的理解非常有帮助。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2022中科大CS考研面试记录">
-<meta property="og:url" content="https://ymzlt.github.io/post/7ad1122c.html">
+<meta property="og:title" content="高级数据库系统作业3">
+<meta property="og:url" content="https://ymzlt.github.io/post/18ce3915.html">
 <meta property="og:site_name" content="YMZ&#39;s Blog">
-<meta property="og:description" content="一开始保研失败，被列在候补名单中，只能去专项计划中的北京某高校，反复横跳了好久还是放弃了，然后才从零开始复习，慌得一批，考完觉得应该是陪跑了。寒假都没有复习直接去面试工作，没想到最后居然过了，果然不到最后一刻不能放弃。但是因为初试分比较低，最后踩线录取，感觉用光了半辈子的运气。。。现在记录一下中科大计算机考研复试的面试经历吧，希望对大家能有一点帮助，再给自己攒攒欧气。。。">
+<meta property="og:description" content="记录一下高级数据库系统课程中的作业，作业一般是课堂重点内容或者拓展，认真做的话感觉对课堂内容的理解非常有帮助。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-30T12:12:04.000Z">
-<meta property="article:modified_time" content="2022-10-30T13:40:06.325Z">
+<meta property="og:image" content="https://ymzlt.github.io/post/18ce3915/index.drawio.svg">
+<meta property="og:image" content="https://ymzlt.github.io/post/18ce3915/h1.svg">
+<meta property="og:image" content="https://ymzlt.github.io/post/18ce3915/h2.svg">
+<meta property="og:image" content="https://ymzlt.github.io/post/18ce3915/h3.svg">
+<meta property="og:image" content="https://ymzlt.github.io/post/18ce3915/h4.svg">
+<meta property="og:image" content="https://ymzlt.github.io/post/18ce3915/h5.svg">
+<meta property="og:image" content="https://ymzlt.github.io/post/18ce3915/line1.svg">
+<meta property="og:image" content="https://ymzlt.github.io/post/18ce3915/line2.svg">
+<meta property="og:image" content="https://ymzlt.github.io/post/18ce3915/line3.svg">
+<meta property="og:image" content="https://ymzlt.github.io/post/18ce3915/line4.svg">
+<meta property="article:published_time" content="2022-11-05T13:20:52.000Z">
+<meta property="article:modified_time" content="2022-11-05T14:01:26.243Z">
 <meta property="article:author" content="YMZ">
-<meta property="article:tag" content="复试">
+<meta property="article:tag" content="作业">
+<meta property="article:tag" content="B+树">
+<meta property="article:tag" content="散列表">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ymzlt.github.io/post/18ce3915/index.drawio.svg">
 
-<link rel="canonical" href="https://ymzlt.github.io/post/7ad1122c.html">
+<link rel="canonical" href="https://ymzlt.github.io/post/18ce3915.html">
 
 
 <script id="page-configurations">
@@ -48,7 +61,7 @@
   };
 </script>
 
-  <title>2022中科大CS考研面试记录 | YMZ's Blog</title>
+  <title>高级数据库系统作业3 | YMZ's Blog</title>
   
 
 
@@ -193,7 +206,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://ymzlt.github.io/post/7ad1122c.html">
+    <link itemprop="mainEntityOfPage" href="https://ymzlt.github.io/post/18ce3915.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -206,7 +219,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          2022中科大CS考研面试记录
+          高级数据库系统作业3
         </h1>
 
         <div class="post-meta">
@@ -216,7 +229,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2022-10-30 20:12:04" itemprop="dateCreated datePublished" datetime="2022-10-30T20:12:04+08:00">2022-10-30</time>
+              <time title="创建时间：2022-11-05 21:20:52" itemprop="dateCreated datePublished" datetime="2022-11-05T21:20:52+08:00">2022-11-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -224,7 +237,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%80%83%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">考研</span></a>
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
                 </span>
             </span>
 
@@ -244,8 +257,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/post/7ad1122c.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/7ad1122c.html" itemprop="commentCount"></span>
+    <a title="valine" href="/post/18ce3915.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/18ce3915.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -255,14 +268,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>873</span>
+              <span>2.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>4 分钟</span>
             </span>
 
         </div>
@@ -274,27 +287,161 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>一开始保研失败，被列在候补名单中，只能去专项计划中的北京某高校，反复横跳了好久还是放弃了，然后才从零开始复习，慌得一批，考完觉得应该是陪跑了。寒假都没有复习直接去面试工作，没想到最后居然过了，果然不到最后一刻不能放弃。但是因为初试分比较低，最后踩线录取，感觉用光了半辈子的运气。。。现在记录一下中科大计算机考研复试的面试经历吧，希望对大家能有一点帮助，再给自己攒攒欧气。。。</p>
+        <p>记录一下高级数据库系统课程中的作业，作业一般是课堂重点内容或者拓展，认真做的话感觉对课堂内容的理解非常有帮助。</p>
 <span id="more"></span>
-<p>因为疫情，今年还是线上面试，不过形式发生了一点点变化，面试前几天突然通知要PPT自我介绍（自我介绍中英文都是可以的，但是实际上面试的时候老师会要求英文的，不然老师怎么打分。。。）。因为原来看经验贴准备了英文自我介绍，所以我用中文做的PPT，然后用英文自我介绍（双保险）。</p>
-<h1 id="关于自我介绍ppt">关于自我介绍PPT</h1>
-<p>我从四个方面介绍的：学业表现、荣誉与奖项、项目与比赛、研究志向（感兴趣的方向、目标等）。</p>
-<h1 id="面试流程">面试流程</h1>
-<h2 id="英文提问">英文提问</h2>
+<h1 id="b树索引优化">B+树索引优化</h1>
+<blockquote>
+<p>1、假设我们在数据库中设计了如下基本表来存储文献：paper(id: int,
+title: varchar(200), abstract:
+varchar(1000))。最常见的文献查询可以描述为“查询 title
+中同时包含给定关键词的文献”，关键词可以是一个，也可以是多个。请回答下面问题（假设所有文献都是英文文献）：</p>
+<p>1）假如在 title 上创建了 B+-tree
+索引，能不能提高此查询的效率（须解释理由）？</p>
+<p>2）由于文献 title
+的关键词中存在很多重复词语，因此上述文献查询可以借鉴我们课上讲述的支持重复键值的辅助索引技术来进一步优化。请基于此思想画出一种优化的索引结构，简要说明该索引上的记录插入过程以及文献查询过程。</p>
+</blockquote>
+<p><strong>解：</strong>1）如果查询字段上建有B+树索引，查询效率与模糊查询的方式有关。分两种情况：</p>
+<p>LIKE
+a%：若LIKE中的查询条件是由常量字符串开头的，则B+树索引有效。因为查询时可首先通过B+树的根节点确定字符串所在的子树，并且根据前缀字符串可以继续往下比较，缩小搜索范围。因此，与没有B+树索引时相比，有B+树索引时最后查询的范围可缩小到前缀字符串开头的键值集合，从而提高了查询效率。</p>
+<p>LIKE
+%a：若LIKE中的查询条件是由通配符开头的，则B+树索引无助于查询效率的提高。因为即使有B+树索引，查询时最坏情况下仍要搜索整个索引和整个记录集合，因为引入了索引查找的额外代价，所以与没有索引时相比，查询效率不但没有提高，反而下降了。</p>
+<p>“查询 title 中同时包含给定关键词的文献”的sql语句可以表示为：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> </span><br><span class="line"><span class="keyword">from</span> paper</span><br><span class="line"><span class="keyword">where</span> title <span class="keyword">LIKE</span> <span class="operator">%</span>keyword1<span class="operator">%</span> <span class="keyword">and</span> title <span class="keyword">LIKE</span> <span class="operator">%</span>keyword2<span class="operator">%</span> <span class="keyword">and</span> ....</span><br></pre></td></tr></table></figure>
+<p>除非查询的是开头的关键词，否则无法提高查询效率。</p>
+<p>2）使用辅助索引中的间接桶进行优化。如图所示：</p>
+<p><img src="/post/18ce3915/index.drawio.svg"></p>
+<p><strong>记录插入过程：</strong>当插入一个新的paper记录时，
+对其title字段分词，得到多个keyword，如果 keyword
+已经存在则将其插入到相应的桶中，如果不存在则创建桶，并将paper的指针写入。</p>
+<p><strong>文献查询过程：</strong>假设有n个关键词，先通过辅助索引找出所有关键词的指针集合（即间接桶中的所有元素），然后求指针集的交集，就可以得到包含所有关键词的文献指针，再根据得到的指针去访问外存。如图中所示，假设查询title同时包含keyword2和keyword3的文献，可以根据该方法直接定位到paper3。</p>
+<h1 id="散列表">散列表</h1>
+<blockquote>
+<p><strong>2.</strong> 假设有如下的键值，现用 5
+位二进制序列来表示每个键值的 hash 值。回答问题：</p>
+<p><strong>A [11001] B [00111] C [00101] D [00110] E [10100] F [01000] G
+[00011] </strong></p>
+<p><strong>H [11110] I [10001] J [01101] K [10101] L [11100] M [01100] N
+[11111]</strong></p>
+<p>1） 如果将上述键值按 A 到 N
+的顺序插入到可扩展散列索引中，若每个桶大小为一个磁盘块，每个磁盘块最多可容纳
+3
+个键值，且初始时散列索引为空，则全部键值插入完成后该散列索引中共有几个桶？并请写出键值
+E 所在的桶中的全部键值。</p>
+<p>2）
+前一问题中，如果换成线性散列索引，其余假设不变，同时假设只有当插入新键值后空间利用率大于
+80%时才增加新的桶，则全部键值按序插入完成后该散列索引中共有几个桶？并请写出键值
+B 所在的桶中的全部键值（包括溢出块中的键值）。</p>
+</blockquote>
+<p><strong>解：</strong>1）<strong>可扩展散列索引：</strong>全部插入后共有6个桶，E所在桶中的全部键值为：E
+[10100],I [10001],K [10101]</p>
+<p>插入过程如下：</p>
+<p>（1）插入A [11001] B [00111] C [00101] D [00110] E [10100]</p>
+<p><img src="/post/18ce3915/h1.svg"></p>
+<p>（2）插入F [01000]扩展</p>
+<p><img src="/post/18ce3915/h2.svg"></p>
+<p>（3）插入G [00011] 扩展</p>
+<p><img src="/post/18ce3915/h3.svg"></p>
+<p>（4）插入H [11110] I [10001]再扩展</p>
+<p><img src="/post/18ce3915/h4.svg"></p>
+<p>（5）插入J [01101] K [10101] L [11100] M [01100] N [11111]</p>
+<p><img src="/post/18ce3915/h5.svg"></p>
+<p>2）<strong>线性散列索引：</strong>插入完成后该散列索引中共有6个桶，B所在桶中全部键值：B
+[00111] ，G [00011] ，N [11111]</p>
+<p>插入过程如下：</p>
+<p><img src="/post/18ce3915/line1.svg"></p>
+<p><img src="/post/18ce3915/line2.svg"></p>
+<p><img src="/post/18ce3915/line3.svg"></p>
+<p>最后：</p>
+<p><img src="/post/18ce3915/line4.svg"></p>
+<h1 id="压缩b树">压缩B+树</h1>
+<blockquote>
+<p>3、对于 B+树，假设有以下的参数：</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 28%">
+<col style="width: 8%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>参数</strong></th>
+<th><strong>含义</strong></th>
+<th><strong>参数</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>N</em></td>
+<td>记录数</td>
+<td><em>S</em></td>
+<td>读取一个磁盘块时的寻道时间</td>
+</tr>
+<tr class="even">
+<td><em>n</em></td>
+<td>B+树的阶，即节点能容纳的键数</td>
+<td><em>T</em></td>
+<td>读取一个磁盘块时的传输时间</td>
+</tr>
+<tr class="odd">
+<td><em>R</em></td>
+<td>读取一个磁盘块时的旋转延迟</td>
+<td><em>m</em></td>
+<td>在内存的 <em>m</em> 条记录中查找 1 条记录的时间 （线性查找）</td>
+</tr>
+</tbody>
+</table>
+<p>假设所有磁盘块都不在内存中。现在我们考虑一种压缩 B+树，即对
+B+树的节点键值进行压缩存储。假设每个节点中的键值压缩 1
+倍，即每个节点在满的情况下可压缩存储 2<em>n</em>个压缩前的键值和
+2<em>n</em>+1
+个指针。额外代价是记录读入内存后必须解压，设每个压缩键值的内存解压时间为
+<em>c</em>。给定 N 条记录，现使用压缩 B+树进行索引，请问在一棵满的
+<em>n</em> 阶压缩 B+
+树中查找给定记录地址的时间是多少？（使用表格中的参数表示，<em>n</em>＋1
+或 <em>n</em>-1 可近似表示为 <em>n</em>）？</p>
+</blockquote>
+<p><strong>解：</strong>满n阶B+树非叶节点n个子节点，所以N条记录的B+树深度为<span class="math inline">\(log_n{N}\)</span></p>
+<p>未压缩时查找给定记录地址的时间：</p>
 <ul>
-<li>介绍一下项目</li>
+<li><p>每次查找访问的节点数量 = B+树深度 = <span class="math inline">\(log_n{N}\)</span></p></li>
+<li><p>读一个磁盘块的时间 = 寻道时间+旋转延迟+传输时间 = S+R+T</p></li>
+<li><p>B+树的非叶子节点大小 = 页大小，读取一页需要一次IO</p></li>
+<li><p>查找给定记录地址的IO次数 = 查找时访问的节点数量 =<span class="math inline">\(log_n{N}\)</span></p></li>
+<li><p>查找给定记录地址的时间 =
+查找时访问的节点数量*（节点内线性查找的时间+节点读入内存时间） = <span class="math inline">\((m+S+R+T)log_n{N}\)</span></p></li>
 </ul>
-<p>看我自我介绍里面提到的项目，就让我用英文介绍一下。这个问题我没怎么准备，就说了数据集，使用的模型等等，实在扯不下去就停了。</p>
+<p>压缩后查找给定记录地址的时间：</p>
 <ul>
-<li>最喜欢的课程</li>
+<li><em>n</em> 阶B+树一个节点存储 <em>n</em> 个键值和 <em>n</em>+1
+个指针</li>
+<li>键值压缩 1
+倍相当于一个节点存储之前的两个节点数据，所以查找时访问的节点数量减半</li>
+<li>查找给定记录地址的IO次数 = 查找时访问的节点数量 =<span class="math inline">\(\frac{1}{2}log_n{N}\)</span></li>
+<li>节点读入内存后键值解压时间 = 节点中键值数*单个键值的内存解压时间 =
+<span class="math inline">\(2n*c\)</span></li>
+<li><em>n</em> 阶压缩 B+ 树查找给定记录地址的时间 =
+查找时访问的节点数量*（节点读入内存时间+压缩键值的内存解压时间+节点内线性查找的时间）
+= <span class="math inline">\((S+R+T+2nc+m)/2*log_n{N}\)</span></li>
 </ul>
-<p>问英文的老师离屏幕很远，没听清问题，就让老师重复了一边，然后终于反应过来是说的是course……那边老师都笑了，哎，尴尬。我终于反应过来以后，说了事先想好的回答：算法设计与分析。然后说了这门课讲了啥，我学到了啥。</p>
-<h2 id="专业问题">专业问题</h2>
-<p>我说了最喜欢的课是算法设计与分析，然后某个和蔼的老师（可能是面试组的组长）就问我这门课学了什么，我提到了贪心算法，然后继续问我举几个贪心算法的例子，我举了数据结构上最小生成树和哈夫曼编码的例子。继续问最小生成树有哪些算法，我说普利姆算法和克鲁斯卡尔算法，以及具体的原理。他问有向图能否用这个算法，没回答上来……老师语重心长地说要学深入一点，我就嗯嗯，笑笑，说确实。</p>
-<p>另一个老师问了项目的细节，比如项目的应用背景，还有数据集来源等等。</p>
-<p>最后组长说我回答的不错，还问我成绩这么好为什么没有免试，我就实话实说了，比赛结果出来的比较晚，错过了保研材料提交的时间，最后只在候补名单中，然后下定决定复习考研了。</p>
-<h1 id="后记">后记</h1>
-<p>祝大家成功上岸！</p>
+<p><strong>补充：</strong>B+树的阶n是事先计算得到的，计算的依据是让键值和指针的大小正好等于页的大小。原因如下：</p>
+<blockquote>
+<p>B+
+树在搜索过程中，需要从磁盘IO来读取节点的数据。我们知道磁盘IO一次读取的数据大小为一页。
+如果非叶子节点的大小 &gt;
+页大小，那么意味着搜索过程中，为了获取一个完整节点来查找数据，我们需要多次IO来获取这个节点，这显然非常消耗时间。所以非叶子节点的大小不能超过一页。
+那如果非叶子节点的体积非常小呢？这就意味着B+树的分叉就少，B+树的总节点数会变多、深度变大。B+树利用指针构成的树形结构，意味着每个节点在磁盘上是不连续的，B+树的深度变大了，意味着搜索时访问的节点数量变多，IO次数也变多了。
+因此，非叶子节点过大、过小，都会导致IO次数增加。所以最合适的非叶子节点大小
+= 页大小。</p>
+</blockquote>
+<h1 id="参考">参考</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45457983/article/details/103646162">数据库中可扩展散列索引</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/402951795">B+
+树搜索时间复杂度到底是什么：mlogmN / logN？</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/wufeifan_learner/article/details/109724836">关于B+树的时间复杂度分析</a></li>
+</ul>
 
     </div>
 
@@ -316,7 +463,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%A4%8D%E8%AF%95/" rel="tag"><i class="fa fa-tag"></i> 复试</a>
+              <a href="/tags/%E4%BD%9C%E4%B8%9A/" rel="tag"><i class="fa fa-tag"></i> 作业</a>
+              <a href="/tags/B-%E6%A0%91/" rel="tag"><i class="fa fa-tag"></i> B+树</a>
+              <a href="/tags/%E6%95%A3%E5%88%97%E8%A1%A8/" rel="tag"><i class="fa fa-tag"></i> 散列表</a>
           </div>
 
         
@@ -325,13 +474,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/post/ba783922.html" rel="prev" title="中科大计算机系统实验1&2&3">
-      <i class="fa fa-chevron-left"></i> 中科大计算机系统实验1&2&3
+    <a href="/post/a38fe35d.html" rel="prev" title="USTC计科复试刷题记录/2012">
+      <i class="fa fa-chevron-left"></i> USTC计科复试刷题记录/2012
     </a></div>
-      <div class="post-nav-item">
-    <a href="/post/5d434990.html" rel="next" title="2022中科大CS考研面试问题整理">
-      2022中科大CS考研面试问题整理 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -391,7 +537,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8Dppt"><span class="nav-number">1.</span> <span class="nav-text">关于自我介绍PPT</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9D%A2%E8%AF%95%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">面试流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8B%B1%E6%96%87%E6%8F%90%E9%97%AE"><span class="nav-number">2.1.</span> <span class="nav-text">英文提问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%93%E4%B8%9A%E9%97%AE%E9%A2%98"><span class="nav-number">2.2.</span> <span class="nav-text">专业问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-number">3.</span> <span class="nav-text">后记</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#b%E6%A0%91%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96"><span class="nav-number">1.</span> <span class="nav-text">B+树索引优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%A3%E5%88%97%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text">散列表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8E%8B%E7%BC%A9b%E6%A0%91"><span class="nav-number">3.</span> <span class="nav-text">压缩B+树</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
