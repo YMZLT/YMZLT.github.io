@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-pig.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-pig.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-pig.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="Rue56VcjrUaHiC0M1WyxObGCdA-Wkl0teZUEbdYG_-U">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ymzlt.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="本文记录中科大研究生课程——《存储与文件系统》的EC实验。使用Jerasure纠删码函数库实现经典的EC算法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实现经典的EC算法">
+<meta property="og:url" content="https://ymzlt.github.io/post/84dce0b4.html">
+<meta property="og:site_name" content="YMZ&#39;s Blog">
+<meta property="og:description" content="本文记录中科大研究生课程——《存储与文件系统》的EC实验。使用Jerasure纠删码函数库实现经典的EC算法。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ymzlt.github.io/post/84dce0b4/image-20221116135954702.png">
+<meta property="og:image" content="https://ymzlt.github.io/post/84dce0b4/image-20221116140037758.png">
+<meta property="og:image" content="https://ymzlt.github.io/post/84dce0b4/image-20221116153502309.png">
+<meta property="og:image" content="https://ymzlt.github.io/post/84dce0b4/image-20221108140018794.png">
+<meta property="og:image" content="https://ymzlt.github.io/post/84dce0b4/image-20221116142442339.png">
+<meta property="og:image" content="https://ymzlt.github.io/post/84dce0b4/image-20221116142512703.png">
+<meta property="og:image" content="https://ymzlt.github.io/post/84dce0b4/image-20221108141346678.png">
+<meta property="og:image" content="https://ymzlt.github.io/post/84dce0b4/image-20221108141609282.png">
+<meta property="og:image" content="https://ymzlt.github.io/post/84dce0b4/image-20221108141949443.png">
+<meta property="og:image" content="https://ymzlt.github.io/post/84dce0b4/image-20221108155336005.png">
+<meta property="og:image" content="https://ymzlt.github.io/post/84dce0b4/image-20221108160607974.png">
+<meta property="og:image" content="https://ymzlt.github.io/post/84dce0b4/image-20221116144049179.png">
+<meta property="og:image" content="https://ymzlt.github.io/post/84dce0b4/image-20221116154223175.png">
+<meta property="og:image" content="https://ymzlt.github.io/post/84dce0b4/image-20221116152132002.png">
+<meta property="og:image" content="https://ymzlt.github.io/post/84dce0b4/image-20221116152529874.png">
+<meta property="og:image" content="https://ymzlt.github.io/post/84dce0b4/image-20221116153016004.png">
+<meta property="article:published_time" content="2022-11-16T07:55:22.000Z">
+<meta property="article:modified_time" content="2022-11-16T08:03:57.374Z">
+<meta property="article:author" content="YMZ">
+<meta property="article:tag" content="EC">
+<meta property="article:tag" content="纠删码">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ymzlt.github.io/post/84dce0b4/image-20221116135954702.png">
+
+<link rel="canonical" href="https://ymzlt.github.io/post/84dce0b4.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>实现经典的EC算法 | YMZ's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">YMZ's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">种一棵树最好是什么时候？</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ymzlt.github.io/post/84dce0b4.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="YMZ">
+      <meta itemprop="description" content="十年前和现在">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YMZ's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          实现经典的EC算法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-11-16 15:55:22" itemprop="dateCreated datePublished" datetime="2022-11-16T15:55:22+08:00">2022-11-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%9E%E9%AA%8C/" itemprop="url" rel="index"><span itemprop="name">实验</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/84dce0b4.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/84dce0b4.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>9 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本文记录中科大研究生课程——《存储与文件系统》的EC实验。使用Jerasure纠删码函数库实现经典的EC算法。</p>
+<span id="more"></span>
+<h1 id="实验介绍">实验介绍</h1>
+<p>Jerasure是一个C/C++纠删码函数库，提供了编解码过程中可直接调用的工具函数。本次实验要求将多个经典的EC编码实现在Jerasure库中。</p>
+<p>可使用函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *<span class="title function_">cauchy_good_general_coding_matrix</span><span class="params">(<span class="type">int</span> k, <span class="type">int</span> m, <span class="type">int</span> w)</span></span><br><span class="line"><span class="comment">//函数功能：生成编码矩阵（柯西矩阵）的函数，返回编码矩阵的最后m行</span></span><br><span class="line"><span class="comment">//k: 数据块个数</span></span><br><span class="line"><span class="comment">//m: 校验块个数</span></span><br><span class="line"><span class="comment">//w: word size</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">jerasure_matrix_dotprod</span><span class="params">(<span class="type">int</span> k, <span class="type">int</span> w, <span class="type">int</span> *matrix_row,<span class="type">int</span> *src_ids, <span class="type">int</span> dest_id,</span></span><br><span class="line"><span class="params"><span class="type">char</span> **data_ptrs, <span class="type">char</span> **coding_ptrs, <span class="type">int</span> size)</span></span><br><span class="line"><span class="comment">//函数功能：编解码矩阵的某一行与k个块进行乘法运算</span></span><br><span class="line"><span class="comment">//k: 数据块个数</span></span><br><span class="line"><span class="comment">//w: word size</span></span><br><span class="line"><span class="comment">//matrix_row：编解码矩阵的某一行</span></span><br><span class="line"><span class="comment">//src_ids: 计算所用的源块</span></span><br><span class="line"><span class="comment">//dest_id: 计算目标块号</span></span><br><span class="line"><span class="comment">//data_ptrs: 数据块指针</span></span><br><span class="line"><span class="comment">//coding_ptrs: 校验块指针</span></span><br><span class="line"><span class="comment">//size: 数据块大小</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">galois_w08_region_multiply</span><span class="params">(<span class="type">char</span> *region, <span class="type">int</span> multby, <span class="type">int</span> nbytes, <span class="type">char</span> *r2, <span class="type">int</span> add)</span></span><br><span class="line"><span class="comment">//函数功能：在有限域$GF(2^8)$下对region所有数据乘以常数multby，结果存在r2中</span></span><br><span class="line"><span class="comment">//region：进行乘法的数据</span></span><br><span class="line"><span class="comment">//multby：乘数</span></span><br><span class="line"><span class="comment">//nbytes：region大小</span></span><br><span class="line"><span class="comment">//r2：乘法结果</span></span><br><span class="line"><span class="comment">//add：目的块r2是否初始化，0表示未初始化，1表示已经初始化</span></span><br><span class="line"><span class="comment">//galois_w16_region_multiply() 和 galois_w32_region_multiply() 类似，分别表示在有限域和 下进行乘法运算:</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">galois_region_xor</span><span class="params">(<span class="type">char</span> *src, <span class="type">char</span> *dest,<span class="type">int</span> nbytes)</span></span><br><span class="line"><span class="comment">//函数功能：src和dest指向的两个块进行异或运算，结果存在dest中</span></span><br><span class="line"><span class="comment">//src:源块</span></span><br><span class="line"><span class="comment">//dest：目标块</span></span><br><span class="line"><span class="comment">//nbytes：块大小</span></span><br></pre></td></tr></table></figure>
+<h1 id="实验环境">实验环境</h1>
+<table>
+<thead>
+<tr class="header">
+<th>CPU</th>
+<th>Intel(R) Xeon(R) Silver 4110 CPU @ 2.10GHz</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>内存</td>
+<td>4194304 kB</td>
+</tr>
+<tr class="even">
+<td>操作系统</td>
+<td>Ubuntu 20.04.3 (64位)</td>
+</tr>
+<tr class="odd">
+<td>C/C++编译器</td>
+<td>gcc version 9.4.0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="任务三-实现raid-6编码">任务三 实现RAID-6编码</h1>
+<h2 id="任务">任务</h2>
+<ul>
+<li>给定一个大小为1GB的文件的路径，生成由(4,2)
+RAID-6编码得到的数据块和校验块文件（块大小：16MB），并计算编码吞吐量；</li>
+<li>模拟当一个节点故障，修复该节点上的所有块，计算修复的吞吐量。</li>
+</ul>
+<h2 id="编码">编码</h2>
+<p>RAID-6编码采用P+Q两冗余分块以容许任意两磁盘并发同时失效的存储级别。以(4,2)
+RAID-6为例，一个条带的编码过程可以表示为：</p>
+<p><img src="/post/84dce0b4/image-20221116135954702.png" style="zoom:80%;"></p>
+<p>实现步骤：</p>
+<ul>
+<li>调用Jerasure提供的接口<code>cauchy_good_general_coding_matrix</code>生成一个m*k的基于有限域的柯西矩阵。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> RAID6:</span><br><span class="line">		matrix = cauchy_good_general_coding_matrix(k, m, w); <span class="comment">// 生成编码矩阵（柯西矩阵）的函数，返回编码矩阵的最后m行</span></span><br><span class="line">		<span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>调用接口<code>jerasure_matrix_dotprod</code>，将生成的柯西编码矩阵与k个数据块进行乘法运算，最后得到m个校验块。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">raid6_encode</span><span class="params">(<span class="type">int</span> k, <span class="type">int</span> m, <span class="type">int</span> w, <span class="type">int</span> *matrix,</span></span><br><span class="line"><span class="params">				  <span class="type">char</span> **data_ptrs, <span class="type">char</span> **coding_ptrs, <span class="type">int</span> size)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> i;</span><br><span class="line">	<span class="comment">// 编码矩阵(柯西矩阵)与k个数据块进行乘法运算 得到m个校验块</span></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		jerasure_matrix_dotprod(k, w, matrix + (i * k), <span class="literal">NULL</span>, k + i, data_ptrs, coding_ptrs, size);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="解码">解码</h2>
+<p>当某一数据块不可用时，需要从剩余块中读取4个块，并解码恢复出数据块。例如，当<span class="math inline">\(D_{i,0}\)</span>不可用时，可以读取<span class="math inline">\(D_{i,1},D_{i,2},D_{i,3},P_i\)</span>进行解码，计算过程如下：</p>
+<p><img src="/post/84dce0b4/image-20221116140037758.png" style="zoom:80%;"></p>
+<p>RAID-6解码过程最核心的就是求出编码矩阵的逆矩阵，与剩余完好的盘块矩阵相乘即可恢复。这里参考了<code>jerasure_matrix_decode</code>接口函数的解码过程，使用lastdrive对数据盘和校验盘分开处理，只有在有坏块且坏块是数据盘才需要生成逆矩阵，对于损坏的校验盘直接重新生成。</p>
+<p>实现步骤：</p>
+<ul>
+<li>根据erasures生成erased数组 记录每个磁盘的状态</li>
+<li>生成解码矩阵（只有在有坏块且坏块是数据盘才需要生成逆矩阵）</li>
+<li>根据生成的解码矩阵 解码数据磁盘块</li>
+<li>重新生成所有剩下的坏磁盘块（此时应该只有校验盘块需要被修复）</li>
+</ul>
+<p>解码函数如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">raid6_decode</span><span class="params">(<span class="type">int</span> k, <span class="type">int</span> m, <span class="type">int</span> w, <span class="type">int</span> *matrix, <span class="type">int</span> row_k_ones, <span class="type">int</span> *erasures,</span></span><br><span class="line"><span class="params">                 <span class="type">char</span> **data_ptrs, <span class="type">char</span> **coding_ptrs, <span class="type">int</span> size)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> i, edd, lastdrive;</span><br><span class="line">    <span class="type">int</span> *tmpids;</span><br><span class="line">    <span class="type">int</span> *erased, *decoding_matrix, *dm_ids;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (w != <span class="number">8</span> &amp;&amp; w != <span class="number">16</span> &amp;&amp; w != <span class="number">32</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="comment">/* 根据erasures生成erased数组 记录每个磁盘的状态 */</span></span><br><span class="line">    erased = talloc(<span class="type">int</span>, (k + m));</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; m + k; i++)</span><br><span class="line">        erased[i] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; m - <span class="number">1</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (erased[erasures[i]] == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            erased[erasures[i]] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/* 记录被擦除的磁盘块数 */</span></span><br><span class="line">    edd = <span class="number">0</span>;</span><br><span class="line">    lastdrive = k;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; k; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (erased[i])</span><br><span class="line">        &#123;</span><br><span class="line">            edd++;</span><br><span class="line">            lastdrive = i; <span class="comment">// 记录最后一个坏数据盘号</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果没有数据盘被损坏或者第一个校验盘被损坏则将k记录最后要扫描的磁盘号</span></span><br><span class="line">    <span class="comment">// 因为校验盘不需要生成逆矩阵</span></span><br><span class="line">    <span class="keyword">if</span> (!row_k_ones || erased[k]) </span><br><span class="line">        lastdrive = k; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 生成解码矩阵 只有在有坏块且坏块是数据盘才需要生成逆矩阵*/</span></span><br><span class="line"></span><br><span class="line">    dm_ids = <span class="literal">NULL</span>;</span><br><span class="line">    decoding_matrix = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (edd &gt; <span class="number">1</span> || (edd &gt; <span class="number">0</span> &amp;&amp; (!row_k_ones || erased[k])))</span><br><span class="line">    &#123;</span><br><span class="line">        dm_ids = talloc(<span class="type">int</span>, k);</span><br><span class="line">        decoding_matrix = talloc(<span class="type">int</span>, k *k);</span><br><span class="line">        <span class="keyword">if</span> (jerasure_make_decoding_matrix(k, m, w, matrix, erased, decoding_matrix, dm_ids) &lt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">free</span>(erased);</span><br><span class="line">            <span class="built_in">free</span>(dm_ids);</span><br><span class="line">            <span class="built_in">free</span>(decoding_matrix);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/* 根据生成的解码矩阵 解码数据磁盘块 */</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; edd &gt; <span class="number">0</span> &amp;&amp; i &lt; lastdrive; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (erased[i])</span><br><span class="line">        &#123;</span><br><span class="line">            jerasure_matrix_dotprod(k, w, decoding_matrix + (i * k), dm_ids, i, data_ptrs, coding_ptrs, size);</span><br><span class="line">            edd--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 如果还有磁盘未被修复 则应该是包括最后的一个数据块 */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (edd &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        tmpids = talloc(<span class="type">int</span>, k);</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; k; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            tmpids[i] = (i &lt; lastdrive) ? i : i + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        jerasure_matrix_dotprod(k, w, matrix, tmpids, lastdrive, data_ptrs, coding_ptrs, size);</span><br><span class="line">        <span class="built_in">free</span>(tmpids);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 重新生成所有剩下的坏磁盘块 此时应该只有校验盘块需要被修复 */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (erased[k + i])</span><br><span class="line">        &#123;</span><br><span class="line">            jerasure_matrix_dotprod(k, w, matrix + (i * k), <span class="literal">NULL</span>, i + k, data_ptrs, coding_ptrs, size);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">free</span>(erased);</span><br><span class="line">    <span class="keyword">if</span> (dm_ids != <span class="literal">NULL</span>)</span><br><span class="line">        <span class="built_in">free</span>(dm_ids);</span><br><span class="line">    <span class="keyword">if</span> (decoding_matrix != <span class="literal">NULL</span>)</span><br><span class="line">        <span class="built_in">free</span>(decoding_matrix);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="测试">测试</h2>
+<ul>
+<li>使用随机生成的矩阵模拟磁盘数据，测试解码和编码，结果如下：</li>
+</ul>
+<p><img src="/post/84dce0b4/image-20221116153502309.png" style="zoom: 50%;"></p>
+<ul>
+<li>生成指定大小为1G的文件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd if=./data/test.txt of=./data/test_1G.txt count=1 bs=1G</span><br></pre></td></tr></table></figure>
+<p>查看生成文件大小：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ./data</span><br><span class="line">ll -h</span><br></pre></td></tr></table></figure>
+<p><img src="/post/84dce0b4/image-20221108140018794.png"></p>
+<p>在Example文件夹下新建文件<code>a_my_encoder.c</code>和<code>a_my_decoder.c</code>，复制<code>encoder.c</code>和<code>decoder.c</code>中的内容到新建的文件中。修改文件输入算法列表，添加RAID-6的编码和解码算法。并将新建的文件添加到<code>Makefile.am</code>文件中，这样就可以生成可执行文件了。</p>
+<p><img src="/post/84dce0b4/image-20221116142442339.png" style="zoom: 50%;"></p>
+<p><img src="/post/84dce0b4/image-20221116142512703.png" style="zoom: 50%;"></p>
+<ul>
+<li><strong>编译：</strong>在项目根目录下使用make编译。</li>
+<li><strong>编码：</strong>再进入Example文件夹下，使用RAID-6算法对之前生成的1G文件进行编码，在当前目录的Coding文件夹下生成4个数据块文件、2个校验块文件和1个元数据文件。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./a_my_encoder &#x27;data/test_1G.txt&#x27; 4 2 &#x27;RAID6&#x27; 8 8 1024</span><br></pre></td></tr></table></figure>
+<p><img src="/post/84dce0b4/image-20221108141346678.png"></p>
+<p><img src="/post/84dce0b4/image-20221108141609282.png"></p>
+<ul>
+<li><strong>解码：</strong>删掉1个数据文件<code>test_1G_k1.txt</code>，解码出原始文件<code>test_1G_decoded.txt</code>。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./a_my_decoder &#x27;data/test_1G.txt&#x27;</span><br></pre></td></tr></table></figure>
+<p><img src="/post/84dce0b4/image-20221108141949443.png"></p>
+<h1 id="任务四-实现rotated-rs编码">任务四 实现Rotated RS编码</h1>
+<h2 id="任务-1">任务</h2>
+<ul>
+<li>给定一个大小为1.5GB的文件的路径，生成由(6,3) Rotated
+RS编码得到的数据块和校验块文件（块大小：16MB），并计算编码吞吐量；<br>
+</li>
+<li>模拟当一个数据节点发生故障，修复该节点上的所有块，计算修复的吞吐量；<br>
+</li>
+<li>模拟当一个校验节点发生故障，修复该节点上的所有块，计算修复的吞吐量。</li>
+</ul>
+<h2 id="编码-1">编码</h2>
+<p>Rotated RS和标准的RS码相比减少了降级读和修复时的磁盘IO。Rotated
+RS编码原理如下：</p>
+<p><img src="/post/84dce0b4/image-20221108155336005.png" style="zoom: 67%;"></p>
+<p><img src="/post/84dce0b4/image-20221108160607974.png" style="zoom: 50%;"></p>
+<p>实现思路：利用上述公式进行编码，将每块磁盘分成 r
+块。根据参考论文的实验，(6,3) Rotated RS编码在r=4时效果比较好。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">rotatedrs_encode</span><span class="params">(<span class="type">int</span> k, <span class="type">int</span> m, <span class="type">int</span> w, <span class="type">char</span> **data_ptrs, <span class="type">char</span> **coding_ptrs, <span class="type">int</span> size)</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="type">int</span> r = <span class="number">4</span>;</span><br><span class="line">  <span class="type">int</span> ssize = size / r;  <span class="comment">// size : 一个磁盘块数据的大小</span></span><br><span class="line">  <span class="type">int</span> i, j;</span><br><span class="line">  <span class="type">char</span> *temp_data;</span><br><span class="line"> </span><br><span class="line">  <span class="comment">/*首先计算第一个校验盘:C0*/</span></span><br><span class="line">  <span class="built_in">memcpy</span>(coding_ptrs[<span class="number">0</span>], data_ptrs[<span class="number">0</span>], size); <span class="comment">// C0 = D0</span></span><br><span class="line">  <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; k; i++) <span class="comment">// C0 = D0^D1^D2^D3^D4^D5 k=6</span></span><br><span class="line">    galois_region_xor(data_ptrs[i], coding_ptrs[<span class="number">0</span>], size);</span><br><span class="line"></span><br><span class="line">  temp_data = talloc(<span class="type">char</span>, size);</span><br><span class="line">  <span class="comment">/* 按照系数计算剩余的校验盘*/</span></span><br><span class="line">  <span class="keyword">for</span> (j = <span class="number">1</span>; j &lt; m; j++)&#123;</span><br><span class="line">    <span class="type">int</span> mid = k * j / m; 						<span class="comment">// 分左右两边不同处理</span></span><br><span class="line">    <span class="built_in">memcpy</span>(coding_ptrs[j], data_ptrs[<span class="number">0</span>], size); <span class="comment">// 初始化校验盘C[j]</span></span><br><span class="line">    <span class="keyword">for</span> (i = k - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">      <span class="keyword">if</span> (i &lt; mid)&#123; 							<span class="comment">// 将左边的每个区间的数据按模r偏移</span></span><br><span class="line">        <span class="type">int</span> b;</span><br><span class="line">        <span class="keyword">for</span> (b = <span class="number">0</span>; b &lt; r; b++)</span><br><span class="line">        	<span class="built_in">memcpy</span>(temp_data + b * ssize, data_ptrs[i] + ssize * ((b + <span class="number">1</span>) % r), ssize);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> 										<span class="comment">// 右边区间数据保持顺序不变</span></span><br><span class="line">          <span class="built_in">memcpy</span>(temp_data, data_ptrs[i], size);</span><br><span class="line">      <span class="keyword">switch</span> (w) 								<span class="comment">// 将要进行异或的盘块乘以相应的系数 2^&#123;i*j&#125;</span></span><br><span class="line">      &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">        galois_w08_region_multiply(temp_data, <span class="number">1</span> &lt;&lt; (i * j), size, temp_data, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">16</span>:</span><br><span class="line">        galois_w16_region_multiply(temp_data, <span class="number">1</span> &lt;&lt; (i * j), size, temp_data, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">32</span>:</span><br><span class="line">        galois_w32_region_multiply(temp_data, <span class="number">1</span> &lt;&lt; (i * j), size, temp_data, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      galois_region_xor(temp_data, coding_ptrs[j], size); <span class="comment">// 对处理好的盘块数据依次异或</span></span><br><span class="line">    &#125;</span><br><span class="line">    galois_region_xor(data_ptrs[<span class="number">0</span>], coding_ptrs[j], size); <span class="comment">// 异或将初始化的值去除</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="解码-1">解码</h2>
+<p>当发生磁盘故障，需要对数据进行修复时，部分情况下Rotated
+RS有着更低的IO开销。如下图所示，当Data Disk 0发生故障时，使用Rotated
+RS只需要读取16个块，而使用RS需要读取24个块。</p>
+<p><img src="/post/84dce0b4/image-20221116144049179.png" style="zoom: 50%;"></p>
+<p>实现思路：分别考虑1个数据盘或1个校验盘损坏的情况。</p>
+<ul>
+<li>在校验盘损坏时，直接使用编码算法重新生成损坏的校验盘。</li>
+<li>若数据盘损坏，使用上文提到的解码算法，用两个完好的校验盘恢复数据，减少IO开销。</li>
+</ul>
+<p>下面详细介绍数据盘的恢复：</p>
+<p>因为r=4，需要分别恢复4个磁盘区间的数据，用b=0，1，2，3标记正在恢复的磁盘区间。</p>
+<ul>
+<li>b=0以及b=2区间，只需要通过第一个校验盘与其他数据盘块对应的区间异或即可恢复，以b=0为例：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 恢复 b=0 此时系数全为1 只要异或即可</span></span><br><span class="line">    j = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memcpy</span>(data_ptrs[lastdrive], coding_ptrs[j], ssize); <span class="comment">// lastdrive为需要恢复的盘块号</span></span><br><span class="line">    <span class="keyword">for</span> (i = init_id; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">if</span> (i == lastdrive) <span class="comment">// 跳过需要恢复的盘块区间</span></span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">      galois_region_xor(data_ptrs[i], data_ptrs[lastdrive], ssize);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>b=1以及b=3区间，在异或时不仅需要考虑系数，还需要考虑不同盘块异或区间的改变，以b=1为例：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 恢复 b=1 此时系数为 2^&#123;i*j&#125;</span></span><br><span class="line">    j = <span class="number">1</span>;</span><br><span class="line">    mid = k * j / m;</span><br><span class="line">    temp_data = talloc(<span class="type">char</span>, ssize);</span><br><span class="line">    <span class="built_in">memcpy</span>(data_ptrs[lastdrive] + ssize, coding_ptrs[j], ssize); <span class="comment">// 初始化</span></span><br><span class="line">    <span class="keyword">for</span> (i = init_id; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">      <span class="keyword">if</span> (i == lastdrive) 	<span class="comment">// 跳过需要恢复的块</span></span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">      <span class="keyword">if</span> (i &lt; mid) 			<span class="comment">// 左边的使用与恢复区间相同的盘块</span></span><br><span class="line">        <span class="built_in">memcpy</span>(temp_data, data_ptrs[i] + ssize, ssize);</span><br><span class="line">      <span class="keyword">else</span> 					<span class="comment">// 右边的使用上一个盘块</span></span><br><span class="line">        <span class="built_in">memcpy</span>(temp_data, data_ptrs[i], ssize);</span><br><span class="line">      <span class="keyword">switch</span> (w)			<span class="comment">// 乘系数</span></span><br><span class="line">      &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">        galois_w08_region_multiply(temp_data, <span class="number">1</span> &lt;&lt; (i * j), ssize, temp_data, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">16</span>:</span><br><span class="line">        galois_w16_region_multiply(temp_data, <span class="number">1</span> &lt;&lt; (i * j), ssize, temp_data, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">32</span>:</span><br><span class="line">        galois_w32_region_multiply(temp_data, <span class="number">1</span> &lt;&lt; (i * j), ssize, temp_data, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      galois_region_xor(temp_data, data_ptrs[lastdrive] + ssize, ssize); <span class="comment">// 异或</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="测试-1">测试</h2>
+<ul>
+<li>使用随机生成的矩阵模拟磁盘数据，测试解码和编码，成功恢复了数据。</li>
+</ul>
+<p><img src="/post/84dce0b4/image-20221116154223175.png" style="zoom:50%;"></p>
+<ul>
+<li>编码</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./a_my_encoder &#x27;data/test_1G.txt&#x27; 6 3 &#x27;Rotate_RS&#x27; 8 8 1024</span><br></pre></td></tr></table></figure>
+<p><img src="/post/84dce0b4/image-20221116152132002.png"></p>
+<ul>
+<li>解码（数据盘）</li>
+</ul>
+<p>删除文件<code>test_1G_k1.txt</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./a_my_decoder &#x27;data/test_1G.txt&#x27;</span><br></pre></td></tr></table></figure>
+<p><img src="/post/84dce0b4/image-20221116152529874.png"></p>
+<ul>
+<li>解码（校验盘）</li>
+</ul>
+<p>删除编码文件，重新生成后再删除文件<code>test_1G_m2.txt</code>，解码结果如下：</p>
+<p><img src="/post/84dce0b4/image-20221116153016004.png"></p>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">
+		-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+		</div>
+    
+</div>
+      
+    </div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/EC/" rel="tag"><i class="fa fa-tag"></i> EC</a>
+              <a href="/tags/%E7%BA%A0%E5%88%A0%E7%A0%81/" rel="tag"><i class="fa fa-tag"></i> 纠删码</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/34884d63.html" rel="prev" title="中科大概率算法作业">
+      <i class="fa fa-chevron-left"></i> 中科大概率算法作业
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">实验介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">实验环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E4%B8%89-%E5%AE%9E%E7%8E%B0raid-6%E7%BC%96%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">任务三 实现RAID-6编码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1"><span class="nav-number">3.1.</span> <span class="nav-text">任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E7%A0%81"><span class="nav-number">3.2.</span> <span class="nav-text">编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E7%A0%81"><span class="nav-number">3.3.</span> <span class="nav-text">解码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number">3.4.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E5%9B%9B-%E5%AE%9E%E7%8E%B0rotated-rs%E7%BC%96%E7%A0%81"><span class="nav-number">4.</span> <span class="nav-text">任务四 实现Rotated RS编码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1-1"><span class="nav-number">4.1.</span> <span class="nav-text">任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E7%A0%81-1"><span class="nav-number">4.2.</span> <span class="nav-text">编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E7%A0%81-1"><span class="nav-number">4.3.</span> <span class="nav-text">解码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95-1"><span class="nav-number">4.4.</span> <span class="nav-text">测试</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="YMZ"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">YMZ</p>
+  <div class="site-description" itemprop="description">十年前和现在</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/YMZLT" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;YMZLT" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:mzyang2000@163.com" title="E-Mail → mailto:mzyang2000@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YMZ</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">90k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:53</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'N15JmLdA2cagBn85yKSsAbOI-gzGzoHsz',
+      appKey     : '3vJcF2jNtl8bi0k492yvlyIh',
+      placeholder: "在此处输入评论",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

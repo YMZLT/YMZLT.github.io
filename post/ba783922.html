@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://ymzlt.github.io/post/ba783922/image-20221029202121258.png">
 <meta property="og:image" content="https://ymzlt.github.io/post/ba783922/image-20221029210254503.png">
 <meta property="article:published_time" content="2022-10-30T09:31:24.000Z">
-<meta property="article:modified_time" content="2022-11-16T05:14:47.948Z">
+<meta property="article:modified_time" content="2022-11-16T07:56:57.846Z">
 <meta property="article:author" content="YMZ">
 <meta property="article:tag" content="CSAPP">
 <meta property="article:tag" content="实验">
@@ -236,7 +236,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BD%9C%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">作业</span></a>
+                  <a href="/categories/%E5%AE%9E%E9%AA%8C/" itemprop="url" rel="index"><span itemprop="name">实验</span></a>
                 </span>
             </span>
 
@@ -328,7 +328,7 @@ C 操作符和数量，有助于理解 C
 <p>根据德摩根定律（参考离散数学集合论知识）：</p>
 <p><img src="/post/ba783922/c2f4430bd910acad95a9e1ea734ec185.svg"></p>
 <p>推导出：</p>
-<p><img src="/post/ba783922/image-20221030174706082.png" alt="image-20221030174706082" style="zoom: 50%;"></p>
+<p><img src="/post/ba783922/image-20221030174706082.png" alt style="zoom: 50%;"></p>
 <p>转换为C代码：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x^y=~(~x&amp;~y)&amp;~(x&amp;y)</span><br></pre></td></tr></table></figure>
 <h3 id="tmin">2. tmin</h3>
@@ -437,7 +437,7 @@ frac 部分左移 1
 <p>计算2.0的x次方。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * floatPower2 - Return bit-level equivalent of the expression 2.0^x</span></span><br><span class="line"><span class="comment"> *   (2.0 raised to the power x) for any 32-bit integer x.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *   The unsigned value that is returned should have the identical bit</span></span><br><span class="line"><span class="comment"> *   representation as the single-precision floating-point number 2.0^x.</span></span><br><span class="line"><span class="comment"> *   If the result is too small to be represented as a denorm, return</span></span><br><span class="line"><span class="comment"> *   0. If too large, return +INF.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. Also if, while</span></span><br><span class="line"><span class="comment"> *   Max ops: 30</span></span><br><span class="line"><span class="comment"> *   Rating: 4</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="type">unsigned</span> <span class="title function_">floatPower2</span><span class="params">(<span class="type">int</span> x)</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">if</span> (x &gt; <span class="number">127</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0xff</span> &lt;&lt; <span class="number">23</span>;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (x &lt; <span class="number">-126</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="keyword">return</span> (x + <span class="number">127</span>) &lt;&lt; <span class="number">23</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="实验结果">实验结果</h2>
-<p><img src="/post/ba783922/image-20221014201052512.png" alt="image-20221014201052512" style="zoom: 67%;"></p>
+<p><img src="/post/ba783922/image-20221014201052512.png" alt style="zoom: 67%;"></p>
 <h2 id="补充">补充</h2>
 <ul>
 <li><p>编译时一直有个警告：</p>
@@ -512,7 +512,7 @@ atoi
 <p>phase1~6的答案如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">The <span class="built_in">future</span> will be better tomorrow.</span><br><span class="line"><span class="number">5</span> <span class="number">10</span> <span class="number">15</span> <span class="number">20</span> <span class="number">25</span> <span class="number">30</span></span><br><span class="line"><span class="number">0</span> t <span class="number">870</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">7</span> <span class="number">93</span></span><br><span class="line"><span class="number">149</span></span><br></pre></td></tr></table></figure>
 <p>按照阶段依次输入上面分析的答案，运行结果截图如下：</p>
-<p><img src="/post/ba783922/image-20221029143516251.png" alt="image-20221029143516251" style="zoom:67%;"></p>
+<p><img src="/post/ba783922/image-20221029143516251.png" alt style="zoom:67%;"></p>
 <h1 id="实验3缓冲区溢出buffer-lab">实验3：缓冲区溢出（Buffer Lab）</h1>
 <h2 id="实验目标">实验目标</h2>
 <ul>
@@ -751,20 +751,20 @@ bang 函数的地址 push 进栈中，然后使用 ret
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -808,12 +808,12 @@ bang 函数的地址 push 进栈中，然后使用 ret
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">83k</span>
+    <span title="站点总字数">90k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:44</span>
+    <span title="站点阅读时长">1:53</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

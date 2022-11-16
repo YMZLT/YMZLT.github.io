@@ -838,6 +838,39 @@ Image Processing，简称 DIP。输入的是图像，输出的也是图像。Pho
       </tags>
   </entry>
   <entry>
+    <title>2022中科大CS考研面试记录</title>
+    <url>/post/7ad1122c.html</url>
+    <content><![CDATA[<p>一开始保研失败，被列在候补名单中，只能去专项计划中的北京某高校，反复横跳了好久还是放弃了，然后才从零开始复习，慌得一批，考完觉得应该是陪跑了。寒假都没有复习直接去面试工作，没想到最后居然过了，果然不到最后一刻不能放弃。但是因为初试分比较低，最后踩线录取，感觉用光了半辈子的运气。。。现在记录一下中科大计算机考研复试的面试经历吧，希望对大家能有一点帮助，再给自己攒攒欧气。。。</p>
+<span id="more"></span>
+<p>因为疫情，今年还是线上面试，不过形式发生了一点点变化，面试前几天突然通知要PPT自我介绍（自我介绍中英文都是可以的，但是实际上面试的时候老师会要求英文的，不然老师怎么打分。。。）。因为原来看经验贴准备了英文自我介绍，所以我用中文做的PPT，然后用英文自我介绍（双保险）。</p>
+<h1 id="关于自我介绍ppt">关于自我介绍PPT</h1>
+<p>我从四个方面介绍的：学业表现、荣誉与奖项、项目与比赛、研究志向（感兴趣的方向、目标等）。</p>
+<h1 id="面试流程">面试流程</h1>
+<h2 id="英文提问">英文提问</h2>
+<ul>
+<li>介绍一下项目</li>
+</ul>
+<p>看我自我介绍里面提到的项目，就让我用英文介绍一下。这个问题我没怎么准备，就说了数据集，使用的模型等等，实在扯不下去就停了。</p>
+<ul>
+<li>最喜欢的课程</li>
+</ul>
+<p>问英文的老师离屏幕很远，没听清问题，就让老师重复了一边，然后终于反应过来是说的是course……那边老师都笑了，哎，尴尬。我终于反应过来以后，说了事先想好的回答：算法设计与分析。然后说了这门课讲了啥，我学到了啥。</p>
+<h2 id="专业问题">专业问题</h2>
+<p>我说了最喜欢的课是算法设计与分析，然后某个和蔼的老师（可能是面试组的组长）就问我这门课学了什么，我提到了贪心算法，然后继续问我举几个贪心算法的例子，我举了数据结构上最小生成树和哈夫曼编码的例子。继续问最小生成树有哪些算法，我说普利姆算法和克鲁斯卡尔算法，以及具体的原理。他问有向图能否用这个算法，没回答上来……老师语重心长地说要学深入一点，我就嗯嗯，笑笑，说确实。</p>
+<p>另一个老师问了项目的细节，比如项目的应用背景，还有数据集来源等等。</p>
+<p>最后组长说我回答的不错，还问我成绩这么好为什么没有免试，我就实话实说了，比赛结果出来的比较晚，错过了保研材料提交的时间，最后只在候补名单中，然后下定决定复习考研了。</p>
+<h1 id="后记">后记</h1>
+<p>祝大家成功上岸！</p>
+]]></content>
+      <categories>
+        <category>考研</category>
+      </categories>
+      <tags>
+        <tag>复试</tag>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>中科大概率算法作业</title>
     <url>/post/34884d63.html</url>
     <content><![CDATA[<p>本文为中科大研究生课程——《算法设计与分析》概率算法部分的习题作业。这门课我最喜欢的就是概率算法这部分，感觉提到的一些算法和例子都非常有趣。本文参考了网上一些前辈的资料，并结合自己的理解做出解答，现在分享出来作为参考。</p>
@@ -1063,36 +1096,314 @@ RepeatMillRab(n,$ _{}{n} $) then print n; n ←n+2; until n=10000; }</p>
       </tags>
   </entry>
   <entry>
-    <title>2022中科大CS考研面试记录</title>
-    <url>/post/7ad1122c.html</url>
-    <content><![CDATA[<p>一开始保研失败，被列在候补名单中，只能去专项计划中的北京某高校，反复横跳了好久还是放弃了，然后才从零开始复习，慌得一批，考完觉得应该是陪跑了。寒假都没有复习直接去面试工作，没想到最后居然过了，果然不到最后一刻不能放弃。但是因为初试分比较低，最后踩线录取，感觉用光了半辈子的运气。。。现在记录一下中科大计算机考研复试的面试经历吧，希望对大家能有一点帮助，再给自己攒攒欧气。。。</p>
+    <title>实现经典的EC算法</title>
+    <url>/post/84dce0b4.html</url>
+    <content><![CDATA[<p>本文记录中科大研究生课程——《存储与文件系统》的EC实验。使用Jerasure纠删码函数库实现经典的EC算法。</p>
 <span id="more"></span>
-<p>因为疫情，今年还是线上面试，不过形式发生了一点点变化，面试前几天突然通知要PPT自我介绍（自我介绍中英文都是可以的，但是实际上面试的时候老师会要求英文的，不然老师怎么打分。。。）。因为原来看经验贴准备了英文自我介绍，所以我用中文做的PPT，然后用英文自我介绍（双保险）。</p>
-<h1 id="关于自我介绍ppt">关于自我介绍PPT</h1>
-<p>我从四个方面介绍的：学业表现、荣誉与奖项、项目与比赛、研究志向（感兴趣的方向、目标等）。</p>
-<h1 id="面试流程">面试流程</h1>
-<h2 id="英文提问">英文提问</h2>
+<h1 id="实验介绍">实验介绍</h1>
+<p>Jerasure是一个C/C++纠删码函数库，提供了编解码过程中可直接调用的工具函数。本次实验要求将多个经典的EC编码实现在Jerasure库中。</p>
+<p>可使用函数：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> *<span class="title function_">cauchy_good_general_coding_matrix</span><span class="params">(<span class="type">int</span> k, <span class="type">int</span> m, <span class="type">int</span> w)</span></span><br><span class="line"><span class="comment">//函数功能：生成编码矩阵（柯西矩阵）的函数，返回编码矩阵的最后m行</span></span><br><span class="line"><span class="comment">//k: 数据块个数</span></span><br><span class="line"><span class="comment">//m: 校验块个数</span></span><br><span class="line"><span class="comment">//w: word size</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">jerasure_matrix_dotprod</span><span class="params">(<span class="type">int</span> k, <span class="type">int</span> w, <span class="type">int</span> *matrix_row,<span class="type">int</span> *src_ids, <span class="type">int</span> dest_id,</span></span><br><span class="line"><span class="params"><span class="type">char</span> **data_ptrs, <span class="type">char</span> **coding_ptrs, <span class="type">int</span> size)</span></span><br><span class="line"><span class="comment">//函数功能：编解码矩阵的某一行与k个块进行乘法运算</span></span><br><span class="line"><span class="comment">//k: 数据块个数</span></span><br><span class="line"><span class="comment">//w: word size</span></span><br><span class="line"><span class="comment">//matrix_row：编解码矩阵的某一行</span></span><br><span class="line"><span class="comment">//src_ids: 计算所用的源块</span></span><br><span class="line"><span class="comment">//dest_id: 计算目标块号</span></span><br><span class="line"><span class="comment">//data_ptrs: 数据块指针</span></span><br><span class="line"><span class="comment">//coding_ptrs: 校验块指针</span></span><br><span class="line"><span class="comment">//size: 数据块大小</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">galois_w08_region_multiply</span><span class="params">(<span class="type">char</span> *region, <span class="type">int</span> multby, <span class="type">int</span> nbytes, <span class="type">char</span> *r2, <span class="type">int</span> add)</span></span><br><span class="line"><span class="comment">//函数功能：在有限域$GF(2^8)$下对region所有数据乘以常数multby，结果存在r2中</span></span><br><span class="line"><span class="comment">//region：进行乘法的数据</span></span><br><span class="line"><span class="comment">//multby：乘数</span></span><br><span class="line"><span class="comment">//nbytes：region大小</span></span><br><span class="line"><span class="comment">//r2：乘法结果</span></span><br><span class="line"><span class="comment">//add：目的块r2是否初始化，0表示未初始化，1表示已经初始化</span></span><br><span class="line"><span class="comment">//galois_w16_region_multiply() 和 galois_w32_region_multiply() 类似，分别表示在有限域和 下进行乘法运算:</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">galois_region_xor</span><span class="params">(<span class="type">char</span> *src, <span class="type">char</span> *dest,<span class="type">int</span> nbytes)</span></span><br><span class="line"><span class="comment">//函数功能：src和dest指向的两个块进行异或运算，结果存在dest中</span></span><br><span class="line"><span class="comment">//src:源块</span></span><br><span class="line"><span class="comment">//dest：目标块</span></span><br><span class="line"><span class="comment">//nbytes：块大小</span></span><br></pre></td></tr></table></figure>
+<h1 id="实验环境">实验环境</h1>
+<table>
+<thead>
+<tr class="header">
+<th>CPU</th>
+<th>Intel(R) Xeon(R) Silver 4110 CPU @ 2.10GHz</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>内存</td>
+<td>4194304 kB</td>
+</tr>
+<tr class="even">
+<td>操作系统</td>
+<td>Ubuntu 20.04.3 (64位)</td>
+</tr>
+<tr class="odd">
+<td>C/C++编译器</td>
+<td>gcc version 9.4.0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="任务三-实现raid-6编码">任务三 实现RAID-6编码</h1>
+<h2 id="任务">任务</h2>
 <ul>
-<li>介绍一下项目</li>
+<li>给定一个大小为1GB的文件的路径，生成由(4,2)
+RAID-6编码得到的数据块和校验块文件（块大小：16MB），并计算编码吞吐量；</li>
+<li>模拟当一个节点故障，修复该节点上的所有块，计算修复的吞吐量。</li>
 </ul>
-<p>看我自我介绍里面提到的项目，就让我用英文介绍一下。这个问题我没怎么准备，就说了数据集，使用的模型等等，实在扯不下去就停了。</p>
+<h2 id="编码">编码</h2>
+<p>RAID-6编码采用P+Q两冗余分块以容许任意两磁盘并发同时失效的存储级别。以(4,2)
+RAID-6为例，一个条带的编码过程可以表示为：</p>
+<p><img src="/post/84dce0b4/image-20221116135954702.png" style="zoom:80%;"></p>
+<p>实现步骤：</p>
 <ul>
-<li>最喜欢的课程</li>
+<li>调用Jerasure提供的接口<code>cauchy_good_general_coding_matrix</code>生成一个m*k的基于有限域的柯西矩阵。</li>
 </ul>
-<p>问英文的老师离屏幕很远，没听清问题，就让老师重复了一边，然后终于反应过来是说的是course……那边老师都笑了，哎，尴尬。我终于反应过来以后，说了事先想好的回答：算法设计与分析。然后说了这门课讲了啥，我学到了啥。</p>
-<h2 id="专业问题">专业问题</h2>
-<p>我说了最喜欢的课是算法设计与分析，然后某个和蔼的老师（可能是面试组的组长）就问我这门课学了什么，我提到了贪心算法，然后继续问我举几个贪心算法的例子，我举了数据结构上最小生成树和哈夫曼编码的例子。继续问最小生成树有哪些算法，我说普利姆算法和克鲁斯卡尔算法，以及具体的原理。他问有向图能否用这个算法，没回答上来……老师语重心长地说要学深入一点，我就嗯嗯，笑笑，说确实。</p>
-<p>另一个老师问了项目的细节，比如项目的应用背景，还有数据集来源等等。</p>
-<p>最后组长说我回答的不错，还问我成绩这么好为什么没有免试，我就实话实说了，比赛结果出来的比较晚，错过了保研材料提交的时间，最后只在候补名单中，然后下定决定复习考研了。</p>
-<h1 id="后记">后记</h1>
-<p>祝大家成功上岸！</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> RAID6:</span><br><span class="line">		matrix = cauchy_good_general_coding_matrix(k, m, w); <span class="comment">// 生成编码矩阵（柯西矩阵）的函数，返回编码矩阵的最后m行</span></span><br><span class="line">		<span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>调用接口<code>jerasure_matrix_dotprod</code>，将生成的柯西编码矩阵与k个数据块进行乘法运算，最后得到m个校验块。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">raid6_encode</span><span class="params">(<span class="type">int</span> k, <span class="type">int</span> m, <span class="type">int</span> w, <span class="type">int</span> *matrix,</span></span><br><span class="line"><span class="params">				  <span class="type">char</span> **data_ptrs, <span class="type">char</span> **coding_ptrs, <span class="type">int</span> size)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> i;</span><br><span class="line">	<span class="comment">// 编码矩阵(柯西矩阵)与k个数据块进行乘法运算 得到m个校验块</span></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		jerasure_matrix_dotprod(k, w, matrix + (i * k), <span class="literal">NULL</span>, k + i, data_ptrs, coding_ptrs, size);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="解码">解码</h2>
+<p>当某一数据块不可用时，需要从剩余块中读取4个块，并解码恢复出数据块。例如，当<span class="math inline">\(D_{i,0}\)</span>不可用时，可以读取<span class="math inline">\(D_{i,1},D_{i,2},D_{i,3},P_i\)</span>进行解码，计算过程如下：</p>
+<p><img src="/post/84dce0b4/image-20221116140037758.png" style="zoom:80%;"></p>
+<p>RAID-6解码过程最核心的就是求出编码矩阵的逆矩阵，与剩余完好的盘块矩阵相乘即可恢复。这里参考了<code>jerasure_matrix_decode</code>接口函数的解码过程，使用lastdrive对数据盘和校验盘分开处理，只有在有坏块且坏块是数据盘才需要生成逆矩阵，对于损坏的校验盘直接重新生成。</p>
+<p>实现步骤：</p>
+<ul>
+<li>根据erasures生成erased数组 记录每个磁盘的状态</li>
+<li>生成解码矩阵（只有在有坏块且坏块是数据盘才需要生成逆矩阵）</li>
+<li>根据生成的解码矩阵 解码数据磁盘块</li>
+<li>重新生成所有剩下的坏磁盘块（此时应该只有校验盘块需要被修复）</li>
+</ul>
+<p>解码函数如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">raid6_decode</span><span class="params">(<span class="type">int</span> k, <span class="type">int</span> m, <span class="type">int</span> w, <span class="type">int</span> *matrix, <span class="type">int</span> row_k_ones, <span class="type">int</span> *erasures,</span></span><br><span class="line"><span class="params">                 <span class="type">char</span> **data_ptrs, <span class="type">char</span> **coding_ptrs, <span class="type">int</span> size)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> i, edd, lastdrive;</span><br><span class="line">    <span class="type">int</span> *tmpids;</span><br><span class="line">    <span class="type">int</span> *erased, *decoding_matrix, *dm_ids;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (w != <span class="number">8</span> &amp;&amp; w != <span class="number">16</span> &amp;&amp; w != <span class="number">32</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="comment">/* 根据erasures生成erased数组 记录每个磁盘的状态 */</span></span><br><span class="line">    erased = talloc(<span class="type">int</span>, (k + m));</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; m + k; i++)</span><br><span class="line">        erased[i] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; m - <span class="number">1</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (erased[erasures[i]] == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            erased[erasures[i]] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/* 记录被擦除的磁盘块数 */</span></span><br><span class="line">    edd = <span class="number">0</span>;</span><br><span class="line">    lastdrive = k;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; k; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (erased[i])</span><br><span class="line">        &#123;</span><br><span class="line">            edd++;</span><br><span class="line">            lastdrive = i; <span class="comment">// 记录最后一个坏数据盘号</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果没有数据盘被损坏或者第一个校验盘被损坏则将k记录最后要扫描的磁盘号</span></span><br><span class="line">    <span class="comment">// 因为校验盘不需要生成逆矩阵</span></span><br><span class="line">    <span class="keyword">if</span> (!row_k_ones || erased[k]) </span><br><span class="line">        lastdrive = k; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 生成解码矩阵 只有在有坏块且坏块是数据盘才需要生成逆矩阵*/</span></span><br><span class="line"></span><br><span class="line">    dm_ids = <span class="literal">NULL</span>;</span><br><span class="line">    decoding_matrix = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (edd &gt; <span class="number">1</span> || (edd &gt; <span class="number">0</span> &amp;&amp; (!row_k_ones || erased[k])))</span><br><span class="line">    &#123;</span><br><span class="line">        dm_ids = talloc(<span class="type">int</span>, k);</span><br><span class="line">        decoding_matrix = talloc(<span class="type">int</span>, k *k);</span><br><span class="line">        <span class="keyword">if</span> (jerasure_make_decoding_matrix(k, m, w, matrix, erased, decoding_matrix, dm_ids) &lt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">free</span>(erased);</span><br><span class="line">            <span class="built_in">free</span>(dm_ids);</span><br><span class="line">            <span class="built_in">free</span>(decoding_matrix);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/* 根据生成的解码矩阵 解码数据磁盘块 */</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; edd &gt; <span class="number">0</span> &amp;&amp; i &lt; lastdrive; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (erased[i])</span><br><span class="line">        &#123;</span><br><span class="line">            jerasure_matrix_dotprod(k, w, decoding_matrix + (i * k), dm_ids, i, data_ptrs, coding_ptrs, size);</span><br><span class="line">            edd--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 如果还有磁盘未被修复 则应该是包括最后的一个数据块 */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (edd &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        tmpids = talloc(<span class="type">int</span>, k);</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; k; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            tmpids[i] = (i &lt; lastdrive) ? i : i + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        jerasure_matrix_dotprod(k, w, matrix, tmpids, lastdrive, data_ptrs, coding_ptrs, size);</span><br><span class="line">        <span class="built_in">free</span>(tmpids);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 重新生成所有剩下的坏磁盘块 此时应该只有校验盘块需要被修复 */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (erased[k + i])</span><br><span class="line">        &#123;</span><br><span class="line">            jerasure_matrix_dotprod(k, w, matrix + (i * k), <span class="literal">NULL</span>, i + k, data_ptrs, coding_ptrs, size);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">free</span>(erased);</span><br><span class="line">    <span class="keyword">if</span> (dm_ids != <span class="literal">NULL</span>)</span><br><span class="line">        <span class="built_in">free</span>(dm_ids);</span><br><span class="line">    <span class="keyword">if</span> (decoding_matrix != <span class="literal">NULL</span>)</span><br><span class="line">        <span class="built_in">free</span>(decoding_matrix);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="测试">测试</h2>
+<ul>
+<li>使用随机生成的矩阵模拟磁盘数据，测试解码和编码，结果如下：</li>
+</ul>
+<p><img src="/post/84dce0b4/image-20221116153502309.png" style="zoom: 50%;"></p>
+<ul>
+<li>生成指定大小为1G的文件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">dd if=./data/test.txt of=./data/test_1G.txt count=1 bs=1G</span><br></pre></td></tr></table></figure>
+<p>查看生成文件大小：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd ./data</span><br><span class="line">ll -h</span><br></pre></td></tr></table></figure>
+<p><img src="/post/84dce0b4/image-20221108140018794.png"></p>
+<p>在Example文件夹下新建文件<code>a_my_encoder.c</code>和<code>a_my_decoder.c</code>，复制<code>encoder.c</code>和<code>decoder.c</code>中的内容到新建的文件中。修改文件输入算法列表，添加RAID-6的编码和解码算法。并将新建的文件添加到<code>Makefile.am</code>文件中，这样就可以生成可执行文件了。</p>
+<p><img src="/post/84dce0b4/image-20221116142442339.png" style="zoom: 50%;"></p>
+<p><img src="/post/84dce0b4/image-20221116142512703.png" style="zoom: 50%;"></p>
+<ul>
+<li><strong>编译：</strong>在项目根目录下使用make编译。</li>
+<li><strong>编码：</strong>再进入Example文件夹下，使用RAID-6算法对之前生成的1G文件进行编码，在当前目录的Coding文件夹下生成4个数据块文件、2个校验块文件和1个元数据文件。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./a_my_encoder &#x27;data/test_1G.txt&#x27; 4 2 &#x27;RAID6&#x27; 8 8 1024</span><br></pre></td></tr></table></figure>
+<p><img src="/post/84dce0b4/image-20221108141346678.png"></p>
+<p><img src="/post/84dce0b4/image-20221108141609282.png"></p>
+<ul>
+<li><strong>解码：</strong>删掉1个数据文件<code>test_1G_k1.txt</code>，解码出原始文件<code>test_1G_decoded.txt</code>。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./a_my_decoder &#x27;data/test_1G.txt&#x27;</span><br></pre></td></tr></table></figure>
+<p><img src="/post/84dce0b4/image-20221108141949443.png"></p>
+<h1 id="任务四-实现rotated-rs编码">任务四 实现Rotated RS编码</h1>
+<h2 id="任务-1">任务</h2>
+<ul>
+<li>给定一个大小为1.5GB的文件的路径，生成由(6,3) Rotated
+RS编码得到的数据块和校验块文件（块大小：16MB），并计算编码吞吐量；<br>
+</li>
+<li>模拟当一个数据节点发生故障，修复该节点上的所有块，计算修复的吞吐量；<br>
+</li>
+<li>模拟当一个校验节点发生故障，修复该节点上的所有块，计算修复的吞吐量。</li>
+</ul>
+<h2 id="编码-1">编码</h2>
+<p>Rotated RS和标准的RS码相比减少了降级读和修复时的磁盘IO。Rotated
+RS编码原理如下：</p>
+<p><img src="/post/84dce0b4/image-20221108155336005.png" style="zoom: 67%;"></p>
+<p><img src="/post/84dce0b4/image-20221108160607974.png" style="zoom: 50%;"></p>
+<p>实现思路：利用上述公式进行编码，将每块磁盘分成 r
+块。根据参考论文的实验，(6,3) Rotated RS编码在r=4时效果比较好。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">rotatedrs_encode</span><span class="params">(<span class="type">int</span> k, <span class="type">int</span> m, <span class="type">int</span> w, <span class="type">char</span> **data_ptrs, <span class="type">char</span> **coding_ptrs, <span class="type">int</span> size)</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="type">int</span> r = <span class="number">4</span>;</span><br><span class="line">  <span class="type">int</span> ssize = size / r;  <span class="comment">// size : 一个磁盘块数据的大小</span></span><br><span class="line">  <span class="type">int</span> i, j;</span><br><span class="line">  <span class="type">char</span> *temp_data;</span><br><span class="line"> </span><br><span class="line">  <span class="comment">/*首先计算第一个校验盘:C0*/</span></span><br><span class="line">  <span class="built_in">memcpy</span>(coding_ptrs[<span class="number">0</span>], data_ptrs[<span class="number">0</span>], size); <span class="comment">// C0 = D0</span></span><br><span class="line">  <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; k; i++) <span class="comment">// C0 = D0^D1^D2^D3^D4^D5 k=6</span></span><br><span class="line">    galois_region_xor(data_ptrs[i], coding_ptrs[<span class="number">0</span>], size);</span><br><span class="line"></span><br><span class="line">  temp_data = talloc(<span class="type">char</span>, size);</span><br><span class="line">  <span class="comment">/* 按照系数计算剩余的校验盘*/</span></span><br><span class="line">  <span class="keyword">for</span> (j = <span class="number">1</span>; j &lt; m; j++)&#123;</span><br><span class="line">    <span class="type">int</span> mid = k * j / m; 						<span class="comment">// 分左右两边不同处理</span></span><br><span class="line">    <span class="built_in">memcpy</span>(coding_ptrs[j], data_ptrs[<span class="number">0</span>], size); <span class="comment">// 初始化校验盘C[j]</span></span><br><span class="line">    <span class="keyword">for</span> (i = k - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">      <span class="keyword">if</span> (i &lt; mid)&#123; 							<span class="comment">// 将左边的每个区间的数据按模r偏移</span></span><br><span class="line">        <span class="type">int</span> b;</span><br><span class="line">        <span class="keyword">for</span> (b = <span class="number">0</span>; b &lt; r; b++)</span><br><span class="line">        	<span class="built_in">memcpy</span>(temp_data + b * ssize, data_ptrs[i] + ssize * ((b + <span class="number">1</span>) % r), ssize);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> 										<span class="comment">// 右边区间数据保持顺序不变</span></span><br><span class="line">          <span class="built_in">memcpy</span>(temp_data, data_ptrs[i], size);</span><br><span class="line">      <span class="keyword">switch</span> (w) 								<span class="comment">// 将要进行异或的盘块乘以相应的系数 2^&#123;i*j&#125;</span></span><br><span class="line">      &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">        galois_w08_region_multiply(temp_data, <span class="number">1</span> &lt;&lt; (i * j), size, temp_data, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">16</span>:</span><br><span class="line">        galois_w16_region_multiply(temp_data, <span class="number">1</span> &lt;&lt; (i * j), size, temp_data, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">32</span>:</span><br><span class="line">        galois_w32_region_multiply(temp_data, <span class="number">1</span> &lt;&lt; (i * j), size, temp_data, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      galois_region_xor(temp_data, coding_ptrs[j], size); <span class="comment">// 对处理好的盘块数据依次异或</span></span><br><span class="line">    &#125;</span><br><span class="line">    galois_region_xor(data_ptrs[<span class="number">0</span>], coding_ptrs[j], size); <span class="comment">// 异或将初始化的值去除</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="解码-1">解码</h2>
+<p>当发生磁盘故障，需要对数据进行修复时，部分情况下Rotated
+RS有着更低的IO开销。如下图所示，当Data Disk 0发生故障时，使用Rotated
+RS只需要读取16个块，而使用RS需要读取24个块。</p>
+<p><img src="/post/84dce0b4/image-20221116144049179.png" style="zoom: 50%;"></p>
+<p>实现思路：分别考虑1个数据盘或1个校验盘损坏的情况。</p>
+<ul>
+<li>在校验盘损坏时，直接使用编码算法重新生成损坏的校验盘。</li>
+<li>若数据盘损坏，使用上文提到的解码算法，用两个完好的校验盘恢复数据，减少IO开销。</li>
+</ul>
+<p>下面详细介绍数据盘的恢复：</p>
+<p>因为r=4，需要分别恢复4个磁盘区间的数据，用b=0，1，2，3标记正在恢复的磁盘区间。</p>
+<ul>
+<li>b=0以及b=2区间，只需要通过第一个校验盘与其他数据盘块对应的区间异或即可恢复，以b=0为例：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 恢复 b=0 此时系数全为1 只要异或即可</span></span><br><span class="line">    j = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memcpy</span>(data_ptrs[lastdrive], coding_ptrs[j], ssize); <span class="comment">// lastdrive为需要恢复的盘块号</span></span><br><span class="line">    <span class="keyword">for</span> (i = init_id; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">if</span> (i == lastdrive) <span class="comment">// 跳过需要恢复的盘块区间</span></span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">      galois_region_xor(data_ptrs[i], data_ptrs[lastdrive], ssize);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>b=1以及b=3区间，在异或时不仅需要考虑系数，还需要考虑不同盘块异或区间的改变，以b=1为例：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 恢复 b=1 此时系数为 2^&#123;i*j&#125;</span></span><br><span class="line">    j = <span class="number">1</span>;</span><br><span class="line">    mid = k * j / m;</span><br><span class="line">    temp_data = talloc(<span class="type">char</span>, ssize);</span><br><span class="line">    <span class="built_in">memcpy</span>(data_ptrs[lastdrive] + ssize, coding_ptrs[j], ssize); <span class="comment">// 初始化</span></span><br><span class="line">    <span class="keyword">for</span> (i = init_id; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">      <span class="keyword">if</span> (i == lastdrive) 	<span class="comment">// 跳过需要恢复的块</span></span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">      <span class="keyword">if</span> (i &lt; mid) 			<span class="comment">// 左边的使用与恢复区间相同的盘块</span></span><br><span class="line">        <span class="built_in">memcpy</span>(temp_data, data_ptrs[i] + ssize, ssize);</span><br><span class="line">      <span class="keyword">else</span> 					<span class="comment">// 右边的使用上一个盘块</span></span><br><span class="line">        <span class="built_in">memcpy</span>(temp_data, data_ptrs[i], ssize);</span><br><span class="line">      <span class="keyword">switch</span> (w)			<span class="comment">// 乘系数</span></span><br><span class="line">      &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">        galois_w08_region_multiply(temp_data, <span class="number">1</span> &lt;&lt; (i * j), ssize, temp_data, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">16</span>:</span><br><span class="line">        galois_w16_region_multiply(temp_data, <span class="number">1</span> &lt;&lt; (i * j), ssize, temp_data, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">32</span>:</span><br><span class="line">        galois_w32_region_multiply(temp_data, <span class="number">1</span> &lt;&lt; (i * j), ssize, temp_data, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      galois_region_xor(temp_data, data_ptrs[lastdrive] + ssize, ssize); <span class="comment">// 异或</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="测试-1">测试</h2>
+<ul>
+<li>使用随机生成的矩阵模拟磁盘数据，测试解码和编码，成功恢复了数据。</li>
+</ul>
+<p><img src="/post/84dce0b4/image-20221116154223175.png" style="zoom:50%;"></p>
+<ul>
+<li>编码</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./a_my_encoder &#x27;data/test_1G.txt&#x27; 6 3 &#x27;Rotate_RS&#x27; 8 8 1024</span><br></pre></td></tr></table></figure>
+<p><img src="/post/84dce0b4/image-20221116152132002.png"></p>
+<ul>
+<li>解码（数据盘）</li>
+</ul>
+<p>删除文件<code>test_1G_k1.txt</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./a_my_decoder &#x27;data/test_1G.txt&#x27;</span><br></pre></td></tr></table></figure>
+<p><img src="/post/84dce0b4/image-20221116152529874.png"></p>
+<ul>
+<li>解码（校验盘）</li>
+</ul>
+<p>删除编码文件，重新生成后再删除文件<code>test_1G_m2.txt</code>，解码结果如下：</p>
+<p><img src="/post/84dce0b4/image-20221116153016004.png"></p>
 ]]></content>
       <categories>
-        <category>考研</category>
+        <category>实验</category>
       </categories>
       <tags>
-        <tag>复试</tag>
-        <tag>面试</tag>
+        <tag>EC</tag>
+        <tag>纠删码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>中科大计算机系统作业2</title>
+    <url>/post/12d42946.html</url>
+    <content><![CDATA[<p>本文为中科大研究生课程——计算机系统作业2的题目解答记录。使用的教材为《深入理解计算机系统》。</p>
+<span id="more"></span>
+<h1 id="题目与解答">题目与解答</h1>
+<h2 id="section">3.58</h2>
+<p>一个函数的原型为</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="title function_">decode2</span><span class="params">(<span class="type">long</span> x, <span class="type">long</span> y, <span class="type">long</span> z)</span>;</span><br></pre></td></tr></table></figure>
+<p>GCC 产生如下汇编代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">decode2:</span><br><span class="line">	subq 	%rdx, %rsi</span><br><span class="line">	imulq 	%rsi, %rdi</span><br><span class="line">	movq 	%rsi, %rax</span><br><span class="line">	salq 	$63,%rax</span><br><span class="line">	sarq 	$63, %rax</span><br><span class="line">	xorq 	%rdi, %rax</span><br><span class="line">	ret</span><br></pre></td></tr></table></figure>
+<p>参数x 、y 和z 通过寄存器%rdi、%rsi 和 %rdx
+传递。代码将返回值存放在寄存器%rax 中。写出等价于上述汇编代码的decode2
+的C代码。</p>
+<p><strong>解：</strong></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="title function_">decode2</span><span class="params">(<span class="type">long</span> x, <span class="type">long</span> y, <span class="type">long</span> z)</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="type">long</span> tmp = y - z;</span><br><span class="line">  <span class="keyword">return</span> (tmp * x) ^ (tmp &lt;&lt; <span class="number">63</span> &gt;&gt; <span class="number">63</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="section-1">3.60</h2>
+<p>考虑下面的汇编代码：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="title function_">loop</span><span class="params">(<span class="type">long</span> x, <span class="type">int</span> n)</span></span><br><span class="line">x in%rdi, n in%esi</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">loop :</span><br><span class="line">	movl	%esi, %ecx</span><br><span class="line">	movl	$1, %edx</span><br><span class="line">	movl	$0, %eax</span><br><span class="line">	jmp		.L2</span><br><span class="line">.L3:</span><br><span class="line">	movq	%rdi, %r8</span><br><span class="line">	andq	%rdx, %r8</span><br><span class="line">	orq		%r8, %rax</span><br><span class="line">	salq	%cl, %rdx</span><br><span class="line">.L2:</span><br><span class="line">	testq %rdx, %rdx</span><br><span class="line">	jne .L3</span><br><span class="line">	rep; ret</span><br></pre></td></tr></table></figure>
+<p>以上代码是编译以下整体形式的C 代码产生的：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="title function_">loop2</span><span class="params">(<span class="type">long</span> x, <span class="type">int</span> n)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">long</span> result = ____________;</span><br><span class="line">    <span class="type">long</span> mask;</span><br><span class="line">    <span class="keyword">for</span> (mask = ____________; mask ____________; mask =____________)&#123;</span><br><span class="line">        result |= ____________;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你的任务是填写这个C
+代码中缺失的部分，得到一个程序等价于产生的汇编代码。回想一下，这个函数的结果是在寄存器%rax
+中返回的。你会发现以下工作很有帮助：检查循环之前、之中和之后的汇编代码，形成一个寄存器和程序变最之间一致的映射。</p>
+<p>A. 哪个寄存器保存着程序值x 、n 、result 和mask?</p>
+<p>B. result 和mask 的初始值是什么？</p>
+<p>C. mask 的测试条件是什么？</p>
+<p>D. mask 是如何被修改的？</p>
+<p>E. result 是如何被修改的？</p>
+<p>F. 填写这段C 代码中所有缺失的部分。</p>
+<p><strong>解：</strong></p>
+<ol type="A">
+<li></li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">变量</th>
+<th style="text-align: left;">寄存器</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">x</td>
+<td style="text-align: left;">%rdi</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">n</td>
+<td style="text-align: left;">%esi</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">result</td>
+<td style="text-align: left;">%rax</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">mask</td>
+<td style="text-align: left;">%rdx</td>
+</tr>
+</tbody>
+</table>
+<ol start="2" type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">result = <span class="number">0</span></span><br><span class="line">mask = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<ol start="3" type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">mask != <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<ol start="4" type="A">
+<li></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mask = mask &lt;&lt; n</span><br></pre></td></tr></table></figure>
+<ol start="5" type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="title function_">loop2</span><span class="params">(<span class="type">long</span> x, <span class="type">int</span> n)</span> &#123;</span><br><span class="line">  <span class="type">long</span> result = <span class="number">0</span>;</span><br><span class="line">  <span class="type">long</span> mask;</span><br><span class="line">  <span class="keyword">for</span> (mask = <span class="number">1</span>; mask != <span class="number">0</span>; mask &lt;&lt;= n) &#123;</span><br><span class="line">    result |= (x &amp; mask);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="section-2">3.63</h2>
+<p>这个程序给你一个机会，从反汇编机器代码逆向工程一个switch
+语句。在下面这个过程中，去掉了switch 语句的主体：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="title function_">switch_prob</span><span class="params">(<span class="type">long</span> x, <span class="type">long</span> n)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">long</span> result = x;</span><br><span class="line">    <span class="keyword">switch</span> (n)&#123;</span><br><span class="line">    <span class="comment">/* Fill in code here */</span></span><br><span class="line">            </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面给出了这个过程的反汇编机器代码：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="title function_">switch_prob</span> <span class="params">(<span class="type">long</span> x,<span class="type">long</span> n)</span></span><br><span class="line">x in%rdi , n in%rsi</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">0000000000400590 &lt;switch_prob&gt;:</span><br><span class="line">400590: 48 83 ee 3c				sub		$0x3c,%rsi</span><br><span class="line">400594: 48 83 fe 05				cmp		$0x5,%rsi</span><br><span class="line">400598: 77 29					ja		4005c3 &lt;switch_prob+0x33&gt;</span><br><span class="line">40059a: ff 24 f5 f8 06 40 00	jmpq	*0x4006f8(,%rsi,8)</span><br><span class="line">4005a1: 48 8d 04 fd 00 00 00	lea		0x0 (,%rdi,8),%rax</span><br><span class="line">4005a8: 00</span><br><span class="line">4005a9: c3						retq	</span><br><span class="line">4005aa: 48 89 f8				mov		%rdi,%rax</span><br><span class="line">4005ad: 48 c1 f8 03				sar		$0x3,%rax</span><br><span class="line">4005b1: c3						retq	</span><br><span class="line">4005b2: 48 89 f8				mov		%rdi,%rax</span><br><span class="line">4005b5: 48 c1 eO 04				shl		$0x4,%rax</span><br><span class="line">4005b9: 48 29 f8				sub		%rdi,%rax</span><br><span class="line">4005bc: 48 89 c7				mov		%rax,%rdi</span><br><span class="line">4005bf: 48 Of af ff				imul	%rdi,%rdi</span><br><span class="line">4005c3: 48 8d 47 4b				lea		Ox4b(%rdi),%rax</span><br><span class="line">4005c7: c3						retq	</span><br></pre></td></tr></table></figure>
+<p>跳转表驻留在内存的不同区域中。可以从第5
+行的间接跳转看出来，跳转表的起始地址为0x4006f8 。用调试器GDB,
+我们可以用命令x/6gx 0x4006f8 来检查组成跳转表的6个8 字节字的内存。GDB
+打印出下面的内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(gdb) x/6gx 0x4006f8</span><br><span class="line">0x4006f8: 0x00000000004005a1 	0x00000000004005c3</span><br><span class="line">0x400708: 0x00000000004005a1 	0x00000000004005aa</span><br><span class="line">0x400718: 0x00000000004005b2	0x00000000004005bf</span><br></pre></td></tr></table></figure>
+<p>用C 代码填写开关语句的主体，使它的行为与机器代码一致。</p>
+<p><strong>解：</strong></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="title function_">switch_prob</span><span class="params">(<span class="type">long</span> x, <span class="type">long</span> n)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">long</span> result = x;</span><br><span class="line">    <span class="keyword">switch</span> (n)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">60</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="number">62</span>:</span><br><span class="line">            result = <span class="number">8</span>*x;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">63</span>:</span><br><span class="line">            result = x&gt;&gt;<span class="number">3</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">64</span>:</span><br><span class="line">            result= (x&lt;&lt;<span class="number">4</span>)-x;</span><br><span class="line">            x=result;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">65</span>:</span><br><span class="line">            x=x*x;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            result = <span class="number">0x4B</span>+x;  </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="section-3">3.69</h2>
+<p>你负责维护一个大型的C 程序，遇到下面的代码：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">int</span> first;</span><br><span class="line">    a_struct a[CNT];</span><br><span class="line">    <span class="type">int</span> last;</span><br><span class="line">&#125; b_struct;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">test</span><span class="params">(<span class="type">long</span> i, b_struct *bp)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> n = bp-&gt;first + bp-&gt;last;</span><br><span class="line">    a_struct *ap = &amp;bp-&gt;a[i];</span><br><span class="line">    ap-&gt;x[ap-&gt;idx] = n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译时常数CNT 和结构a_struct
+的声明是在一个你没有访问权限的文件中。幸好，你有代码的'.o'版本，可以用OBJDUMP
+程序来反汇编这些文件，得到下面的反汇编代码：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">test</span> <span class="params">(<span class="type">long</span> i, b_struct *bp)</span></span><br><span class="line">i in %rdi, bp in %rsi</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">0000000000000000 &lt;test&gt;:</span><br><span class="line">	0: Sb Se 20 01 00 00	mov		0x120(%rsi),%ecx</span><br><span class="line">	6: 03 Oe				add 	(%rsi),%ecx</span><br><span class="line">	S: 4S Sd 04 bf			lea 	(%rdi,%rdi,4),%rax</span><br><span class="line">	c: 4S Sd 04 c6			lea 	(%rsi,%rax,8),%rax</span><br><span class="line">	10: 4S Sb 50 OS			mov 	Ox8(%rax),%rdx</span><br><span class="line">	14: 4S 63 c9			movslq	%ecx,%rcx</span><br><span class="line">	17: 48 89 4c dO 10		mov		%rcx,0x10(%rax,%rdx,8)</span><br><span class="line">	le: c3					retq</span><br></pre></td></tr></table></figure>
+<p>运用你的逆向工程技术，推断出下列内容：</p>
+<p>A. CNT 的值。</p>
+<p>B. 结构a_struct 的完整声明。假设这个结构中只有字段idx 和x ,
+并且这两个字段保存的都是有符号值。</p>
+<p><strong>解：</strong></p>
+<p>A. 7</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">0000000000000000 &lt;test&gt;:</span><br><span class="line">	0: Sb Se 20 01 00 00	mov		0x120(%rsi),%ecx  # Get bp-&gt;last</span><br><span class="line">	6: 03 Oe				add 	(%rsi),%ecx # n = bp-&gt;first</span><br></pre></td></tr></table></figure>
+<p>int
+类型4字节，还需要进行对齐，所以占8字节，剩下的都是数组<code>a_struct a[CNT];</code>的空间，
+<code>CNT*40 + 8 = 288 = 0x120</code>，所以<code>CNT = 7</code>。</p>
+<ol start="2" type="A">
+<li></li>
+</ol>
+<p>分析汇编代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">0000000000000000 &lt;test&gt;:</span><br><span class="line">	0: Sb Se 20 01 00 00	mov		0x120(%rsi),%ecx</span><br><span class="line">	6: 03 Oe				add 	(%rsi),%ecx # get n</span><br><span class="line">	S: 4S Sd 04 bf			lea 	(%rdi,%rdi,4),%rax  # compute 5*i</span><br><span class="line">	c: 4S Sd 04 c6			lea 	(%rsi,%rax,8),%rax  # compute bp+40*i</span><br><span class="line">	10: 4S Sb 50 OS			mov 	Ox8(%rax),%rdx # Get bp-&gt;a[i].idx</span><br><span class="line">	14: 4S 63 c9			movslq	%ecx,%rcx # shift n from 32b to 64b</span><br><span class="line">	17: 48 89 4c dO 10		mov		%rcx,0x10(%rax,%rdx,8) # mov n to ap-&gt;x[ap-&gt;idx] </span><br><span class="line">	le: c3					retq</span><br></pre></td></tr></table></figure>
+<p>第6行得到idx的值，这里使用的%rdx寄存器，所以应该是long类型；由第一小问可以知道<code>a_struct</code>的大小为40字节，第7行将n从32字节转为64，所以数组x应该是long类型，并且为4个。所以<code>a_struct</code>的完整声明如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">  <span class="type">long</span> idx;</span><br><span class="line">  <span class="type">long</span> x[<span class="number">4</span>];</span><br><span class="line">&#125; a_struct;</span><br></pre></td></tr></table></figure>
+<h2 id="section-4">3.70</h2>
+<p>考虑下面的联合声明：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">ele</span>&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">        <span class="type">long</span> *p;</span><br><span class="line">        <span class="type">long</span> y;</span><br><span class="line">    &#125; e1;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">        <span class="type">long</span> x;</span><br><span class="line">        <span class="class"><span class="keyword">union</span> <span class="title">ele</span> *<span class="title">next</span>;</span></span><br><span class="line">    &#125; e2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这个声明说明联合中可以嵌套结构。下面的函数（省略了一些表达式）对一个链表进行操作，链表是以上述联合作为元素的：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">proc</span><span class="params">(<span class="keyword">union</span> ele *up)</span>&#123;</span><br><span class="line">    up-&gt;___________= *(___________) - ___________;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>A. 下列字段的偏移址是多少（以字节为单位）：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">e1.p    _____________</span><br><span class="line">e1.y	_____________</span><br><span class="line">e2.x	_____________</span><br><span class="line">e2.next	_____________</span><br></pre></td></tr></table></figure>
+<p>B. 这个结构总共需要多少个字节？</p>
+<p>C. 编译器为proc 产生下面的汇编代码：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">proc</span> <span class="params">(<span class="keyword">union</span> ele *up)</span></span><br><span class="line">up in %rdi</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">proc:</span><br><span class="line">	movq	8(%rdi), %rax</span><br><span class="line">	movq	(%rax) , %rdx</span><br><span class="line">	movq	(%rdx), %rdx</span><br><span class="line">	subq	8(%rax), %rdx</span><br><span class="line">	movq	%rdx, (%rd)</span><br><span class="line">	ret</span><br></pre></td></tr></table></figure>
+<p>在这些信息的基础上，填写proc
+代码中缺失的表达式。提示：有些联合引用的解释可以有歧义，当你清楚引用指引到哪里的时候，就能够澄清这些歧义。只有一个答案，不需要进行强制类型转换，且不违反任何类型限制。</p>
+<p><strong>解：</strong></p>
+<ol type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">e1.p    <span class="number">0</span></span><br><span class="line">e1.y	<span class="number">8</span></span><br><span class="line">e2.x	<span class="number">0</span></span><br><span class="line">e2.next	<span class="number">8</span></span><br></pre></td></tr></table></figure>
+<p>B. 共需要8字节。</p>
+<ol start="3" type="A">
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">proc</span><span class="params">(<span class="keyword">union</span> ele *up)</span>&#123;</span><br><span class="line">    up-&gt;e2.x= *((up-&gt;e2.next)-&gt;e1.p) - (up-&gt;e2.next)-&gt;e1.y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考">参考</h1>
+<p><a href="https://dreamanddead.github.io/CSAPP-3e-Solutions/">CSAPP-3E-SOLUTIONS</a></p>
+]]></content>
+      <categories>
+        <category>作业</category>
+      </categories>
+      <tags>
+        <tag>作业</tag>
+        <tag>CSAPP</tag>
       </tags>
   </entry>
   <entry>
@@ -1383,279 +1694,6 @@ B+树的节点键值进行压缩存储。假设每个节点中的键值压缩 1
       </tags>
   </entry>
   <entry>
-    <title>中科大计算机系统作业2</title>
-    <url>/post/12d42946.html</url>
-    <content><![CDATA[<p>本文为中科大研究生课程——计算机系统作业2的题目解答记录。使用的教材为《深入理解计算机系统》。</p>
-<span id="more"></span>
-<h1 id="题目与解答">题目与解答</h1>
-<h2 id="section">3.58</h2>
-<p>一个函数的原型为</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="title function_">decode2</span><span class="params">(<span class="type">long</span> x, <span class="type">long</span> y, <span class="type">long</span> z)</span>;</span><br></pre></td></tr></table></figure>
-<p>GCC 产生如下汇编代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">decode2:</span><br><span class="line">	subq 	%rdx, %rsi</span><br><span class="line">	imulq 	%rsi, %rdi</span><br><span class="line">	movq 	%rsi, %rax</span><br><span class="line">	salq 	$63,%rax</span><br><span class="line">	sarq 	$63, %rax</span><br><span class="line">	xorq 	%rdi, %rax</span><br><span class="line">	ret</span><br></pre></td></tr></table></figure>
-<p>参数x 、y 和z 通过寄存器%rdi、%rsi 和 %rdx
-传递。代码将返回值存放在寄存器%rax 中。写出等价于上述汇编代码的decode2
-的C代码。</p>
-<p><strong>解：</strong></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="title function_">decode2</span><span class="params">(<span class="type">long</span> x, <span class="type">long</span> y, <span class="type">long</span> z)</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="type">long</span> tmp = y - z;</span><br><span class="line">  <span class="keyword">return</span> (tmp * x) ^ (tmp &lt;&lt; <span class="number">63</span> &gt;&gt; <span class="number">63</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="section-1">3.60</h2>
-<p>考虑下面的汇编代码：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="title function_">loop</span><span class="params">(<span class="type">long</span> x, <span class="type">int</span> n)</span></span><br><span class="line">x in%rdi, n in%esi</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">loop :</span><br><span class="line">	movl	%esi, %ecx</span><br><span class="line">	movl	$1, %edx</span><br><span class="line">	movl	$0, %eax</span><br><span class="line">	jmp		.L2</span><br><span class="line">.L3:</span><br><span class="line">	movq	%rdi, %r8</span><br><span class="line">	andq	%rdx, %r8</span><br><span class="line">	orq		%r8, %rax</span><br><span class="line">	salq	%cl, %rdx</span><br><span class="line">.L2:</span><br><span class="line">	testq %rdx, %rdx</span><br><span class="line">	jne .L3</span><br><span class="line">	rep; ret</span><br></pre></td></tr></table></figure>
-<p>以上代码是编译以下整体形式的C 代码产生的：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="title function_">loop2</span><span class="params">(<span class="type">long</span> x, <span class="type">int</span> n)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">long</span> result = ____________;</span><br><span class="line">    <span class="type">long</span> mask;</span><br><span class="line">    <span class="keyword">for</span> (mask = ____________; mask ____________; mask =____________)&#123;</span><br><span class="line">        result |= ____________;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>你的任务是填写这个C
-代码中缺失的部分，得到一个程序等价于产生的汇编代码。回想一下，这个函数的结果是在寄存器%rax
-中返回的。你会发现以下工作很有帮助：检查循环之前、之中和之后的汇编代码，形成一个寄存器和程序变最之间一致的映射。</p>
-<p>A. 哪个寄存器保存着程序值x 、n 、result 和mask?</p>
-<p>B. result 和mask 的初始值是什么？</p>
-<p>C. mask 的测试条件是什么？</p>
-<p>D. mask 是如何被修改的？</p>
-<p>E. result 是如何被修改的？</p>
-<p>F. 填写这段C 代码中所有缺失的部分。</p>
-<p><strong>解：</strong></p>
-<ol type="A">
-<li></li>
-</ol>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">变量</th>
-<th style="text-align: left;">寄存器</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">x</td>
-<td style="text-align: left;">%rdi</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">n</td>
-<td style="text-align: left;">%esi</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">result</td>
-<td style="text-align: left;">%rax</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">mask</td>
-<td style="text-align: left;">%rdx</td>
-</tr>
-</tbody>
-</table>
-<ol start="2" type="A">
-<li></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">result = <span class="number">0</span></span><br><span class="line">mask = <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<ol start="3" type="A">
-<li></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">mask != <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<ol start="4" type="A">
-<li></li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mask = mask &lt;&lt; n</span><br></pre></td></tr></table></figure>
-<ol start="5" type="A">
-<li></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="title function_">loop2</span><span class="params">(<span class="type">long</span> x, <span class="type">int</span> n)</span> &#123;</span><br><span class="line">  <span class="type">long</span> result = <span class="number">0</span>;</span><br><span class="line">  <span class="type">long</span> mask;</span><br><span class="line">  <span class="keyword">for</span> (mask = <span class="number">1</span>; mask != <span class="number">0</span>; mask &lt;&lt;= n) &#123;</span><br><span class="line">    result |= (x &amp; mask);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="section-2">3.63</h2>
-<p>这个程序给你一个机会，从反汇编机器代码逆向工程一个switch
-语句。在下面这个过程中，去掉了switch 语句的主体：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="title function_">switch_prob</span><span class="params">(<span class="type">long</span> x, <span class="type">long</span> n)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">long</span> result = x;</span><br><span class="line">    <span class="keyword">switch</span> (n)&#123;</span><br><span class="line">    <span class="comment">/* Fill in code here */</span></span><br><span class="line">            </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>下面给出了这个过程的反汇编机器代码：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="title function_">switch_prob</span> <span class="params">(<span class="type">long</span> x,<span class="type">long</span> n)</span></span><br><span class="line">x in%rdi , n in%rsi</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">0000000000400590 &lt;switch_prob&gt;:</span><br><span class="line">400590: 48 83 ee 3c				sub		$0x3c,%rsi</span><br><span class="line">400594: 48 83 fe 05				cmp		$0x5,%rsi</span><br><span class="line">400598: 77 29					ja		4005c3 &lt;switch_prob+0x33&gt;</span><br><span class="line">40059a: ff 24 f5 f8 06 40 00	jmpq	*0x4006f8(,%rsi,8)</span><br><span class="line">4005a1: 48 8d 04 fd 00 00 00	lea		0x0 (,%rdi,8),%rax</span><br><span class="line">4005a8: 00</span><br><span class="line">4005a9: c3						retq	</span><br><span class="line">4005aa: 48 89 f8				mov		%rdi,%rax</span><br><span class="line">4005ad: 48 c1 f8 03				sar		$0x3,%rax</span><br><span class="line">4005b1: c3						retq	</span><br><span class="line">4005b2: 48 89 f8				mov		%rdi,%rax</span><br><span class="line">4005b5: 48 c1 eO 04				shl		$0x4,%rax</span><br><span class="line">4005b9: 48 29 f8				sub		%rdi,%rax</span><br><span class="line">4005bc: 48 89 c7				mov		%rax,%rdi</span><br><span class="line">4005bf: 48 Of af ff				imul	%rdi,%rdi</span><br><span class="line">4005c3: 48 8d 47 4b				lea		Ox4b(%rdi),%rax</span><br><span class="line">4005c7: c3						retq	</span><br></pre></td></tr></table></figure>
-<p>跳转表驻留在内存的不同区域中。可以从第5
-行的间接跳转看出来，跳转表的起始地址为0x4006f8 。用调试器GDB,
-我们可以用命令x/6gx 0x4006f8 来检查组成跳转表的6个8 字节字的内存。GDB
-打印出下面的内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(gdb) x/6gx 0x4006f8</span><br><span class="line">0x4006f8: 0x00000000004005a1 	0x00000000004005c3</span><br><span class="line">0x400708: 0x00000000004005a1 	0x00000000004005aa</span><br><span class="line">0x400718: 0x00000000004005b2	0x00000000004005bf</span><br></pre></td></tr></table></figure>
-<p>用C 代码填写开关语句的主体，使它的行为与机器代码一致。</p>
-<p><strong>解：</strong></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="title function_">switch_prob</span><span class="params">(<span class="type">long</span> x, <span class="type">long</span> n)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">long</span> result = x;</span><br><span class="line">    <span class="keyword">switch</span> (n)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">60</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="number">62</span>:</span><br><span class="line">            result = <span class="number">8</span>*x;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">63</span>:</span><br><span class="line">            result = x&gt;&gt;<span class="number">3</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">64</span>:</span><br><span class="line">            result= (x&lt;&lt;<span class="number">4</span>)-x;</span><br><span class="line">            x=result;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">65</span>:</span><br><span class="line">            x=x*x;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            result = <span class="number">0x4B</span>+x;  </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="section-3">3.69</h2>
-<p>你负责维护一个大型的C 程序，遇到下面的代码：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">int</span> first;</span><br><span class="line">    a_struct a[CNT];</span><br><span class="line">    <span class="type">int</span> last;</span><br><span class="line">&#125; b_struct;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">test</span><span class="params">(<span class="type">long</span> i, b_struct *bp)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> n = bp-&gt;first + bp-&gt;last;</span><br><span class="line">    a_struct *ap = &amp;bp-&gt;a[i];</span><br><span class="line">    ap-&gt;x[ap-&gt;idx] = n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>编译时常数CNT 和结构a_struct
-的声明是在一个你没有访问权限的文件中。幸好，你有代码的'.o'版本，可以用OBJDUMP
-程序来反汇编这些文件，得到下面的反汇编代码：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">test</span> <span class="params">(<span class="type">long</span> i, b_struct *bp)</span></span><br><span class="line">i in %rdi, bp in %rsi</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">0000000000000000 &lt;test&gt;:</span><br><span class="line">	0: Sb Se 20 01 00 00	mov		0x120(%rsi),%ecx</span><br><span class="line">	6: 03 Oe				add 	(%rsi),%ecx</span><br><span class="line">	S: 4S Sd 04 bf			lea 	(%rdi,%rdi,4),%rax</span><br><span class="line">	c: 4S Sd 04 c6			lea 	(%rsi,%rax,8),%rax</span><br><span class="line">	10: 4S Sb 50 OS			mov 	Ox8(%rax),%rdx</span><br><span class="line">	14: 4S 63 c9			movslq	%ecx,%rcx</span><br><span class="line">	17: 48 89 4c dO 10		mov		%rcx,0x10(%rax,%rdx,8)</span><br><span class="line">	le: c3					retq</span><br></pre></td></tr></table></figure>
-<p>运用你的逆向工程技术，推断出下列内容：</p>
-<p>A. CNT 的值。</p>
-<p>B. 结构a_struct 的完整声明。假设这个结构中只有字段idx 和x ,
-并且这两个字段保存的都是有符号值。</p>
-<p><strong>解：</strong></p>
-<p>A. 7</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">0000000000000000 &lt;test&gt;:</span><br><span class="line">	0: Sb Se 20 01 00 00	mov		0x120(%rsi),%ecx  # Get bp-&gt;last</span><br><span class="line">	6: 03 Oe				add 	(%rsi),%ecx # n = bp-&gt;first</span><br></pre></td></tr></table></figure>
-<p>int
-类型4字节，还需要进行对齐，所以占8字节，剩下的都是数组<code>a_struct a[CNT];</code>的空间，
-<code>CNT*40 + 8 = 288 = 0x120</code>，所以<code>CNT = 7</code>。</p>
-<ol start="2" type="A">
-<li></li>
-</ol>
-<p>分析汇编代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">0000000000000000 &lt;test&gt;:</span><br><span class="line">	0: Sb Se 20 01 00 00	mov		0x120(%rsi),%ecx</span><br><span class="line">	6: 03 Oe				add 	(%rsi),%ecx # get n</span><br><span class="line">	S: 4S Sd 04 bf			lea 	(%rdi,%rdi,4),%rax  # compute 5*i</span><br><span class="line">	c: 4S Sd 04 c6			lea 	(%rsi,%rax,8),%rax  # compute bp+40*i</span><br><span class="line">	10: 4S Sb 50 OS			mov 	Ox8(%rax),%rdx # Get bp-&gt;a[i].idx</span><br><span class="line">	14: 4S 63 c9			movslq	%ecx,%rcx # shift n from 32b to 64b</span><br><span class="line">	17: 48 89 4c dO 10		mov		%rcx,0x10(%rax,%rdx,8) # mov n to ap-&gt;x[ap-&gt;idx] </span><br><span class="line">	le: c3					retq</span><br></pre></td></tr></table></figure>
-<p>第6行得到idx的值，这里使用的%rdx寄存器，所以应该是long类型；由第一小问可以知道<code>a_struct</code>的大小为40字节，第7行将n从32字节转为64，所以数组x应该是long类型，并且为4个。所以<code>a_struct</code>的完整声明如下：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">  <span class="type">long</span> idx;</span><br><span class="line">  <span class="type">long</span> x[<span class="number">4</span>];</span><br><span class="line">&#125; a_struct;</span><br></pre></td></tr></table></figure>
-<h2 id="section-4">3.70</h2>
-<p>考虑下面的联合声明：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">ele</span>&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">        <span class="type">long</span> *p;</span><br><span class="line">        <span class="type">long</span> y;</span><br><span class="line">    &#125; e1;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">        <span class="type">long</span> x;</span><br><span class="line">        <span class="class"><span class="keyword">union</span> <span class="title">ele</span> *<span class="title">next</span>;</span></span><br><span class="line">    &#125; e2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>这个声明说明联合中可以嵌套结构。下面的函数（省略了一些表达式）对一个链表进行操作，链表是以上述联合作为元素的：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">proc</span><span class="params">(<span class="keyword">union</span> ele *up)</span>&#123;</span><br><span class="line">    up-&gt;___________= *(___________) - ___________;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>A. 下列字段的偏移址是多少（以字节为单位）：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">e1.p    _____________</span><br><span class="line">e1.y	_____________</span><br><span class="line">e2.x	_____________</span><br><span class="line">e2.next	_____________</span><br></pre></td></tr></table></figure>
-<p>B. 这个结构总共需要多少个字节？</p>
-<p>C. 编译器为proc 产生下面的汇编代码：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">proc</span> <span class="params">(<span class="keyword">union</span> ele *up)</span></span><br><span class="line">up in %rdi</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">proc:</span><br><span class="line">	movq	8(%rdi), %rax</span><br><span class="line">	movq	(%rax) , %rdx</span><br><span class="line">	movq	(%rdx), %rdx</span><br><span class="line">	subq	8(%rax), %rdx</span><br><span class="line">	movq	%rdx, (%rd)</span><br><span class="line">	ret</span><br></pre></td></tr></table></figure>
-<p>在这些信息的基础上，填写proc
-代码中缺失的表达式。提示：有些联合引用的解释可以有歧义，当你清楚引用指引到哪里的时候，就能够澄清这些歧义。只有一个答案，不需要进行强制类型转换，且不违反任何类型限制。</p>
-<p><strong>解：</strong></p>
-<ol type="A">
-<li></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">e1.p    <span class="number">0</span></span><br><span class="line">e1.y	<span class="number">8</span></span><br><span class="line">e2.x	<span class="number">0</span></span><br><span class="line">e2.next	<span class="number">8</span></span><br></pre></td></tr></table></figure>
-<p>B. 共需要8字节。</p>
-<ol start="3" type="A">
-<li></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">proc</span><span class="params">(<span class="keyword">union</span> ele *up)</span>&#123;</span><br><span class="line">    up-&gt;e2.x= *((up-&gt;e2.next)-&gt;e1.p) - (up-&gt;e2.next)-&gt;e1.y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="参考">参考</h1>
-<p><a href="https://dreamanddead.github.io/CSAPP-3e-Solutions/">CSAPP-3E-SOLUTIONS</a></p>
-]]></content>
-      <categories>
-        <category>作业</category>
-      </categories>
-      <tags>
-        <tag>作业</tag>
-        <tag>CSAPP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>USTC计科复试刷题记录/2011</title>
-    <url>/post/3a86b2e7.html</url>
-    <content><![CDATA[<p>本文为2011年中科大计算机学院复试机试刷题记录，使用C++作为编程语言，并在Linux
-平台下使用gcc编译器进行编译以及测试运行。输入输出风格偏向于C，有些题目会用到C++的STL标准函数库。</p>
-<span id="more"></span>
-<h2 id="题目详解">题目详解</h2>
-<h3 id="进制转换">进制转换</h3>
-<blockquote>
-<p>给两个十进制数，先异或，然后输出其二进制形式。</p>
-</blockquote>
-<p>C语言中的<code>printf</code>函数可以直接打印十进制，八进制，十六进制，输出控制符分别为%d,
-%o, %x, 但是它不能直接输出二进制，所以这里考虑使用位操作输出二进制。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 给两个十进制数，先异或，然后输出其二进制形式。 */</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;a, &amp;b);</span><br><span class="line">    <span class="type">int</span> c = a ^ b;</span><br><span class="line">    <span class="type">int</span> bits[<span class="number">32</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span>; i++) <span class="comment">// 每次取最低一位 得到逆位输出</span></span><br><span class="line">    &#123;</span><br><span class="line">        bits[i] = c &amp; <span class="number">1</span>;</span><br><span class="line">        c &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 反向输出即为正确答案</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">31</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, bits[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行与测试：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">g++ -o ex1 ex1.cpp</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./ex1</span></span><br><span class="line">1 2</span><br><span class="line">00000000000000000000000000000011</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./ex1</span></span><br><span class="line">3 5</span><br><span class="line">00000000000000000000000000000110</span><br></pre></td></tr></table></figure>
-<h3 id="球的取法">球的取法</h3>
-<blockquote>
-<p>一共有十二个球，其颜色有红、黄、黑三种，红黄黑分别有 x，y，k
-个，现在从其中取出八个球，共有多少种取法，输出到文件中？（x，y，k
-从键盘输入，同种颜色的球不区分）</p>
-</blockquote>
-<p>输出格式：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>  红球， 黄球， 黑球;</span><br><span class="line"><span class="number">2.</span>  红球， 黄球， 黑球;</span><br><span class="line"><span class="number">3.</span></span><br><span class="line">....</span><br></pre></td></tr></table></figure>
-<ul>
-<li>思路</li>
-</ul>
-<p>直接用双重循环暴力枚举前两种球被抽到的个数。注意这题要求输出到文件，使用C语言的fprint函数。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="type">int</span> x, y, k;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d %d %d&quot;</span>, &amp;x, &amp;y, &amp;k);</span><br><span class="line">  <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">  FILE * fp;</span><br><span class="line">  fp = <span class="built_in">fopen</span> (<span class="string">&quot;3.txt&quot;</span>, <span class="string">&quot;w+&quot;</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">8</span> &amp;&amp; i &lt;= x; i++)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt;= <span class="number">8</span> - i &amp;&amp; j &lt;= y; j++)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="number">8</span> - i - j &lt;= k)</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(fp,<span class="string">&quot;%2d. %d红球，%d黄球，%d黑球\n&quot;</span>, ++cnt, i, j, <span class="number">8</span> - i - j);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">fclose</span>(fp);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>运行与测试</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">g++ -o ex2 ex2.cpp</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./ex2  3 4 5</span></span><br><span class="line">// 3.txt</span><br><span class="line"> 1. 0红球，3黄球，5黑球</span><br><span class="line"> 2. 0红球，4黄球，4黑球</span><br><span class="line"> 3. 1红球，2黄球，5黑球</span><br><span class="line"> 4. 1红球，3黄球，4黑球</span><br><span class="line"> 5. 1红球，4黄球，3黑球</span><br><span class="line"> 6. 2红球，1黄球，5黑球</span><br><span class="line"> 7. 2红球，2黄球，4黑球</span><br><span class="line"> 8. 2红球，3黄球，3黑球</span><br><span class="line"> 9. 2红球，4黄球，2黑球</span><br><span class="line">10. 3红球，0黄球，5黑球</span><br><span class="line">11. 3红球，1黄球，4黑球</span><br><span class="line">12. 3红球，2黄球，3黑球</span><br><span class="line">13. 3红球，3黄球，2黑球</span><br><span class="line">14. 3红球，4黄球，1黑球</span><br></pre></td></tr></table></figure>
-<h3 id="模式匹配">模式匹配</h3>
-<p>在文件<code>3.txt</code>中查看是否有模式<code>abc*d?e</code>。若有，输出<code>找到abc*d?e匹配</code>；若无，则输出<code>没有找到abc*d?e匹配</code>，将结果输出到控制台。其中*代表任意个数（0或1或多个），？代表一个或零个，即正则表达式。</p>
-<ul>
-<li>思路：本题可以采用《编译原理》里面的确定的有限状态机（DFA）解决。先画出模式的DFA图，然后根据
-DFA 列出如下的状态跳转表，之后我们就可以采用 <strong>表驱动法</strong>
-进行编程实现了。可以参考力扣题目：<a href="https://leetcode.cn/problems/valid-number/">65.
-有效数字</a>，也是有关DFA的，有很详细的解答。</li>
-</ul>
-<p><img src="/post/3a86b2e7/image-20221102195829040.png" alt="image-20221102195829040" style="zoom:50%;"></p>
-<table>
-<thead>
-<tr class="header">
-<th>state</th>
-<th>a</th>
-<th>b</th>
-<th>c</th>
-<th>d</th>
-<th>e</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>2</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>2</td>
-<td>3</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>2</td>
-<td>1</td>
-<td>3</td>
-<td>4</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>2</td>
-<td>1</td>
-<td>1</td>
-<td>4</td>
-<td>5</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *fp;</span><br><span class="line">    fp = <span class="built_in">fopen</span>(<span class="string">&quot;3.txt&quot;</span>, <span class="string">&quot;r+&quot;</span>);</span><br><span class="line">    <span class="type">int</span> state;</span><br><span class="line">    <span class="type">int</span> move[<span class="number">5</span>][<span class="number">5</span>] = &#123;</span><br><span class="line">        &#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>&#125;, <span class="comment">// 多一行方便一一对应</span></span><br><span class="line">        &#123;<span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>&#125;,</span><br><span class="line">        &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>&#125;,</span><br><span class="line">        &#123;<span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>&#125;,</span><br><span class="line">        &#123;<span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>&#125;,</span><br><span class="line">    &#125;;</span><br><span class="line">    state = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> ((!<span class="built_in">feof</span>(fp)) &amp;&amp; (state != <span class="number">5</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">char</span> ch = <span class="built_in">fgetc</span>(fp);</span><br><span class="line">        <span class="keyword">if</span> ((<span class="string">&#x27;a&#x27;</span> &lt;= ch) &amp;&amp; (ch &lt;= <span class="string">&#x27;e&#x27;</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            state = move[state][ch - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            state = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (state == <span class="number">5</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;找到abc*d?e匹配\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;没有找到abc*d?e匹配\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="built_in">fclose</span>(fp);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>测试：</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">//3.txt</span><br><span class="line">aaaaaabbccddeeabeabccccde</span><br><span class="line">//run ex3</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">g++ -o ex3 ex3.cpp</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./ex3</span></span><br><span class="line">找到abc*d?e匹配</span><br></pre></td></tr></table></figure>
-<h3 id="二叉树后序遍历">二叉树后序遍历</h3>
-<p>从文件<code>4.txt</code>中读入一个二叉树，然后后序遍历该二叉树，将结果输出到文件<code>4.out</code>。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">输入格式：</span><br><span class="line"><span class="comment">// 表示节点个数</span></span><br><span class="line"><span class="comment">// 当前节点编号 左孩子编号 右孩子编号</span></span><br><span class="line"><span class="number">4</span> </span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">4</span> </span><br><span class="line"><span class="number">2</span> <span class="number">0</span> <span class="number">3</span></span><br><span class="line"><span class="number">3</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line"><span class="number">4</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">输出格式：</span><br><span class="line"><span class="number">3</span> <span class="number">2</span> <span class="number">4</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>思路</li>
-</ul>
-<p>这题的得分点其实挺多的，写出来树节点的结构体，创建树等等。读入每行树节点时，可以使用一个数组记录每个子树根节点的指针，方便使用节点编号就可以直接访问节点，从而添加孩子节点，最后从根即可访问到所有节点。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line">FILE *in_fp;</span><br><span class="line">FILE *out_fp;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 树节点</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> val;</span><br><span class="line">    node *lchild, *rchild;</span><br><span class="line">    <span class="built_in">node</span>(<span class="type">int</span> v) : <span class="built_in">val</span>(v), <span class="built_in">lchild</span>(<span class="literal">NULL</span>), <span class="built_in">rchild</span>(<span class="literal">NULL</span>) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 后序遍历（递归）</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">postOrder</span><span class="params">(node *root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">postOrder</span>(root-&gt;lchild);</span><br><span class="line">    <span class="built_in">postOrder</span>(root-&gt;rchild);</span><br><span class="line">    <span class="built_in">fprintf</span>(out_fp, <span class="string">&quot;%d &quot;</span>, root-&gt;val);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n; <span class="comment">// 树节点个数</span></span><br><span class="line">    in_fp = <span class="built_in">fopen</span>(<span class="string">&quot;4.txt&quot;</span>, <span class="string">&quot;r+&quot;</span>);</span><br><span class="line">    out_fp = <span class="built_in">fopen</span>(<span class="string">&quot;4.out&quot;</span>, <span class="string">&quot;w+&quot;</span>);</span><br><span class="line">    <span class="built_in">fscanf</span>(in_fp, <span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    node *tree[n + <span class="number">1</span>] = &#123;<span class="literal">NULL</span>&#125;; <span class="comment">// 保存节点的指针</span></span><br><span class="line">    <span class="type">int</span> r, a, b;</span><br><span class="line">    <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> rootId = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">fscanf</span>(in_fp, <span class="string">&quot;%d %d %d&quot;</span>, &amp;r, &amp;a, &amp;b)!=EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (cnt == <span class="number">0</span>)</span><br><span class="line">            rootId = r; <span class="comment">// 记录根节点的位置</span></span><br><span class="line">        <span class="keyword">if</span> (tree[r] == <span class="literal">NULL</span>)</span><br><span class="line">            tree[r] = <span class="keyword">new</span> <span class="built_in">node</span>(r);</span><br><span class="line">        <span class="keyword">if</span> (tree[a] == <span class="literal">NULL</span> &amp;&amp; a != <span class="number">0</span>)</span><br><span class="line">            tree[a] = <span class="keyword">new</span> <span class="built_in">node</span>(a);</span><br><span class="line">        <span class="keyword">if</span> (tree[b] == <span class="literal">NULL</span> &amp;&amp; b != <span class="number">0</span>)</span><br><span class="line">            tree[b] = <span class="keyword">new</span> <span class="built_in">node</span>(b);</span><br><span class="line">        tree[r]-&gt;lchild = tree[a];</span><br><span class="line">        tree[r]-&gt;rchild = tree[b];</span><br><span class="line">        cnt++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">postOrder</span>(tree[rootId]);</span><br><span class="line">    <span class="built_in">fclose</span>(in_fp);</span><br><span class="line">    <span class="built_in">fclose</span>(out_fp);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>测试</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">// 4.txt</span><br><span class="line">4 </span><br><span class="line">1 2 4 </span><br><span class="line">2 0 3</span><br><span class="line">3 0 0</span><br><span class="line">4 0 0</span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">g++ -o ex4 ex4.cpp</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">./ex4</span></span><br><span class="line">// 4.out</span><br><span class="line">3 2 4 1 </span><br></pre></td></tr></table></figure>
-<h2 id="参考链接">参考链接</h2>
-<ul>
-<li><p><a href="https://zdszero.github.io/posts/ustc-test-2011/">中科大2011年复试机试题详解</a></p></li>
-<li><p><a href="https://zhuanlan.zhihu.com/p/377692017">中科大计算机考研复试详解</a>
-这篇有很详细的复试介绍以及资料，非常推荐！</p></li>
-<li><p><a href="http://www.cskaoyan.com/thread-60279-1-10.html">中科大2011计算机考研复试上机(第三题)代码，附回忆版上机试题</a></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>考研</category>
-      </categories>
-      <tags>
-        <tag>刷题</tag>
-        <tag>代码</tag>
-        <tag>复试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>中科大计算机系统实验1&amp;2&amp;3</title>
     <url>/post/ba783922.html</url>
     <content><![CDATA[<p>本文记录中科大研究生课程——计算机系统的相关实验，使用的教材为《深入理解计算机系统》第3版。课程给的实验材料貌似用的是第2版的，额外添加了一些实验要求和说明，但是原理和思想基本都是一样的。</p>
@@ -1700,7 +1738,7 @@ C 操作符和数量，有助于理解 C
 <p>根据德摩根定律（参考离散数学集合论知识）：</p>
 <p><img src="/post/ba783922/c2f4430bd910acad95a9e1ea734ec185.svg"></p>
 <p>推导出：</p>
-<p><img src="/post/ba783922/image-20221030174706082.png" alt="image-20221030174706082" style="zoom: 50%;"></p>
+<p><img src="/post/ba783922/image-20221030174706082.png" alt style="zoom: 50%;"></p>
 <p>转换为C代码：</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line">x^y=~(~x&amp;~y)&amp;~(x&amp;y)</span><br></pre></td></tr></table></figure>
 <h3 id="tmin">2. tmin</h3>
@@ -1809,7 +1847,7 @@ frac 部分左移 1
 <p>计算2.0的x次方。</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * floatPower2 - Return bit-level equivalent of the expression 2.0^x</span></span><br><span class="line"><span class="comment"> *   (2.0 raised to the power x) for any 32-bit integer x.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *   The unsigned value that is returned should have the identical bit</span></span><br><span class="line"><span class="comment"> *   representation as the single-precision floating-point number 2.0^x.</span></span><br><span class="line"><span class="comment"> *   If the result is too small to be represented as a denorm, return</span></span><br><span class="line"><span class="comment"> *   0. If too large, return +INF.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. Also if, while</span></span><br><span class="line"><span class="comment"> *   Max ops: 30</span></span><br><span class="line"><span class="comment"> *   Rating: 4</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="type">unsigned</span> <span class="title function_">floatPower2</span><span class="params">(<span class="type">int</span> x)</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">if</span> (x &gt; <span class="number">127</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0xff</span> &lt;&lt; <span class="number">23</span>;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (x &lt; <span class="number">-126</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="keyword">return</span> (x + <span class="number">127</span>) &lt;&lt; <span class="number">23</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="实验结果">实验结果</h2>
-<p><img src="/post/ba783922/image-20221014201052512.png" alt="image-20221014201052512" style="zoom: 67%;"></p>
+<p><img src="/post/ba783922/image-20221014201052512.png" alt style="zoom: 67%;"></p>
 <h2 id="补充">补充</h2>
 <ul>
 <li><p>编译时一直有个警告：</p>
@@ -1884,7 +1922,7 @@ atoi
 <p>phase1~6的答案如下：</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line">The <span class="built_in">future</span> will be better tomorrow.</span><br><span class="line"><span class="number">5</span> <span class="number">10</span> <span class="number">15</span> <span class="number">20</span> <span class="number">25</span> <span class="number">30</span></span><br><span class="line"><span class="number">0</span> t <span class="number">870</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">7</span> <span class="number">93</span></span><br><span class="line"><span class="number">149</span></span><br></pre></td></tr></table></figure>
 <p>按照阶段依次输入上面分析的答案，运行结果截图如下：</p>
-<p><img src="/post/ba783922/image-20221029143516251.png" alt="image-20221029143516251" style="zoom:67%;"></p>
+<p><img src="/post/ba783922/image-20221029143516251.png" alt style="zoom:67%;"></p>
 <h1 id="实验3缓冲区溢出buffer-lab">实验3：缓冲区溢出（Buffer Lab）</h1>
 <h2 id="实验目标">实验目标</h2>
 <ul>
@@ -2012,7 +2050,7 @@ bang 函数的地址 push 进栈中，然后使用 ret
 <p><img src="/post/ba783922/image-20221029210254503.png"></p>
 ]]></content>
       <categories>
-        <category>作业</category>
+        <category>实验</category>
       </categories>
       <tags>
         <tag>CSAPP</tag>
@@ -2020,94 +2058,116 @@ bang 函数的地址 push 进栈中，然后使用 ret
       </tags>
   </entry>
   <entry>
-    <title>USTC计科复试刷题记录/2012</title>
-    <url>/post/a38fe35d.html</url>
-    <content><![CDATA[<p>本文为2012年中科大计算机学院复试机试刷题记录，使用C++作为编程语言，并在Linux
+    <title>USTC计科复试刷题记录/2011</title>
+    <url>/post/3a86b2e7.html</url>
+    <content><![CDATA[<p>本文为2011年中科大计算机学院复试机试刷题记录，使用C++作为编程语言，并在Linux
 平台下使用gcc编译器进行编译以及测试运行。输入输出风格偏向于C，有些题目会用到C++的STL标准函数库。</p>
 <span id="more"></span>
 <h2 id="题目详解">题目详解</h2>
-<h3 id="字符串处理">字符串处理</h3>
+<h3 id="进制转换">进制转换</h3>
 <blockquote>
-<p>字符串处理：从<code>string.in</code>文件里读入两个字符串，字符串除了数字还可能包括<code>'-'、'E'、'e'、'.'</code>，相加之后输出到文件<code>string.out</code>中，如果是浮点型，要求用科学计数法表示（最多保留10个有效数字）。</p>
+<p>给两个十进制数，先异或，然后输出其二进制形式。</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入示例:                       </span><br><span class="line">34.56                                </span><br><span class="line">2.45e2    </span><br><span class="line"></span><br><span class="line">输出示例: </span><br><span class="line">2.7956e2 </span><br></pre></td></tr></table></figure>
+<p>C语言中的<code>printf</code>函数可以直接打印十进制，八进制，十六进制，输出控制符分别为%d,
+%o, %x, 但是它不能直接输出二进制，所以这里考虑使用位操作输出二进制。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 给两个十进制数，先异或，然后输出其二进制形式。 */</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;a, &amp;b);</span><br><span class="line">    <span class="type">int</span> c = a ^ b;</span><br><span class="line">    <span class="type">int</span> bits[<span class="number">32</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span>; i++) <span class="comment">// 每次取最低一位 得到逆位输出</span></span><br><span class="line">    &#123;</span><br><span class="line">        bits[i] = c &amp; <span class="number">1</span>;</span><br><span class="line">        c &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 反向输出即为正确答案</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">31</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, bits[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行与测试：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">g++ -o ex1 ex1.cpp</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./ex1</span></span><br><span class="line">1 2</span><br><span class="line">00000000000000000000000000000011</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./ex1</span></span><br><span class="line">3 5</span><br><span class="line">00000000000000000000000000000110</span><br></pre></td></tr></table></figure>
+<h3 id="球的取法">球的取法</h3>
+<blockquote>
+<p>一共有十二个球，其颜色有红、黄、黑三种，红黄黑分别有 x，y，k
+个，现在从其中取出八个球，共有多少种取法，输出到文件中？（x，y，k
+从键盘输入，同种颜色的球不区分）</p>
+</blockquote>
+<p>输出格式：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>  红球， 黄球， 黑球;</span><br><span class="line"><span class="number">2.</span>  红球， 黄球， 黑球;</span><br><span class="line"><span class="number">3.</span></span><br><span class="line">....</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>思路：可以通过是否有小数点判断输入的是整数还是浮点数，有小数点则利用atof()将字符串转为double型，否则使用atoi()转换为int型。然后就可以用<code>"%.10e"</code>输出科学计数法表示的浮点数。但是这样还有一个问题，就是浮点数输出来结果会有多余的0和加号，<code>2.7956000000e+02</code>。可以先将结果字符串输出到缓冲区，然后消除多余的0以及加号等。</p>
-<p>具体代码如下：</p></li>
+<li>思路</li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdlib&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *infile = <span class="built_in">fopen</span>(<span class="string">&quot;string.in&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">    FILE *outfile = <span class="built_in">fopen</span>(<span class="string">&quot;string.out&quot;</span>, <span class="string">&quot;w&quot;</span>);</span><br><span class="line">    <span class="type">char</span> str1[<span class="number">128</span>];</span><br><span class="line">    <span class="type">char</span> str2[<span class="number">128</span>];</span><br><span class="line">    <span class="built_in">fscanf</span>(infile, <span class="string">&quot;%s&quot;</span>, str1);</span><br><span class="line">    <span class="built_in">fscanf</span>(infile, <span class="string">&quot;%s&quot;</span>, str2);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="type">bool</span> flag_double_str1 = <span class="literal">false</span>, flag_double_str2 = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">while</span> (str1[i] != <span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (str1[i] == <span class="string">&#x27;.&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            flag_double_str1 = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (str2[i] != <span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (str2[i] == <span class="string">&#x27;.&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            flag_double_str2 = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!flag_double_str1 &amp;&amp; !flag_double_str2) <span class="comment">// 全为整形则直接输出</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> a = <span class="built_in">atoi</span>(str1);</span><br><span class="line">        <span class="type">int</span> b = <span class="built_in">atoi</span>(str2);</span><br><span class="line">        <span class="built_in">fprintf</span>(outfile, <span class="string">&quot;%d&quot;</span>, a + b);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 若有一个数为浮点数则转为double</span></span><br><span class="line">    <span class="type">double</span> a = <span class="built_in">atof</span>(str1);</span><br><span class="line">    <span class="type">double</span> b = <span class="built_in">atof</span>(str2);</span><br><span class="line">    <span class="type">char</span> buf[<span class="number">128</span>];</span><br><span class="line">    <span class="built_in">sprintf</span>(buf, <span class="string">&quot;%.10e&quot;</span>, a + b);</span><br><span class="line">    <span class="type">int</span> j;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; buf[i] != <span class="string">&#x27;\0&#x27;</span>; i++)</span><br><span class="line">        <span class="keyword">if</span> (buf[i] == <span class="string">&#x27;e&#x27;</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">for</span> (j = i - <span class="number">1</span>; buf[j] == <span class="string">&#x27;0&#x27;</span>; j--)</span><br><span class="line">        ; <span class="comment">// 从e往前找，跳过中间为0的部分</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt;= j; k++)</span><br><span class="line">        <span class="built_in">fputc</span>(buf[k], outfile);</span><br><span class="line">    <span class="built_in">fputc</span>(<span class="string">&#x27;e&#x27;</span>, outfile);</span><br><span class="line">    i++;</span><br><span class="line">    <span class="keyword">while</span> (buf[i] == <span class="string">&#x27;+&#x27;</span> || buf[i] == <span class="string">&#x27;0&#x27;</span>) <span class="comment">// 消除e后的加号以及0</span></span><br><span class="line">        i++;</span><br><span class="line">    <span class="keyword">for</span> (j = i; buf[j] != <span class="string">&#x27;\0&#x27;</span>; j++)</span><br><span class="line">        <span class="built_in">fputc</span>(buf[j], outfile);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>直接用双重循环暴力枚举前两种球被抽到的个数。注意这题要求输出到文件，使用C语言的fprint函数。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="type">int</span> x, y, k;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d %d %d&quot;</span>, &amp;x, &amp;y, &amp;k);</span><br><span class="line">  <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">  FILE * fp;</span><br><span class="line">  fp = <span class="built_in">fopen</span> (<span class="string">&quot;3.txt&quot;</span>, <span class="string">&quot;w+&quot;</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">8</span> &amp;&amp; i &lt;= x; i++)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt;= <span class="number">8</span> - i &amp;&amp; j &lt;= y; j++)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="number">8</span> - i - j &lt;= k)</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(fp,<span class="string">&quot;%2d. %d红球，%d黄球，%d黑球\n&quot;</span>, ++cnt, i, j, <span class="number">8</span> - i - j);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">fclose</span>(fp);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>运行与测试</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">g++ -o ex2 ex2.cpp</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./ex2  3 4 5</span></span><br><span class="line">// 3.txt</span><br><span class="line"> 1. 0红球，3黄球，5黑球</span><br><span class="line"> 2. 0红球，4黄球，4黑球</span><br><span class="line"> 3. 1红球，2黄球，5黑球</span><br><span class="line"> 4. 1红球，3黄球，4黑球</span><br><span class="line"> 5. 1红球，4黄球，3黑球</span><br><span class="line"> 6. 2红球，1黄球，5黑球</span><br><span class="line"> 7. 2红球，2黄球，4黑球</span><br><span class="line"> 8. 2红球，3黄球，3黑球</span><br><span class="line"> 9. 2红球，4黄球，2黑球</span><br><span class="line">10. 3红球，0黄球，5黑球</span><br><span class="line">11. 3红球，1黄球，4黑球</span><br><span class="line">12. 3红球，2黄球，3黑球</span><br><span class="line">13. 3红球，3黄球，2黑球</span><br><span class="line">14. 3红球，4黄球，1黑球</span><br></pre></td></tr></table></figure>
+<h3 id="模式匹配">模式匹配</h3>
+<p>在文件<code>3.txt</code>中查看是否有模式<code>abc*d?e</code>。若有，输出<code>找到abc*d?e匹配</code>；若无，则输出<code>没有找到abc*d?e匹配</code>，将结果输出到控制台。其中*代表任意个数（0或1或多个），？代表一个或零个，即正则表达式。</p>
+<ul>
+<li>思路：本题可以采用《编译原理》里面的确定的有限状态机（DFA）解决。先画出模式的DFA图，然后根据
+DFA 列出如下的状态跳转表，之后我们就可以采用 <strong>表驱动法</strong>
+进行编程实现了。可以参考力扣题目：<a href="https://leetcode.cn/problems/valid-number/">65.
+有效数字</a>，也是有关DFA的，有很详细的解答。</li>
+</ul>
+<p><img src="/post/3a86b2e7/image-20221102195829040.png" alt="image-20221102195829040" style="zoom:50%;"></p>
+<table>
+<thead>
+<tr class="header">
+<th>state</th>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+<th>d</th>
+<th>e</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>2</td>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>3</td>
+<td>4</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *fp;</span><br><span class="line">    fp = <span class="built_in">fopen</span>(<span class="string">&quot;3.txt&quot;</span>, <span class="string">&quot;r+&quot;</span>);</span><br><span class="line">    <span class="type">int</span> state;</span><br><span class="line">    <span class="type">int</span> move[<span class="number">5</span>][<span class="number">5</span>] = &#123;</span><br><span class="line">        &#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>&#125;, <span class="comment">// 多一行方便一一对应</span></span><br><span class="line">        &#123;<span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>&#125;,</span><br><span class="line">        &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>&#125;,</span><br><span class="line">        &#123;<span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>&#125;,</span><br><span class="line">        &#123;<span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>&#125;,</span><br><span class="line">    &#125;;</span><br><span class="line">    state = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> ((!<span class="built_in">feof</span>(fp)) &amp;&amp; (state != <span class="number">5</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">char</span> ch = <span class="built_in">fgetc</span>(fp);</span><br><span class="line">        <span class="keyword">if</span> ((<span class="string">&#x27;a&#x27;</span> &lt;= ch) &amp;&amp; (ch &lt;= <span class="string">&#x27;e&#x27;</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            state = move[state][ch - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            state = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (state == <span class="number">5</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;找到abc*d?e匹配\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;没有找到abc*d?e匹配\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="built_in">fclose</span>(fp);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">//3.txt</span><br><span class="line">aaaaaabbccddeeabeabccccde</span><br><span class="line">//run ex3</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">g++ -o ex3 ex3.cpp</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./ex3</span></span><br><span class="line">找到abc*d?e匹配</span><br></pre></td></tr></table></figure>
+<h3 id="二叉树后序遍历">二叉树后序遍历</h3>
+<p>从文件<code>4.txt</code>中读入一个二叉树，然后后序遍历该二叉树，将结果输出到文件<code>4.out</code>。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">输入格式：</span><br><span class="line"><span class="comment">// 表示节点个数</span></span><br><span class="line"><span class="comment">// 当前节点编号 左孩子编号 右孩子编号</span></span><br><span class="line"><span class="number">4</span> </span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">4</span> </span><br><span class="line"><span class="number">2</span> <span class="number">0</span> <span class="number">3</span></span><br><span class="line"><span class="number">3</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line"><span class="number">4</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">输出格式：</span><br><span class="line"><span class="number">3</span> <span class="number">2</span> <span class="number">4</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>思路</li>
+</ul>
+<p>这题的得分点其实挺多的，写出来树节点的结构体，创建树等等。读入每行树节点时，可以使用一个数组记录每个子树根节点的指针，方便使用节点编号就可以直接访问节点，从而添加孩子节点，最后从根即可访问到所有节点。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line">FILE *in_fp;</span><br><span class="line">FILE *out_fp;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 树节点</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> val;</span><br><span class="line">    node *lchild, *rchild;</span><br><span class="line">    <span class="built_in">node</span>(<span class="type">int</span> v) : <span class="built_in">val</span>(v), <span class="built_in">lchild</span>(<span class="literal">NULL</span>), <span class="built_in">rchild</span>(<span class="literal">NULL</span>) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 后序遍历（递归）</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">postOrder</span><span class="params">(node *root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">postOrder</span>(root-&gt;lchild);</span><br><span class="line">    <span class="built_in">postOrder</span>(root-&gt;rchild);</span><br><span class="line">    <span class="built_in">fprintf</span>(out_fp, <span class="string">&quot;%d &quot;</span>, root-&gt;val);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n; <span class="comment">// 树节点个数</span></span><br><span class="line">    in_fp = <span class="built_in">fopen</span>(<span class="string">&quot;4.txt&quot;</span>, <span class="string">&quot;r+&quot;</span>);</span><br><span class="line">    out_fp = <span class="built_in">fopen</span>(<span class="string">&quot;4.out&quot;</span>, <span class="string">&quot;w+&quot;</span>);</span><br><span class="line">    <span class="built_in">fscanf</span>(in_fp, <span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    node *tree[n + <span class="number">1</span>] = &#123;<span class="literal">NULL</span>&#125;; <span class="comment">// 保存节点的指针</span></span><br><span class="line">    <span class="type">int</span> r, a, b;</span><br><span class="line">    <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> rootId = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">fscanf</span>(in_fp, <span class="string">&quot;%d %d %d&quot;</span>, &amp;r, &amp;a, &amp;b)!=EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (cnt == <span class="number">0</span>)</span><br><span class="line">            rootId = r; <span class="comment">// 记录根节点的位置</span></span><br><span class="line">        <span class="keyword">if</span> (tree[r] == <span class="literal">NULL</span>)</span><br><span class="line">            tree[r] = <span class="keyword">new</span> <span class="built_in">node</span>(r);</span><br><span class="line">        <span class="keyword">if</span> (tree[a] == <span class="literal">NULL</span> &amp;&amp; a != <span class="number">0</span>)</span><br><span class="line">            tree[a] = <span class="keyword">new</span> <span class="built_in">node</span>(a);</span><br><span class="line">        <span class="keyword">if</span> (tree[b] == <span class="literal">NULL</span> &amp;&amp; b != <span class="number">0</span>)</span><br><span class="line">            tree[b] = <span class="keyword">new</span> <span class="built_in">node</span>(b);</span><br><span class="line">        tree[r]-&gt;lchild = tree[a];</span><br><span class="line">        tree[r]-&gt;rchild = tree[b];</span><br><span class="line">        cnt++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">postOrder</span>(tree[rootId]);</span><br><span class="line">    <span class="built_in">fclose</span>(in_fp);</span><br><span class="line">    <span class="built_in">fclose</span>(out_fp);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>测试</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash">cc -o ex1 ex1.cpp</span></span><br><span class="line">// string.in</span><br><span class="line">34.56                                </span><br><span class="line">2.45e2 </span><br><span class="line">// string.out</span><br><span class="line">2.7956e2</span><br><span class="line">// string.in</span><br><span class="line">34</span><br><span class="line">2</span><br><span class="line">// string.out</span><br><span class="line">36</span><br></pre></td></tr></table></figure>
-<h3 id="最大公约数">最大公约数</h3>
-<blockquote>
-<p>最大公约数：从<code>number.in</code>文件中读入n个数，求出这n个数的最小值、最大值以及它们两的最大公约数，输出到文件<code>number.out</code>中。number.in
-中第一行为n，接下来为n个大于零的整数。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入示例:</span><br><span class="line">3</span><br><span class="line">4 8 6</span><br><span class="line"></span><br><span class="line">输出示例:</span><br><span class="line">4 8 4</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">// 4.txt</span><br><span class="line">4 </span><br><span class="line">1 2 4 </span><br><span class="line">2 0 3</span><br><span class="line">3 0 0</span><br><span class="line">4 0 0</span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">g++ -o ex4 ex4.cpp</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">./ex4</span></span><br><span class="line">// 4.out</span><br><span class="line">3 2 4 1 </span><br></pre></td></tr></table></figure>
+<h2 id="参考链接">参考链接</h2>
 <ul>
-<li><p>思路：首先遍历数组nums得到最大值与最小值后，再计算两者的最大公约数即可。求最大公约数有三种常用的方法：<strong>辗转相除法</strong>、<strong>更相减损术</strong>
-及其基础上进行改进的 <strong>Stein算法</strong>。</p></li>
-<li><p>辗转相除法，又称欧几里得算法，对于两个非负整数<span class="math inline">\(x,y(x&gt;y)\)</span>，其计算公式为：</p></li>
-</ul>
-<p><span class="math display">\[
-gcd(x,y)=gcd(y,x\ mod \ y)
-\]</span></p>
-<ul>
-<li><p>更相减损术，出自《九章算术》（原本是为了求约分，修改后可用来求解最大公约数）的一种求最大公约数的算法。主要思路为：以较大的数减较小的数，接着把所得的差与较小的数比较，并以大数减小数。继续上述操作，直到所得的减数和差相等为止。</p></li>
-<li><p>参考力扣题目：<a href="https://leetcode.cn/problems/find-greatest-common-divisor-of-array/">1979.
-找出数组的最大公约数</a></p></li>
-</ul>
-<p>采用辗转相除法得到的代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">gcd</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123; <span class="keyword">return</span> b == <span class="number">0</span> ? a : <span class="built_in">gcd</span>(b, a % b); &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *in_fp;</span><br><span class="line">    FILE *out_fp;</span><br><span class="line"></span><br><span class="line">    in_fp = <span class="built_in">fopen</span>(<span class="string">&quot;number.in&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">    out_fp = <span class="built_in">fopen</span>(<span class="string">&quot;number.out&quot;</span>, <span class="string">&quot;w&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="built_in">fscanf</span>(in_fp, <span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> nums[n];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fscanf</span>(in_fp, <span class="string">&quot;%d&quot;</span>, &amp;nums[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> min, max;</span><br><span class="line">    min = max = nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[i] &lt; min)</span><br><span class="line">            min = nums[i];</span><br><span class="line">        <span class="keyword">if</span> (nums[i] &gt; max)</span><br><span class="line">            max = nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">fprintf</span>(out_fp, <span class="string">&quot;%d %d %d&quot;</span>, min, max, <span class="built_in">gcd</span>(max, min));</span><br><span class="line">    <span class="built_in">fclose</span>(in_fp);</span><br><span class="line">    <span class="built_in">fclose</span>(out_fp);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>测试</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash">cc -o ex2 ex2.cpp</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">./ex2</span></span><br><span class="line">//number.in</span><br><span class="line">3</span><br><span class="line">4 8 6</span><br><span class="line">//number.out</span><br><span class="line">4 8 4</span><br><span class="line">//number.in</span><br><span class="line">7</span><br><span class="line">4 8 6 10 9 24 30</span><br><span class="line">//number.out</span><br><span class="line">4 30 2</span><br></pre></td></tr></table></figure>
-<h3 id="任务调度">任务调度</h3>
-<blockquote>
-<p>任务调度：从<code>task.in</code>文件中读入任务调度序列，输出n个任务适合的一种调度方式到<code>task.out</code>中。每行第一个表示前序任务，括号中的任务为后序任务，只有在前序任务完成的情况下，后序任务才能开始。若后序为NULL则表示无后序任务。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入示例:</span><br><span class="line">Task0(Task1,Task2)</span><br><span class="line">Task1(Task3)</span><br><span class="line">Task2(NULL)</span><br><span class="line">Task3(NULL)</span><br><span class="line"></span><br><span class="line">输出示例:</span><br><span class="line">Task0 Task1 Task3 Task2</span><br></pre></td></tr></table></figure>
-<ul>
-<li>思路：这道题是典型的拓朴排序问题。拓扑排序可以使用深度优先遍历，在DFS实现拓扑排序时，用<strong>栈</strong>来保存拓扑排序的顶点序列；并且保证在某顶点入栈前，其所有邻接点已入栈。</li>
-<li>练习题目：<a href="https://www.luogu.com.cn/problem/P1347">P1347
-排序</a></li>
-<li>一般来说树和图的输入都比较复杂，还有建树，建图这种操作。所以刷树和图的时候，我比较推荐用洛谷上的题目，这上面的题目都是有输入输出要求的，跟考试的要求差不多，而力扣是函数式的编程，无法锻炼处理输入输出的能力。</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> N 10           <span class="comment">// 记录最大顶点数</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> INF 0x7fffffff <span class="comment">// 定义无穷大</span></span></span><br><span class="line"><span class="type">int</span> graph[N][N];       <span class="comment">// 有向图邻接矩阵</span></span><br><span class="line"><span class="type">int</span> n = <span class="number">0</span>;             <span class="comment">// 记录顶点个数</span></span><br><span class="line">stack&lt;<span class="type">int</span>&gt; S;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">DFS</span><span class="params">(<span class="type">int</span> u, <span class="type">bool</span> *visit)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    visit[u] = <span class="literal">true</span>;</span><br><span class="line">    <span class="comment">// 遍历找到所有没被访问过的邻接节点进行访问</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> v = <span class="number">0</span>; v &lt; n; v++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (graph[u][v] == <span class="number">1</span> &amp;&amp; !visit[v])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">DFS</span>(v, visit);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    S.<span class="built_in">push</span>(u);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *in_fp = <span class="built_in">fopen</span>(<span class="string">&quot;task.in&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">    FILE *out_fp = <span class="built_in">fopen</span>(<span class="string">&quot;task.out&quot;</span>, <span class="string">&quot;w&quot;</span>);</span><br><span class="line">    <span class="comment">// 初始化图矩阵</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; N; j++)</span><br><span class="line">            graph[i][j] = INF;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 读入有向图</span></span><br><span class="line">    <span class="type">char</span> buf[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">fscanf</span>(in_fp, <span class="string">&quot;%s&quot;</span>, buf) != EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> r;</span><br><span class="line">        r = <span class="built_in">atoi</span>(&amp;buf[<span class="number">4</span>]);</span><br><span class="line">        graph[r][r] = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> i = <span class="number">4</span>;</span><br><span class="line">        <span class="keyword">while</span> (buf[i] != <span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (buf[i] == <span class="string">&#x27;k&#x27;</span>) <span class="comment">// 转化Task后面的数组</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="type">int</span> v = <span class="built_in">atoi</span>(&amp;buf[i + <span class="number">1</span>]);</span><br><span class="line">                graph[r][v] = <span class="number">1</span>; <span class="comment">// 记录有向图的一条边</span></span><br><span class="line">            &#125;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        n++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">bool</span> visit[n] = &#123;<span class="literal">false</span>&#125;; <span class="comment">// 记录顶点是否访问</span></span><br><span class="line">    <span class="comment">// 深度优先遍历记录拓扑排序 注意可能图不连通</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (visit[i])</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="built_in">DFS</span>(i, visit);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 打印拓扑排序</span></span><br><span class="line">    <span class="keyword">while</span> (!S.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(out_fp, <span class="string">&quot;Task%d &quot;</span>, S.<span class="built_in">top</span>());</span><br><span class="line">        S.<span class="built_in">pop</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">fclose</span>(in_fp);</span><br><span class="line">    <span class="built_in">fclose</span>(out_fp);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>测试</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash">g++ -o ex3 ex3.cpp</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">./ex3</span></span><br><span class="line">// task.out</span><br><span class="line">Task0 Task2 Task1 Task3 </span><br></pre></td></tr></table></figure>
-<p>拓扑排序的结果可能有多种，这里使用邻接矩阵从最小的序号开始深度优先遍历，所以与题目给的样例不一样。</p>
-<h3 id="火车票订购">火车票订购</h3>
-<blockquote>
-<p>火车票订购：火车经过X站，火车的最大载客人数为m，有n个订票请求，请求订购从a站到b站的k张票，若能满足订购要求则输出1，否则输出0。数据从<code>ticket.in</code>中输入，第一行有两个数字，分别是n，m。接下来有n行，每行三个数分别是a、b、k。结果输出到文件<code>ticket.out</code>中。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入示例:</span><br><span class="line">5 10</span><br><span class="line">4 10 9</span><br><span class="line">8 12 2</span><br><span class="line">8 12 1</span><br><span class="line">14 20 8</span><br><span class="line">30 300 15</span><br><span class="line"></span><br><span class="line">输出示例:</span><br><span class="line">1</span><br><span class="line">0</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
-<ul>
-<li>思路：用一个大数组来存储每一站的车上人数，在每一次运送乘客时先尝试是否有足够空位，如果有空位则将flag置为1，否则将flag置为0，如果尝试之后flag=1则可以搭载这波乘客。</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function">ifstream <span class="title">ifs</span><span class="params">(<span class="string">&quot;input.in&quot;</span>)</span></span>;</span><br><span class="line"><span class="function">ofstream <span class="title">ofs</span><span class="params">(<span class="string">&quot;output.out&quot;</span>)</span></span>;</span><br><span class="line"><span class="type">int</span> n,m; <span class="comment">//火车的最大载客人数为m，有n个订票请求</span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">record</span><span class="params">(<span class="number">1000</span>,<span class="number">0</span>)</span></span>; <span class="comment">// 每站路车上人数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    ifs&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ans</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> a,b,k; <span class="comment">//请求订购从a站到b站的k张票</span></span><br><span class="line">        ifs&gt;&gt;a&gt;&gt;b&gt;&gt;k;</span><br><span class="line">        <span class="type">int</span> j;</span><br><span class="line">        <span class="keyword">for</span>(j=a; j&lt;b; j++) <span class="comment">// 检查每个路段是否合法</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(record[j]+k&gt;m)</span><br><span class="line">            &#123;</span><br><span class="line">                ans[i]=<span class="number">0</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(j!=b) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="comment">// 检查合法则订购成功 记录本次订购</span></span><br><span class="line">        ans[i]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=a; j&lt;b; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            record[j]+=k;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;(<span class="type">int</span>)ans.<span class="built_in">size</span>(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ofs&lt;&lt;ans[i]&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="最短路径">最短路径</h3>
-<blockquote>
-<p>最短路径：有n个城市和m条道路（n &lt; 1000, m &lt;
-10000），每条道路有不同的长度，请找到从起点s到终点t的最短距离，并且输出经过的城市的序号，如果有多条，输出字典序最小的那条；若从s到t没有路径，则输出“can't
-arrive”。从文件<code>road.in</code>中读入数据，第一行有四个数，分别为n、m、s、t。接下来有m行，每行三个数，分别为两个城市的序号和相互之间的距离，将结果输出结果到文件<code>road.out</code>中。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入示例:</span><br><span class="line">3 3 1 3</span><br><span class="line">1 3 3</span><br><span class="line">1 2 1</span><br><span class="line">2 3 1</span><br><span class="line"></span><br><span class="line">输出示例:</span><br><span class="line">2</span><br><span class="line">1 2 3</span><br></pre></td></tr></table></figure>
-<ul>
-<li>思路：这道题考察的是单源最短路径问题，有<code>Dijkstra</code>算法和多源最短路径的<code>floyed-warshall</code>算法，这里使用比较容易编程实现的<code>floyed-warshall</code>算法，三重循环搞定。用road二维数组记录图的信息，用next二维数组记录下一跳。</li>
-<li>参考题目：<a href="https://www.luogu.com.cn/problem/P4779">P4779
-【模板】单源最短路径（标准版）</a></li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;climits&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF=INT_MAX&gt;&gt;<span class="number">1</span>;</span><br><span class="line"><span class="function">ifstream <span class="title">ifs</span><span class="params">(<span class="string">&quot;input.in&quot;</span>)</span></span>;</span><br><span class="line"><span class="function">ofstream <span class="title">ofs</span><span class="params">(<span class="string">&quot;output.out&quot;</span>)</span></span>;</span><br><span class="line"><span class="type">int</span> n,m,s,t;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ifs&gt;&gt;n&gt;&gt;m&gt;&gt;s&gt;&gt;t;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt; &gt;<span class="built_in">g</span>(n+<span class="number">1</span>,<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n+<span class="number">1</span>,INF)); <span class="comment">// 无向图邻接矩阵</span></span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt; &gt;<span class="built_in">next</span>(n+<span class="number">1</span>,<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n+<span class="number">1</span>,<span class="number">0</span>)); <span class="comment">// next[i][j]表示i到j最短路径的下一个顶点</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> u,v,w;</span><br><span class="line">        ifs&gt;&gt;u&gt;&gt;v&gt;&gt;w;</span><br><span class="line">        g[u][v]=w;      <span class="comment">// 无向图边初始化</span></span><br><span class="line">        g[v][u]=w;</span><br><span class="line">        next[u][v]=v;   <span class="comment">// 将有边连接的顶点下一个顶点初始化</span></span><br><span class="line">        next[v][u]=u;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        g[i][i]=<span class="number">0</span>;</span><br><span class="line">        next[i][i]=i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> x=<span class="number">1</span>; x&lt;=n; x++) <span class="comment">// 弗洛伊德算法求多源最短路径</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>; j&lt;=n; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(g[i][x]==INF||g[x][j]==INF) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="type">int</span> sum=g[i][x]+g[x][j];</span><br><span class="line">                <span class="keyword">if</span>(sum&lt;g[i][j])</span><br><span class="line">                &#123;</span><br><span class="line">                    g[i][j]=sum; <span class="comment">// 松弛边</span></span><br><span class="line">                    next[i][j]=x; <span class="comment">// 记录最短路径的中间结点</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(g[s][t]==INF)</span><br><span class="line">    &#123;</span><br><span class="line">        ofs&lt;&lt;<span class="string">&quot;can&#x27;t arrive.&quot;</span>&lt;&lt;endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ofs&lt;&lt;g[s][t]&lt;&lt;endl;</span><br><span class="line">    ofs&lt;&lt;s;</span><br><span class="line">    <span class="type">int</span> cur=s;</span><br><span class="line">    <span class="keyword">while</span>(cur!=t)&#123;</span><br><span class="line">        cur=next[cur][t];</span><br><span class="line">        ofs&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;cur;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="参考链接">参考链接</h1>
-<ul>
-<li><a href="http://www.cskaoyan.com/thread-87090-1-1.html">2012年中科大考研上机机试试题（回忆版）</a></li>
-<li><a href="https://zdszero.github.io/posts/ustc-test-2012/">中科大2012年复试机试题详解</a></li>
+<li><p><a href="https://zdszero.github.io/posts/ustc-test-2011/">中科大2011年复试机试题详解</a></p></li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/377692017">中科大计算机考研复试详解</a>
+这篇有很详细的复试介绍以及资料，非常推荐！</p></li>
+<li><p><a href="http://www.cskaoyan.com/thread-60279-1-10.html">中科大2011计算机考研复试上机(第三题)代码，附回忆版上机试题</a></p></li>
 </ul>
 ]]></content>
       <categories>
@@ -2224,6 +2284,106 @@ Pages+hexo+NexT 博客搭建、备份及还原</a></p>
         <tag>备份</tag>
         <tag>NexT</tag>
         <tag>主题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>USTC计科复试刷题记录/2012</title>
+    <url>/post/a38fe35d.html</url>
+    <content><![CDATA[<p>本文为2012年中科大计算机学院复试机试刷题记录，使用C++作为编程语言，并在Linux
+平台下使用gcc编译器进行编译以及测试运行。输入输出风格偏向于C，有些题目会用到C++的STL标准函数库。</p>
+<span id="more"></span>
+<h2 id="题目详解">题目详解</h2>
+<h3 id="字符串处理">字符串处理</h3>
+<blockquote>
+<p>字符串处理：从<code>string.in</code>文件里读入两个字符串，字符串除了数字还可能包括<code>'-'、'E'、'e'、'.'</code>，相加之后输出到文件<code>string.out</code>中，如果是浮点型，要求用科学计数法表示（最多保留10个有效数字）。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入示例:                       </span><br><span class="line">34.56                                </span><br><span class="line">2.45e2    </span><br><span class="line"></span><br><span class="line">输出示例: </span><br><span class="line">2.7956e2 </span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>思路：可以通过是否有小数点判断输入的是整数还是浮点数，有小数点则利用atof()将字符串转为double型，否则使用atoi()转换为int型。然后就可以用<code>"%.10e"</code>输出科学计数法表示的浮点数。但是这样还有一个问题，就是浮点数输出来结果会有多余的0和加号，<code>2.7956000000e+02</code>。可以先将结果字符串输出到缓冲区，然后消除多余的0以及加号等。</p>
+<p>具体代码如下：</p></li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdlib&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *infile = <span class="built_in">fopen</span>(<span class="string">&quot;string.in&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">    FILE *outfile = <span class="built_in">fopen</span>(<span class="string">&quot;string.out&quot;</span>, <span class="string">&quot;w&quot;</span>);</span><br><span class="line">    <span class="type">char</span> str1[<span class="number">128</span>];</span><br><span class="line">    <span class="type">char</span> str2[<span class="number">128</span>];</span><br><span class="line">    <span class="built_in">fscanf</span>(infile, <span class="string">&quot;%s&quot;</span>, str1);</span><br><span class="line">    <span class="built_in">fscanf</span>(infile, <span class="string">&quot;%s&quot;</span>, str2);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="type">bool</span> flag_double_str1 = <span class="literal">false</span>, flag_double_str2 = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">while</span> (str1[i] != <span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (str1[i] == <span class="string">&#x27;.&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            flag_double_str1 = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (str2[i] != <span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (str2[i] == <span class="string">&#x27;.&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            flag_double_str2 = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!flag_double_str1 &amp;&amp; !flag_double_str2) <span class="comment">// 全为整形则直接输出</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> a = <span class="built_in">atoi</span>(str1);</span><br><span class="line">        <span class="type">int</span> b = <span class="built_in">atoi</span>(str2);</span><br><span class="line">        <span class="built_in">fprintf</span>(outfile, <span class="string">&quot;%d&quot;</span>, a + b);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 若有一个数为浮点数则转为double</span></span><br><span class="line">    <span class="type">double</span> a = <span class="built_in">atof</span>(str1);</span><br><span class="line">    <span class="type">double</span> b = <span class="built_in">atof</span>(str2);</span><br><span class="line">    <span class="type">char</span> buf[<span class="number">128</span>];</span><br><span class="line">    <span class="built_in">sprintf</span>(buf, <span class="string">&quot;%.10e&quot;</span>, a + b);</span><br><span class="line">    <span class="type">int</span> j;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; buf[i] != <span class="string">&#x27;\0&#x27;</span>; i++)</span><br><span class="line">        <span class="keyword">if</span> (buf[i] == <span class="string">&#x27;e&#x27;</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">for</span> (j = i - <span class="number">1</span>; buf[j] == <span class="string">&#x27;0&#x27;</span>; j--)</span><br><span class="line">        ; <span class="comment">// 从e往前找，跳过中间为0的部分</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt;= j; k++)</span><br><span class="line">        <span class="built_in">fputc</span>(buf[k], outfile);</span><br><span class="line">    <span class="built_in">fputc</span>(<span class="string">&#x27;e&#x27;</span>, outfile);</span><br><span class="line">    i++;</span><br><span class="line">    <span class="keyword">while</span> (buf[i] == <span class="string">&#x27;+&#x27;</span> || buf[i] == <span class="string">&#x27;0&#x27;</span>) <span class="comment">// 消除e后的加号以及0</span></span><br><span class="line">        i++;</span><br><span class="line">    <span class="keyword">for</span> (j = i; buf[j] != <span class="string">&#x27;\0&#x27;</span>; j++)</span><br><span class="line">        <span class="built_in">fputc</span>(buf[j], outfile);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash">cc -o ex1 ex1.cpp</span></span><br><span class="line">// string.in</span><br><span class="line">34.56                                </span><br><span class="line">2.45e2 </span><br><span class="line">// string.out</span><br><span class="line">2.7956e2</span><br><span class="line">// string.in</span><br><span class="line">34</span><br><span class="line">2</span><br><span class="line">// string.out</span><br><span class="line">36</span><br></pre></td></tr></table></figure>
+<h3 id="最大公约数">最大公约数</h3>
+<blockquote>
+<p>最大公约数：从<code>number.in</code>文件中读入n个数，求出这n个数的最小值、最大值以及它们两的最大公约数，输出到文件<code>number.out</code>中。number.in
+中第一行为n，接下来为n个大于零的整数。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入示例:</span><br><span class="line">3</span><br><span class="line">4 8 6</span><br><span class="line"></span><br><span class="line">输出示例:</span><br><span class="line">4 8 4</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>思路：首先遍历数组nums得到最大值与最小值后，再计算两者的最大公约数即可。求最大公约数有三种常用的方法：<strong>辗转相除法</strong>、<strong>更相减损术</strong>
+及其基础上进行改进的 <strong>Stein算法</strong>。</p></li>
+<li><p>辗转相除法，又称欧几里得算法，对于两个非负整数<span class="math inline">\(x,y(x&gt;y)\)</span>，其计算公式为：</p></li>
+</ul>
+<p><span class="math display">\[
+gcd(x,y)=gcd(y,x\ mod \ y)
+\]</span></p>
+<ul>
+<li><p>更相减损术，出自《九章算术》（原本是为了求约分，修改后可用来求解最大公约数）的一种求最大公约数的算法。主要思路为：以较大的数减较小的数，接着把所得的差与较小的数比较，并以大数减小数。继续上述操作，直到所得的减数和差相等为止。</p></li>
+<li><p>参考力扣题目：<a href="https://leetcode.cn/problems/find-greatest-common-divisor-of-array/">1979.
+找出数组的最大公约数</a></p></li>
+</ul>
+<p>采用辗转相除法得到的代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">gcd</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123; <span class="keyword">return</span> b == <span class="number">0</span> ? a : <span class="built_in">gcd</span>(b, a % b); &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *in_fp;</span><br><span class="line">    FILE *out_fp;</span><br><span class="line"></span><br><span class="line">    in_fp = <span class="built_in">fopen</span>(<span class="string">&quot;number.in&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">    out_fp = <span class="built_in">fopen</span>(<span class="string">&quot;number.out&quot;</span>, <span class="string">&quot;w&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="built_in">fscanf</span>(in_fp, <span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> nums[n];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fscanf</span>(in_fp, <span class="string">&quot;%d&quot;</span>, &amp;nums[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> min, max;</span><br><span class="line">    min = max = nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[i] &lt; min)</span><br><span class="line">            min = nums[i];</span><br><span class="line">        <span class="keyword">if</span> (nums[i] &gt; max)</span><br><span class="line">            max = nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">fprintf</span>(out_fp, <span class="string">&quot;%d %d %d&quot;</span>, min, max, <span class="built_in">gcd</span>(max, min));</span><br><span class="line">    <span class="built_in">fclose</span>(in_fp);</span><br><span class="line">    <span class="built_in">fclose</span>(out_fp);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash">cc -o ex2 ex2.cpp</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">./ex2</span></span><br><span class="line">//number.in</span><br><span class="line">3</span><br><span class="line">4 8 6</span><br><span class="line">//number.out</span><br><span class="line">4 8 4</span><br><span class="line">//number.in</span><br><span class="line">7</span><br><span class="line">4 8 6 10 9 24 30</span><br><span class="line">//number.out</span><br><span class="line">4 30 2</span><br></pre></td></tr></table></figure>
+<h3 id="任务调度">任务调度</h3>
+<blockquote>
+<p>任务调度：从<code>task.in</code>文件中读入任务调度序列，输出n个任务适合的一种调度方式到<code>task.out</code>中。每行第一个表示前序任务，括号中的任务为后序任务，只有在前序任务完成的情况下，后序任务才能开始。若后序为NULL则表示无后序任务。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入示例:</span><br><span class="line">Task0(Task1,Task2)</span><br><span class="line">Task1(Task3)</span><br><span class="line">Task2(NULL)</span><br><span class="line">Task3(NULL)</span><br><span class="line"></span><br><span class="line">输出示例:</span><br><span class="line">Task0 Task1 Task3 Task2</span><br></pre></td></tr></table></figure>
+<ul>
+<li>思路：这道题是典型的拓朴排序问题。拓扑排序可以使用深度优先遍历，在DFS实现拓扑排序时，用<strong>栈</strong>来保存拓扑排序的顶点序列；并且保证在某顶点入栈前，其所有邻接点已入栈。</li>
+<li>练习题目：<a href="https://www.luogu.com.cn/problem/P1347">P1347
+排序</a></li>
+<li>一般来说树和图的输入都比较复杂，还有建树，建图这种操作。所以刷树和图的时候，我比较推荐用洛谷上的题目，这上面的题目都是有输入输出要求的，跟考试的要求差不多，而力扣是函数式的编程，无法锻炼处理输入输出的能力。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> N 10           <span class="comment">// 记录最大顶点数</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> INF 0x7fffffff <span class="comment">// 定义无穷大</span></span></span><br><span class="line"><span class="type">int</span> graph[N][N];       <span class="comment">// 有向图邻接矩阵</span></span><br><span class="line"><span class="type">int</span> n = <span class="number">0</span>;             <span class="comment">// 记录顶点个数</span></span><br><span class="line">stack&lt;<span class="type">int</span>&gt; S;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">DFS</span><span class="params">(<span class="type">int</span> u, <span class="type">bool</span> *visit)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    visit[u] = <span class="literal">true</span>;</span><br><span class="line">    <span class="comment">// 遍历找到所有没被访问过的邻接节点进行访问</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> v = <span class="number">0</span>; v &lt; n; v++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (graph[u][v] == <span class="number">1</span> &amp;&amp; !visit[v])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">DFS</span>(v, visit);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    S.<span class="built_in">push</span>(u);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *in_fp = <span class="built_in">fopen</span>(<span class="string">&quot;task.in&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">    FILE *out_fp = <span class="built_in">fopen</span>(<span class="string">&quot;task.out&quot;</span>, <span class="string">&quot;w&quot;</span>);</span><br><span class="line">    <span class="comment">// 初始化图矩阵</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; N; j++)</span><br><span class="line">            graph[i][j] = INF;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 读入有向图</span></span><br><span class="line">    <span class="type">char</span> buf[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">fscanf</span>(in_fp, <span class="string">&quot;%s&quot;</span>, buf) != EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> r;</span><br><span class="line">        r = <span class="built_in">atoi</span>(&amp;buf[<span class="number">4</span>]);</span><br><span class="line">        graph[r][r] = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> i = <span class="number">4</span>;</span><br><span class="line">        <span class="keyword">while</span> (buf[i] != <span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (buf[i] == <span class="string">&#x27;k&#x27;</span>) <span class="comment">// 转化Task后面的数组</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="type">int</span> v = <span class="built_in">atoi</span>(&amp;buf[i + <span class="number">1</span>]);</span><br><span class="line">                graph[r][v] = <span class="number">1</span>; <span class="comment">// 记录有向图的一条边</span></span><br><span class="line">            &#125;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        n++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">bool</span> visit[n] = &#123;<span class="literal">false</span>&#125;; <span class="comment">// 记录顶点是否访问</span></span><br><span class="line">    <span class="comment">// 深度优先遍历记录拓扑排序 注意可能图不连通</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (visit[i])</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="built_in">DFS</span>(i, visit);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 打印拓扑排序</span></span><br><span class="line">    <span class="keyword">while</span> (!S.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(out_fp, <span class="string">&quot;Task%d &quot;</span>, S.<span class="built_in">top</span>());</span><br><span class="line">        S.<span class="built_in">pop</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">fclose</span>(in_fp);</span><br><span class="line">    <span class="built_in">fclose</span>(out_fp);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash">g++ -o ex3 ex3.cpp</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">./ex3</span></span><br><span class="line">// task.out</span><br><span class="line">Task0 Task2 Task1 Task3 </span><br></pre></td></tr></table></figure>
+<p>拓扑排序的结果可能有多种，这里使用邻接矩阵从最小的序号开始深度优先遍历，所以与题目给的样例不一样。</p>
+<h3 id="火车票订购">火车票订购</h3>
+<blockquote>
+<p>火车票订购：火车经过X站，火车的最大载客人数为m，有n个订票请求，请求订购从a站到b站的k张票，若能满足订购要求则输出1，否则输出0。数据从<code>ticket.in</code>中输入，第一行有两个数字，分别是n，m。接下来有n行，每行三个数分别是a、b、k。结果输出到文件<code>ticket.out</code>中。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入示例:</span><br><span class="line">5 10</span><br><span class="line">4 10 9</span><br><span class="line">8 12 2</span><br><span class="line">8 12 1</span><br><span class="line">14 20 8</span><br><span class="line">30 300 15</span><br><span class="line"></span><br><span class="line">输出示例:</span><br><span class="line">1</span><br><span class="line">0</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<ul>
+<li>思路：用一个大数组来存储每一站的车上人数，在每一次运送乘客时先尝试是否有足够空位，如果有空位则将flag置为1，否则将flag置为0，如果尝试之后flag=1则可以搭载这波乘客。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function">ifstream <span class="title">ifs</span><span class="params">(<span class="string">&quot;input.in&quot;</span>)</span></span>;</span><br><span class="line"><span class="function">ofstream <span class="title">ofs</span><span class="params">(<span class="string">&quot;output.out&quot;</span>)</span></span>;</span><br><span class="line"><span class="type">int</span> n,m; <span class="comment">//火车的最大载客人数为m，有n个订票请求</span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">record</span><span class="params">(<span class="number">1000</span>,<span class="number">0</span>)</span></span>; <span class="comment">// 每站路车上人数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    ifs&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ans</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> a,b,k; <span class="comment">//请求订购从a站到b站的k张票</span></span><br><span class="line">        ifs&gt;&gt;a&gt;&gt;b&gt;&gt;k;</span><br><span class="line">        <span class="type">int</span> j;</span><br><span class="line">        <span class="keyword">for</span>(j=a; j&lt;b; j++) <span class="comment">// 检查每个路段是否合法</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(record[j]+k&gt;m)</span><br><span class="line">            &#123;</span><br><span class="line">                ans[i]=<span class="number">0</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(j!=b) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="comment">// 检查合法则订购成功 记录本次订购</span></span><br><span class="line">        ans[i]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=a; j&lt;b; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            record[j]+=k;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;(<span class="type">int</span>)ans.<span class="built_in">size</span>(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ofs&lt;&lt;ans[i]&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="最短路径">最短路径</h3>
+<blockquote>
+<p>最短路径：有n个城市和m条道路（n &lt; 1000, m &lt;
+10000），每条道路有不同的长度，请找到从起点s到终点t的最短距离，并且输出经过的城市的序号，如果有多条，输出字典序最小的那条；若从s到t没有路径，则输出“can't
+arrive”。从文件<code>road.in</code>中读入数据，第一行有四个数，分别为n、m、s、t。接下来有m行，每行三个数，分别为两个城市的序号和相互之间的距离，将结果输出结果到文件<code>road.out</code>中。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入示例:</span><br><span class="line">3 3 1 3</span><br><span class="line">1 3 3</span><br><span class="line">1 2 1</span><br><span class="line">2 3 1</span><br><span class="line"></span><br><span class="line">输出示例:</span><br><span class="line">2</span><br><span class="line">1 2 3</span><br></pre></td></tr></table></figure>
+<ul>
+<li>思路：这道题考察的是单源最短路径问题，有<code>Dijkstra</code>算法和多源最短路径的<code>floyed-warshall</code>算法，这里使用比较容易编程实现的<code>floyed-warshall</code>算法，三重循环搞定。用road二维数组记录图的信息，用next二维数组记录下一跳。</li>
+<li>参考题目：<a href="https://www.luogu.com.cn/problem/P4779">P4779
+【模板】单源最短路径（标准版）</a></li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;climits&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF=INT_MAX&gt;&gt;<span class="number">1</span>;</span><br><span class="line"><span class="function">ifstream <span class="title">ifs</span><span class="params">(<span class="string">&quot;input.in&quot;</span>)</span></span>;</span><br><span class="line"><span class="function">ofstream <span class="title">ofs</span><span class="params">(<span class="string">&quot;output.out&quot;</span>)</span></span>;</span><br><span class="line"><span class="type">int</span> n,m,s,t;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ifs&gt;&gt;n&gt;&gt;m&gt;&gt;s&gt;&gt;t;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt; &gt;<span class="built_in">g</span>(n+<span class="number">1</span>,<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n+<span class="number">1</span>,INF)); <span class="comment">// 无向图邻接矩阵</span></span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt; &gt;<span class="built_in">next</span>(n+<span class="number">1</span>,<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n+<span class="number">1</span>,<span class="number">0</span>)); <span class="comment">// next[i][j]表示i到j最短路径的下一个顶点</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> u,v,w;</span><br><span class="line">        ifs&gt;&gt;u&gt;&gt;v&gt;&gt;w;</span><br><span class="line">        g[u][v]=w;      <span class="comment">// 无向图边初始化</span></span><br><span class="line">        g[v][u]=w;</span><br><span class="line">        next[u][v]=v;   <span class="comment">// 将有边连接的顶点下一个顶点初始化</span></span><br><span class="line">        next[v][u]=u;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        g[i][i]=<span class="number">0</span>;</span><br><span class="line">        next[i][i]=i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> x=<span class="number">1</span>; x&lt;=n; x++) <span class="comment">// 弗洛伊德算法求多源最短路径</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>; j&lt;=n; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(g[i][x]==INF||g[x][j]==INF) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="type">int</span> sum=g[i][x]+g[x][j];</span><br><span class="line">                <span class="keyword">if</span>(sum&lt;g[i][j])</span><br><span class="line">                &#123;</span><br><span class="line">                    g[i][j]=sum; <span class="comment">// 松弛边</span></span><br><span class="line">                    next[i][j]=x; <span class="comment">// 记录最短路径的中间结点</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(g[s][t]==INF)</span><br><span class="line">    &#123;</span><br><span class="line">        ofs&lt;&lt;<span class="string">&quot;can&#x27;t arrive.&quot;</span>&lt;&lt;endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ofs&lt;&lt;g[s][t]&lt;&lt;endl;</span><br><span class="line">    ofs&lt;&lt;s;</span><br><span class="line">    <span class="type">int</span> cur=s;</span><br><span class="line">    <span class="keyword">while</span>(cur!=t)&#123;</span><br><span class="line">        cur=next[cur][t];</span><br><span class="line">        ofs&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;cur;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考链接">参考链接</h1>
+<ul>
+<li><a href="http://www.cskaoyan.com/thread-87090-1-1.html">2012年中科大考研上机机试试题（回忆版）</a></li>
+<li><a href="https://zdszero.github.io/posts/ustc-test-2012/">中科大2012年复试机试题详解</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>考研</category>
+      </categories>
+      <tags>
+        <tag>刷题</tag>
+        <tag>代码</tag>
+        <tag>复试</tag>
       </tags>
   </entry>
 </search>
