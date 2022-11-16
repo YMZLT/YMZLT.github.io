@@ -8,7 +8,7 @@ tags:
 	- 实验
 	- CSAPP
 categories:
-	- 作业
+	- 实验
 abbrlink: ba783922
 date: 2022-10-30 17:31:24
 password:
@@ -68,7 +68,7 @@ int bitXor(int x, int y)
 
 推导出：
 
-<img src="csapp-lab1-2-3/image-20221030174706082.png" alt="image-20221030174706082" style="zoom: 50%;" />
+<img src="csapp-lab1-2-3/image-20221030174706082.png" alt="" style="zoom: 50%;" />
 
 转换为C代码：
 
@@ -449,7 +449,7 @@ unsigned floatPower2(int x)
 
 ## 实验结果
 
-<img src="csapp-lab1-2-3/image-20221014201052512.png" alt="image-20221014201052512" style="zoom: 67%;" />
+<img src="csapp-lab1-2-3/image-20221014201052512.png" alt="" style="zoom: 67%;" />
 
 ## 补充
 
@@ -890,7 +890,7 @@ The future will be better tomorrow.
 
 按照阶段依次输入上面分析的答案，运行结果截图如下：
 
-<img src="csapp-lab1-2-3/image-20221029143516251.png" alt="image-20221029143516251" style="zoom:67%;" />
+<img src="csapp-lab1-2-3/image-20221029143516251.png" alt="" style="zoom:67%;" />
 
 
 
