@@ -9,7 +9,7 @@ tags:
   - B+树
   - 散列表
 categories:
-  - 数据库
+  - 作业
 abbrlink: 18ce3915
 date: 2022-11-05 21:20:52
 ---

@@ -6,6 +6,7 @@ toc: true
 mathjax: true
 tags:
   - 复试
+  - 面试
 categories:
   - 考研
 abbrlink: 7ad1122c

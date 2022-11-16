@@ -5,9 +5,10 @@ cover: false
 toc: true
 mathjax: true
 tags:
-  - 实验
+	- 实验
+	- CSAPP
 categories:
-  - csapp
+	- 作业
 abbrlink: ba783922
 date: 2022-10-30 17:31:24
 password:

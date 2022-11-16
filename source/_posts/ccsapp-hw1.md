@@ -4,14 +4,13 @@ top: false
 cover: false
 toc: true
 mathjax: true
-summary: 
 tags:
-  - 作业
+	- 作业
+	- CSAPP
 categories:
-  - csapp
+	- 作业
 abbrlink: 8bdd78fc
 date: 2022-10-30 14:50:28
-password:
 ---
 
 本文为中科大研究生课程——计算机系统作业1的题目解答记录。使用的教材为《深入理解计算机系统》。

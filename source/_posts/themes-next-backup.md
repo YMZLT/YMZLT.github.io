@@ -1,13 +1,15 @@
 ---
-title: hexo+NexT主题配置备份及还原
+title: Hexo+NexT主题配置备份及还原
 top: false
 cover: false
 toc: true
 mathjax: false
 tags:
   - 备份
+  - NexT
+  - 主题
 categories:
-  - hexo
+  - Hexo
 abbrlink: 3f7b24f8
 date: 2022-10-31 14:50:24
 password:

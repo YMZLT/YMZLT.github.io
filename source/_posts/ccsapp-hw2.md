@@ -5,13 +5,12 @@ cover: false
 toc: true
 mathjax: true
 tags:
-  - 作业
+	- 作业
+	- CSAPP
 categories:
-  - csapp
+	- 作业
 abbrlink: 12d42946
-date: 2022-10-30 17:19:05
-password:
-summary:
+date: 2022-10-30 17:19:05s
 ---
 
 本文为中科大研究生课程——计算机系统作业2的题目解答记录。使用的教材为《深入理解计算机系统》。
