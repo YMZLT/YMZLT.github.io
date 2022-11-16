@@ -833,7 +833,233 @@ Image Processing，简称 DIP。输入的是图像，输出的也是图像。Pho
         <category>考研</category>
       </categories>
       <tags>
-        <tag>整理</tag>
+        <tag>复试</tag>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>中科大概率算法作业</title>
+    <url>/post/34884d63.html</url>
+    <content><![CDATA[<p>本文为中科大研究生课程——《算法设计与分析》概率算法部分的习题作业。这门课我最喜欢的就是概率算法这部分，感觉提到的一些算法和例子都非常有趣。本文参考了网上一些前辈的资料，并结合自己的理解做出解答，现在分享出来作为参考。</p>
+<span id="more"></span>
+<h1 id="分析与解答">分析与解答</h1>
+<p><strong>Ex.1【P20】若将<span class="math inline">\(y\leftarrow
+uniform(0,1)\)</span>改为<span class="math inline">\(y\leftarrow
+x\)</span>，则上述的算法估计的值是什么？</strong></p>
+<blockquote>
+<p>求<span class="math inline">\(\pi\)</span>近似值的算法(右上<span class="math inline">\(\frac{1}{4}\)</span>象限为样本)</p>
+<p>Darts (n) { k <span class="math inline">\(\leftarrow\)</span> 0; for
+i <span class="math inline">\(\leftarrow\)</span> 1 to n do { x <span class="math inline">\(\leftarrow\)</span> uniform(0, 1); y <span class="math inline">\(\leftarrow\)</span> uniform(0, 1); //
+随机产生点(x,y) if (<span class="math inline">\(x^2 + y^2 ≤ 1\)</span>)
+then k++; // 圆内 } return 4k/n;<br>
+}</p>
+</blockquote>
+<p><span class="math display">\[
+4*\frac{k}{n}=4*\frac{\pi r^2}{4r^2}=\pi
+\]</span></p>
+<p><strong>解：</strong>如果将<span class="math inline">\(y\leftarrow
+uniform(0,1)\)</span>改为<span class="math inline">\(y\leftarrow
+x\)</span>，则算法变为</p>
+<blockquote>
+<p>Darts (n) { k <span class="math inline">\(\leftarrow\)</span> 0; for
+i <span class="math inline">\(\leftarrow\)</span> 1 to n do { x <span class="math inline">\(\leftarrow\)</span> uniform(0, 1);<br>
+y <span class="math inline">\(\leftarrow\)</span> x; // 随机产生点(x,y)
+if (<span class="math inline">\(2x^2≤ 1\)</span>) then k++; // <span class="math inline">\(x^2&lt;=\frac{1}{2}\)</span> } return 4k/n;<br>
+}</p>
+</blockquote>
+<p>当x=y时， 随机产生点(x,y)都位于<span class="math inline">\(y=x,0\le x
+\le 1\)</span>的线段上，长度为1，而只有<span class="math inline">\(0\le
+x \le \frac{\sqrt{2}}{2}\)</span>范围内的点落在圆内，长度为<span class="math inline">\(\frac{\sqrt{2}}{2}\)</span>,所以算法估计的值为：
+<span class="math display">\[
+4*\frac{k}{n}=4*\frac{\sqrt{2}}{2}=2\sqrt{2}
+\]</span></p>
+<ul>
+<li>实验代码</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Darts</span>(<span class="params">n</span>):</span><br><span class="line">    k = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        x = random.uniform(<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">        y = x</span><br><span class="line">        <span class="keyword">if</span> x*x+y*y &lt;= <span class="number">1</span>:</span><br><span class="line">            k = k+<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">4</span>*k/n</span><br><span class="line"></span><br><span class="line">n = <span class="number">1000000</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;n:&quot;</span>,n)</span><br><span class="line"><span class="built_in">print</span>(Darts(n))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实验结果</li>
+</ul>
+<blockquote>
+<p>n=1000000 2.828896</p>
+</blockquote>
+<p><strong>Ex.2【P23】在机器上用<span class="math inline">\(4\int_{0}^{1}\sqrt[]{1-x^2}dx\)</span>估计π值，给出不同的n值及精度。</strong></p>
+<p><strong>解：</strong></p>
+<ul>
+<li>实验代码：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">HitorMisss</span>(<span class="params">func, n</span>):</span><br><span class="line">    k = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        x = random.uniform(<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">        y = random.uniform(<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> y &lt;= func(x):</span><br><span class="line">            k = k+<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> k/n</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func1</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> math.sqrt(<span class="number">1</span>-x*x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算不同n值下的pi估算值</span></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> [<span class="number">1000000</span>,<span class="number">10000000</span>,<span class="number">100000000</span>]:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;n = &#123;:&lt;10d&#125; pi = &#123;&#125;&quot;</span>.<span class="built_in">format</span>(n, <span class="number">4</span>*HitorMisss(func1, n)))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实验结果： π=3.141592654</li>
+</ul>
+<blockquote>
+<p>n = 1百万 pi = 3.142484（2位精确） n = 1千万 pi = 3.140752（2位精确）
+n = 1亿 pi = 3.14163212（3位精确）</p>
+</blockquote>
+<p><strong>Ex.3【P23】 设a, b, c和d是实数，且<span class="math inline">\(a ≤ b, c ≤ d, f:[a, b] → [c,
+d]\)</span>是一个连续函数，写一概率算法计算积分：</strong> <span class="math display">\[
+\int_{a}^{b}f(x)dx
+\]</span> 注意，函数的参数是a, b, c, d, n和f,
+其中f用函数指针实现，请选一连续函数做实验，并给出实验结果。</p>
+<p><strong>解：</strong>选取指数函数作为研究对象，<span class="math inline">\(f(x)=e^x,a=0,b=1,c=0,b=e\)</span>，计算<span class="math inline">\(\int_{0}^{1}e^xdx\)</span></p>
+<ul>
+<li><p>理论结果：</p>
+<p>根据牛顿-莱布尼兹公式<span class="math inline">\(F(x)=e^x\)</span>
+<span class="math display">\[
+\int_{0}^{1}e^xdx=F(1)-F(0)=e-1
+\]</span> e-1 = 1.718281828459045</p></li>
+<li><p>实验代码</p></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="comment"># 积分概率算法</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calculate</span>(<span class="params">func, n, a=<span class="number">0</span>, b=<span class="number">1</span>, c=<span class="number">0</span>, d=<span class="number">1</span></span>):</span><br><span class="line">    k = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        x = random.uniform(a, b)</span><br><span class="line">        y = random.uniform(c, d)  <span class="comment"># 随机生成矩形内的点(x,y)</span></span><br><span class="line">        <span class="keyword">if</span> y &lt;= func(x):</span><br><span class="line">            k = k+<span class="number">1</span></span><br><span class="line">    S_1 = (b-a)*(d-c)  <span class="comment"># 计算矩形面积</span></span><br><span class="line">    <span class="keyword">return</span> S_1*k/n</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func2</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> math.exp(x)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;e-1 = &quot;</span>, math.exp(<span class="number">1</span>)-<span class="number">1</span>)</span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> [<span class="number">1000000</span>, <span class="number">10000000</span>, <span class="number">100000000</span>]:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;n = &#123;:&lt;10d&#125; result = &#123;&#125;&quot;</span>.<span class="built_in">format</span>(</span><br><span class="line">        n, calculate(func2, n, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, math.exp(<span class="number">1</span>))))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实验结果</li>
+</ul>
+<blockquote>
+<p>e-1 = 1.718281828459045 n = 1000000（1百万） result =
+1.7169592244369005 (2精确度) n = 10000000 （1千万） result =
+1.7181025337739504 (3精确度) n = 100000000 （1亿） result =
+1.718124551856761 (3精确度)</p>
+</blockquote>
+<p>**Ex.4【P24】 设$,<span class="math inline">\(是(0,1)之间的常数，证明：** **若\)</span>I<span class="math inline">\(是\)</span>_{0}^{1}f(x)dx<span class="math inline">\(的正确值，h是由HitorMiss算法返回的值，则当\)</span>n$时有：<strong>
+<span class="math display">\[
+Prob[|h-I|\le \varepsilon] ≥ 1-\delta
+\]</span> </strong>上述的意义告诉我们：<span class="math inline">\(Prob[|h-I|\ge\varepsilon]\le\delta\)</span>,
+即：当<span class="math inline">\(n\ge
+\frac{I(1-I)}{\varepsilon^2\delta}\)</span>时，算法的计算结果的绝对误差超过<span class="math inline">\(\varepsilon\)</span>的概率不超过<span class="math inline">\(\delta\)</span>，因此我们根据给定<span class="math inline">\(\varepsilon\)</span>和<span class="math inline">\(\delta\)</span>可以确定算法迭代的次数<strong>
+<span class="math display">\[
+n=\frac{I(1-I)}{\varepsilon^{2} \delta} \leq\left[\frac{1}{4
+\varepsilon^{2} \delta}\right] \quad\left(\because I(1-I) \leq
+\frac{1}{4}\right)
+\]</span> </strong>解此问题时可用切比雪夫不等式，将<span class="math inline">\(I\)</span>看作是数学期望。**</p>
+<p><strong>解：</strong></p>
+<p>h 是一个随机变量，记其期望和方差为<span class="math inline">\(E(h)\)</span>和<span class="math inline">\(D(h)\)</span>。根据切比雪夫不等式 <span class="math display">\[
+Prob(|h-E(h)|\ge \varepsilon)\le \frac{D(h)}{\varepsilon^2}
+\]</span> 显然 <span class="math inline">\(E(h)=I\)</span>。另一方面，在
+HitorMiss 算法中，若随机取 n 个点，有 k 个点在积分范围内，则有 h=k /
+n。因为 n 个点中每一个点，其要么在积分范围内，要么不在积分范围内，因此 k
+服从于二项分布<span class="math inline">\(B(n, I)\)</span>，其中 <span class="math inline">\(I\)</span>为点落在积分范围内的概率， <span class="math inline">\(D(k)=n*I(1-I)\)</span>。又因为<span class="math inline">\(k=h*n\)</span>，所以 <span class="math inline">\(D(h)=I(1-I)/n\)</span></p>
+<p>当<span class="math inline">\(n\ge
+\frac{I(1-I)}{\varepsilon^2\delta}\)</span>时， <span class="math display">\[
+Prob(|h-E(h)|\le \varepsilon)\ge 1-\frac{D(h)}{\varepsilon^2}
+\]</span> 因为<span class="math inline">\(E(h)=I\)</span>且<span class="math inline">\(D(h)=I(1-I)/n\)</span>，所以： <span class="math display">\[
+Prob(|h-I|\le \varepsilon)\ge 1-\frac{I(1-I)}{n\varepsilon^2}\ge1-\delta
+\]</span></p>
+<p><strong>Ex.5【P36】
+用上述算法，估计整数子集1~n的大小，并分析n对估计值的影响。</strong></p>
+<ul>
+<li>实验代码</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 用上述算法，估计整数子集1~n的大小，并分析n对估计值的影响。</span></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> choice</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line">REPEAT_COUNT = <span class="number">1000</span>  <span class="comment"># 重复次数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">SetCount</span>(<span class="params">X</span>):</span><br><span class="line">    k = <span class="number">0</span></span><br><span class="line">    S = <span class="built_in">set</span>()</span><br><span class="line">    a = choice(X)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        k = k + <span class="number">1</span></span><br><span class="line">        S.add(a)</span><br><span class="line">        a = choice(X)</span><br><span class="line">        <span class="keyword">if</span> a <span class="keyword">in</span> S:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * k * k / math.pi</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> [<span class="number">10</span>, <span class="number">1000</span>, <span class="number">10000</span>, <span class="number">1000000</span>]:</span><br><span class="line">    X = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">        X.append(i)</span><br><span class="line">    <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line">    Error_rate = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(REPEAT_COUNT):</span><br><span class="line">        <span class="built_in">sum</span> += SetCount(X)</span><br><span class="line">        Error_rate += math.fabs(SetCount(X) - n) / n  <span class="comment"># 计算每次估计值的误差</span></span><br><span class="line">    Estimate_N = <span class="built_in">sum</span>/REPEAT_COUNT  <span class="comment"># 计算n的估计值</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;n = &#123;:&lt;10d&#125; Estimate_N = &#123;:&lt;20.6f&#125; Error_rate = &#123;:.3%&#125;&quot;</span>.<span class="built_in">format</span>(</span><br><span class="line">        n, Estimate_N, Error_rate/n))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实验结果</li>
+</ul>
+<p>计算每次估计误差，重复1000次，求最后的平均误差，结果如下：</p>
+<figure>
+<img src="/post/34884d63/image-20221115133201303.png" alt="image-20221115133201303">
+<figcaption aria-hidden="true">image-20221115133201303</figcaption>
+</figure>
+<p>n 越大，每次估计误差越小，估值越准确。</p>
+<p><strong>Ex.6【P54】
+分析dlogRH的工作原理，指出该算法相应的u和v</strong></p>
+<p><strong>解：</strong> Sherwood 算法的一般过程：</p>
+<ul>
+<li><p>将被解的实例变换到一个随机实例。 //预处理函数 u</p></li>
+<li><p>用确定算法解此随机实例，得到一个解。</p></li>
+<li><p>将此解变换为对原实例的解。 //后处理函数 v</p></li>
+</ul>
+<p>dlogRH 对其中的 <span class="math inline">\(a=g^x \ mod \ p \
+\)</span>作随机预处理，得到与其对应的随机实例 c=u(x, r)，并且对 c
+使用确定性算法得到 y ，最后再把随机实例的结果 y 变换为输入实例 a 的解
+x=v(y, r)。其中</p>
+<p><span class="math display">\[
+u: u(x, r) = log_{g,p} c = (r+x) mod (p-1) \\
+v: v(y, r) = (y-r) mod (p-1)
+\]</span></p>
+<p><strong>Ex.7【P67】 写一Sherwood算法C，与算法A, B,
+D比较，给出实验结果。</strong></p>
+<p><strong>解：</strong></p>
+<ul>
+<li><p>算法 C :在 B 的基础上修改，不是取前<span class="math inline">\(\sqrt n\)</span>个元素作为基准，而是随机取<span class="math inline">\(\sqrt n\)</span>个元素作为基准。</p></li>
+<li><p>实验代码</p></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> sqrt</span><br><span class="line"></span><br><span class="line">n = <span class="number">10000</span></span><br><span class="line">val = []  <span class="comment"># 记录值数组</span></span><br><span class="line">ptr = []  <span class="comment"># 指针数组</span></span><br><span class="line">head = <span class="number">0</span>  <span class="comment"># 链头</span></span><br><span class="line">sa = []</span><br><span class="line">sb = []</span><br><span class="line">sc = []</span><br><span class="line">sd = []</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化静态链表数组 （链中指向数组编号从1开始 0表示结尾）</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, n):</span><br><span class="line">    val.append(i)</span><br><span class="line">random.shuffle(val) <span class="comment"># 将序列的所有元素随机排序 该行注释表示基本有序的静态链表</span></span><br><span class="line"><span class="comment"># 将指针数组按照值从小到大链接</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> val:</span><br><span class="line">    <span class="keyword">if</span> i != n - <span class="number">1</span>:</span><br><span class="line">        ptr.append(val.index(i + <span class="number">1</span>)) <span class="comment"># val.index() 查找数组中元素的序号</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        ptr.append(-<span class="number">1</span>)</span><br><span class="line">head = val.index(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">search</span>(<span class="params">x, i</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;从位置i开始查找x,返回x所在位置序号和查找长度&quot;&quot;&quot;</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> x &gt; val[i]:</span><br><span class="line">        i = ptr[i]</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> i, count </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">A</span>(<span class="params">x</span>):  <span class="comment"># o(n)</span></span><br><span class="line">    <span class="keyword">return</span> search(x, head)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">B</span>(<span class="params">x</span>):  <span class="comment"># o(sqrt(n))</span></span><br><span class="line">    i = head</span><br><span class="line">    <span class="built_in">max</span> = val[i]</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">int</span>(sqrt(n))):</span><br><span class="line">        y = val[j]</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">max</span> &lt; y &lt;= x:</span><br><span class="line">            i = j</span><br><span class="line">            <span class="built_in">max</span> = y</span><br><span class="line">    <span class="keyword">return</span> search(x, i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">C</span>(<span class="params">x</span>):  <span class="comment"># o(sqrt(n)) Sherwood</span></span><br><span class="line">    i = head</span><br><span class="line">    <span class="built_in">max</span> = val[i]</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">int</span>(sqrt(n))):</span><br><span class="line">        jj = random.randint(<span class="number">0</span>, n - <span class="number">1</span>)</span><br><span class="line">        y = val[jj]</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">max</span> &lt; y &lt;= x:</span><br><span class="line">            i = jj</span><br><span class="line">            <span class="built_in">max</span> = y</span><br><span class="line">    <span class="keyword">return</span> search(x, i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">D</span>(<span class="params">x</span>):  <span class="comment"># o(n)</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    i = random.randint(<span class="number">0</span>, n - <span class="number">1</span>)</span><br><span class="line">    y = val[i]</span><br><span class="line">    <span class="keyword">if</span> x &lt; y:</span><br><span class="line">        <span class="keyword">return</span> search(x, head)</span><br><span class="line">    <span class="keyword">elif</span> x &gt; y:</span><br><span class="line">        <span class="keyword">return</span> search(x, ptr[i])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> i, <span class="number">0</span></span><br><span class="line"></span><br><span class="line">REPEAT_COUNT = <span class="number">10000</span> <span class="comment"># 重复查找次数</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(REPEAT_COUNT):</span><br><span class="line">    x = random.randint(<span class="number">0</span>, n - <span class="number">1</span>)</span><br><span class="line">    sa.append(A(x)[<span class="number">1</span>])</span><br><span class="line">    sb.append(B(x)[<span class="number">1</span>])</span><br><span class="line">    sc.append(C(x)[<span class="number">1</span>])</span><br><span class="line">    sd.append(D(x)[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Algo A: average &#123;:&lt;10.3f&#125; worst &#123;:&lt;10d&#125;&quot;</span>.<span class="built_in">format</span>(<span class="built_in">sum</span>(sa) / <span class="built_in">len</span>(sa),<span class="built_in">max</span>(sa)))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Algo B: average &#123;:&lt;10.3f&#125; worst &#123;:&lt;10d&#125;&quot;</span>.<span class="built_in">format</span>(<span class="built_in">sum</span>(sb) / <span class="built_in">len</span>(sa),<span class="built_in">max</span>(sb)))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Algo C: average &#123;:&lt;10.3f&#125; worst &#123;:&lt;10d&#125;&quot;</span>.<span class="built_in">format</span>(<span class="built_in">sum</span>(sc) / <span class="built_in">len</span>(sa),<span class="built_in">max</span>(sc)))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Algo D: average &#123;:&lt;10.3f&#125; worst &#123;:&lt;10d&#125;&quot;</span>.<span class="built_in">format</span>(<span class="built_in">sum</span>(sd) / <span class="built_in">len</span>(sa),<span class="built_in">max</span>(sd)))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实验结果</li>
+</ul>
+<p>n=10000
+，随机生成静态有序链表，链表元素随机打乱，每次查询随机的元素，重复
+10000次，计算平均查找次数和最坏查找次数，结果如下：</p>
+<figure>
+<img src="/post/34884d63/image-20221115154747641.png" alt="image-20221115154747641">
+<figcaption aria-hidden="true">image-20221115154747641</figcaption>
+</figure>
+<p>n=10000
+，随机生成静态有序链表，链表元素按顺序排列，每次查询随机的元素，重复
+10000次，计算平均查找次数和最坏查找次数，结果如下：</p>
+<figure>
+<img src="/post/34884d63/image-20221115154955453.png" alt="image-20221115154955453">
+<figcaption aria-hidden="true">image-20221115154955453</figcaption>
+</figure>
+<p>从上述实验结果可以看到，在随机打乱的静态链表中，算法B,C的平均查找次数以及最坏查找次数远小于算法A,D；如果链表基本有序，随机化的
+Sherwood 算法 C 的表现与随机链表相同， 而未随机化的算法 B 退化成了 O(n)
+的算法。</p>
+<p><strong>Ex.8【P77】证明：当放置（k+1)th皇后时，若有多个位置是开放的,则算法QueensLV选中其中任一位置的概率相等。</strong></p>
+<p><strong>证明：</strong>当放置第（ k+1） th 皇后时，如果有 n
+个位置开放，依次记为{S1,S2,…,Sn}。当uniform(1,…,i)=1且对于所有
+j&gt;i有<span class="math inline">\(uniform(1,…,j)\ne0\)</span>时，Si被选中。
+uniform(1,…,i)=1的概率为 <span class="math inline">\(1/i\)</span>，<span class="math inline">\(uniform(1,…,j)\ne0\)</span>的概率为<span class="math inline">\(1-\frac{1}{j}=\frac{j-1}{j}\)</span>。所以Si被选中的概率为：
+<span class="math display">\[
+P_i=(\frac{1}{i}\times\frac{i}{i+1}\times...\times\frac{n-1}{n})=\frac{1}{n}
+\]</span> 所以算法QueensLV选中其中任一位置的概率相等。</p>
+<p><strong>Ex.9【P83】
+写一算法，求n=12~20时最优的StepVegas值。</strong></p>
+<ul>
+<li><p>实验思路</p>
+<p>迭代计算 p,s,e,求出每个stepVegas下的
+t（搜索的平均节点数），取t最小的stepVegas作为最优StepVegas值。</p></li>
+<li><p>实验代码</p></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 写一算法，求n=12~20时最优的StepVegas值</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line">try_count = []</span><br><span class="line">try_count.append(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">queensLV</span>(<span class="params">stepVegas, try_, n, try_count</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;贪心的LV算法(改进)&quot;&quot;&quot;</span></span><br><span class="line">    col = <span class="built_in">set</span>()</span><br><span class="line">    diag45 = <span class="built_in">set</span>()</span><br><span class="line">    diag135 = <span class="built_in">set</span>()</span><br><span class="line">    k = <span class="number">0</span>  <span class="comment"># 行号</span></span><br><span class="line">    <span class="keyword">while</span> k &lt; n:</span><br><span class="line">        <span class="keyword">if</span> k == stepVegas:  <span class="comment"># 完全使用回溯法</span></span><br><span class="line">            <span class="keyword">return</span> backtrace(k+<span class="number">1</span>, try_, col, diag45, diag135, try_count)</span><br><span class="line">        nb = <span class="number">0</span>  <span class="comment"># 计数器，nb值为（k+1)th皇后的open位置总数</span></span><br><span class="line">        j = <span class="number">0</span>  <span class="comment"># 记录随机摆放皇后的列位置</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n+<span class="number">1</span>):  <span class="comment"># i是列号, 试探（k+1,i）安全否</span></span><br><span class="line">            <span class="keyword">if</span> (i <span class="keyword">not</span> <span class="keyword">in</span> col) <span class="keyword">and</span> (i - k <span class="keyword">not</span> <span class="keyword">in</span> diag45) <span class="keyword">and</span> (i + k <span class="keyword">not</span> <span class="keyword">in</span> diag135):</span><br><span class="line">                <span class="comment"># 列i对（k+1）th皇后可用，但不一定马上将其放在第i列</span></span><br><span class="line">                nb += <span class="number">1</span></span><br><span class="line">                <span class="comment"># 在nb个安全的位置上随机选择1个位置j放置之</span></span><br><span class="line">                <span class="keyword">if</span> randint(<span class="number">1</span>, nb) == <span class="number">1</span>:  <span class="comment"># 或许放在第i列</span></span><br><span class="line">                    j = i</span><br><span class="line">        <span class="comment"># nb=0时无安全位置，第k+1个皇后尚未放好</span></span><br><span class="line">        <span class="keyword">if</span> nb &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="comment"># 在所有nb个安全位置上，(k+1)th皇后选择位置j的概率为1/nb</span></span><br><span class="line">            try_count[<span class="number">0</span>] += <span class="number">1</span>  <span class="comment"># 1个皇后放好算是搜索树上的1个结点</span></span><br><span class="line">            k += <span class="number">1</span>  <span class="comment"># try[1..k+1]是(k+1)-promising</span></span><br><span class="line">            try_[k] = j  <span class="comment"># 将选定的(k+1)th皇后放入</span></span><br><span class="line">            col.add(j)</span><br><span class="line">            diag45.add(j - k)</span><br><span class="line">            diag135.add(j + k)</span><br><span class="line">        <span class="keyword">else</span>:  <span class="comment"># 当前皇后找不到合适的位置</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">backtrace</span>(<span class="params">k, try_, col, diag45, diag135, try_count</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;传统的回溯法&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> k &gt; n:  <span class="comment"># k表示行号 行号大于n表示皇后放置结束</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n+<span class="number">1</span>):  <span class="comment"># 从当前列j起向后逐列试探 寻找安全列号</span></span><br><span class="line">        <span class="keyword">if</span> (j <span class="keyword">not</span> <span class="keyword">in</span> col) <span class="keyword">and</span> (j - k <span class="keyword">not</span> <span class="keyword">in</span> diag45) <span class="keyword">and</span> (j + k <span class="keyword">not</span> <span class="keyword">in</span> diag135):</span><br><span class="line">            <span class="comment"># 找到安全列j 放置(k+1)th皇后</span></span><br><span class="line">            try_[k] = j</span><br><span class="line">            col.add(j)</span><br><span class="line">            diag45.add(j - k)</span><br><span class="line">            diag135.add(j + k)</span><br><span class="line">            try_count[<span class="number">0</span>] += <span class="number">1</span>  <span class="comment"># 1个皇后放好算是搜索树上的1个结点</span></span><br><span class="line">            <span class="comment"># 探索下一行</span></span><br><span class="line">            <span class="keyword">if</span> backtrace(k+<span class="number">1</span>, try_, col, diag45, diag135, try_count):</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="keyword">else</span>:  <span class="comment"># 回溯 移去该行已放置的皇后</span></span><br><span class="line">                col.remove(j)</span><br><span class="line">                diag45.remove(j - k)</span><br><span class="line">                diag135.remove(j + k)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span>  <span class="comment"># 探索完所有列仍然没有符合要求的</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">REPEAT_COUNT = <span class="number">100</span>  <span class="comment"># 运行次数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;n\tbest_sv\ts\te\tp\tt\ttime(ms)&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">12</span>, <span class="number">21</span>):</span><br><span class="line">    best_sv = n</span><br><span class="line">    best_s = <span class="number">0</span></span><br><span class="line">    best_e = <span class="number">0</span></span><br><span class="line">    best_p = <span class="number">0</span></span><br><span class="line">    best_t = <span class="number">0</span></span><br><span class="line">    best_time= <span class="number">0</span></span><br><span class="line">    min_t = <span class="number">1000000</span></span><br><span class="line">    <span class="keyword">for</span> stepVegas <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, n+<span class="number">1</span>):</span><br><span class="line">        p_count = <span class="number">0</span>  <span class="comment"># 成功次数</span></span><br><span class="line">        s_count = <span class="number">0</span></span><br><span class="line">        e_count = <span class="number">0</span></span><br><span class="line">        t1 = time.time()</span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(REPEAT_COUNT):</span><br><span class="line">            try_count[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">            try_ = [-<span class="number">1</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n+<span class="number">1</span>)]  <span class="comment"># 序号1...k 初始化为-1</span></span><br><span class="line">            <span class="keyword">if</span> queensLV(stepVegas, try_, n, try_count):</span><br><span class="line">                p_count += <span class="number">1</span></span><br><span class="line">                s_count += try_count[<span class="number">0</span>]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                e_count += try_count[<span class="number">0</span>]</span><br><span class="line">        t2 = time.time()</span><br><span class="line">        total_time = (t2-t1)*<span class="number">1000</span></span><br><span class="line">        s = s_count/REPEAT_COUNT  <span class="comment"># 成功时搜索的结点的平均数</span></span><br><span class="line">        e = e_count/REPEAT_COUNT  <span class="comment"># 失败时搜索的结点的平均数</span></span><br><span class="line">        p = p_count/REPEAT_COUNT  <span class="comment"># 成功的概率（一次成功）</span></span><br><span class="line">        t = s+(<span class="number">1</span>-p)*e/(p+<span class="number">0.0001</span>)  <span class="comment"># 搜索的平均节点数</span></span><br><span class="line">        <span class="keyword">if</span> t &lt; min_t:</span><br><span class="line">            min_t = t</span><br><span class="line">            best_sv = stepVegas  <span class="comment"># 取最小化t的stepVegas</span></span><br><span class="line">            best_s = s</span><br><span class="line">            best_e = e</span><br><span class="line">            best_p = p</span><br><span class="line">            best_t = t</span><br><span class="line">            best_time = total_time</span><br><span class="line">        <span class="comment"># print(&quot;&#123;:&lt;10d&#125;&#123;:&lt;10d&#125;&#123;:&lt;10.4f&#125;&#123;:&lt;10.4f&#125;&#123;:&lt;10.4f&#125;&#123;:&lt;10.4f&#125;&#123;:&lt;15.6f&#125;&quot;.format(</span></span><br><span class="line">        <span class="comment">#     n, stepVegas, s, e, p, t, total_time))</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&#123;:&lt;10d&#125;&#123;:&lt;10d&#125;&#123;:&lt;10.4f&#125;&#123;:&lt;10.4f&#125;&#123;:&lt;10.4f&#125;&#123;:&lt;10.4f&#125;&#123;:&lt;15.6f&#125;&quot;</span>.<span class="built_in">format</span>(</span><br><span class="line">        n, best_sv, best_s, best_e, best_p, best_t, best_time))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>实验结果</li>
+</ul>
+<figure>
+<img src="/post/34884d63/image-20221115220055192.png" alt="image-20221115220055192">
+<figcaption aria-hidden="true">image-20221115220055192</figcaption>
+</figure>
+<p><strong>Ex.10【147】</strong></p>
+<blockquote>
+<p>PrintPrimes{ //打印1万以内的素数 print 2，3； n ←5； repeat if
+RepeatMillRab(n,$ _{}{n} $) then print n; n ←n+2; until n=10000; }</p>
+</blockquote>
+<p>与确定性算法相比较，并给出100~10000以内错误的比例。</p>
+<ul>
+<li>实验思路：分别在不同k值下对100~10000以内整数进行RepeatMillRab素性测试，得到的结果与确定性算法比较，记录错误个数，重复实验，得到平均错误个数和平均错误比例。</li>
+<li>实验代码</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># RepeatMillRab素性测试与确定性算法相比较，并给出100~10000以内错误的比例。</span></span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> sqrt, log10</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Btest</span>(<span class="params">a, n</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;返回真说明n是强伪素数或素数&quot;&quot;&quot;</span></span><br><span class="line">    s = <span class="number">0</span></span><br><span class="line">    t = n - <span class="number">1</span>  <span class="comment"># t开始为偶数</span></span><br><span class="line">    <span class="keyword">while</span> t % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">        s = s + <span class="number">1</span></span><br><span class="line">        t = t // <span class="number">2</span></span><br><span class="line">    x = a ** t % n</span><br><span class="line">    <span class="keyword">if</span> x == <span class="number">1</span> <span class="keyword">or</span> x == n - <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, s):</span><br><span class="line">        x = x ** <span class="number">2</span> % n</span><br><span class="line">        <span class="keyword">if</span> x == n - <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">MillRab</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Miller-Rabin测试:奇n&gt;4 返回真时表示素数 假表示合数&quot;&quot;&quot;</span></span><br><span class="line">    a = randint(<span class="number">2</span>, n - <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> Btest(a, n)  <span class="comment"># 测试n是否为强伪素数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">RepeatMillRab</span>(<span class="params">n, k</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;重复调用k次之后返回true&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k):</span><br><span class="line">        <span class="keyword">if</span> MillRab(n) == <span class="literal">False</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span>  <span class="comment"># 一定是合数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span>  <span class="comment"># 高概率为素数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_prime</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;确定性算法确定是否为素数&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="built_in">int</span>(sqrt(n)) + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> n % i == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">start = <span class="number">100</span></span><br><span class="line">end = <span class="number">10000</span></span><br><span class="line">REPEAT_COUNT = <span class="number">10</span>  <span class="comment"># 重复次数</span></span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">6</span>):</span><br><span class="line">    error = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(REPEAT_COUNT):</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(start, end):</span><br><span class="line">            <span class="keyword">if</span> RepeatMillRab(i, k) != is_prime(i):</span><br><span class="line">                error += <span class="number">1</span></span><br><span class="line">    error /= REPEAT_COUNT  <span class="comment"># 平均错误次数</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;k = &#123;:&lt;4d&#125; error times = &#123;:&lt;10.2f&#125; error rate = &#123;:&lt;10.6f&#125;&quot;</span>.<span class="built_in">format</span>(</span><br><span class="line">        k, error, error/(end-start)))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>实验结果</li>
+</ul>
+<figure>
+<img src="/post/34884d63/image-20221115225306352.png" alt="image-20221115225306352">
+<figcaption aria-hidden="true">image-20221115225306352</figcaption>
+</figure>
+<p>可以看到在k&gt;4以后错误比例基本为0了。</p>
+<h1 id="参考链接">参考链接</h1>
+<ul>
+<li><a href="http://home.ustc.edu.cn/~zzy0929/CSAlg22/">课程主页</a></li>
+<li><a href="https://blog.csdn.net/jackzhang11/article/details/109479996">算法作业之概率算法&amp;近似算法（中科大黄刘生总裁版）</a></li>
+<li><a href="https://github.com/1970633640/Design-and-Analysis-of-Algorithm">中国科学技术大学算法设计与分析课程作业</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>作业</category>
+      </categories>
+      <tags>
+        <tag>作业</tag>
+        <tag>概率</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -866,6 +1092,7 @@ Image Processing，简称 DIP。输入的是图像，输出的也是图像。Pho
       </categories>
       <tags>
         <tag>复试</tag>
+        <tag>面试</tag>
       </tags>
   </entry>
   <entry>
@@ -1028,7 +1255,7 @@ B+树的节点键值进行压缩存储。假设每个节点中的键值压缩 1
 </ul>
 ]]></content>
       <categories>
-        <category>数据库</category>
+        <category>作业</category>
       </categories>
       <tags>
         <tag>作业</tag>
@@ -1148,10 +1375,11 @@ B+树的节点键值进行压缩存储。假设每个节点中的键值压缩 1
 <p><a href="https://dreamanddead.github.io/CSAPP-3e-Solutions/">CSAPP-3E-SOLUTIONS</a></p>
 ]]></content>
       <categories>
-        <category>csapp</category>
+        <category>作业</category>
       </categories>
       <tags>
         <tag>作业</tag>
+        <tag>CSAPP</tag>
       </tags>
   </entry>
   <entry>
@@ -1298,10 +1526,11 @@ B+树的节点键值进行压缩存储。假设每个节点中的键值压缩 1
 <p><a href="https://dreamanddead.github.io/CSAPP-3e-Solutions/">CSAPP-3E-SOLUTIONS</a></p>
 ]]></content>
       <categories>
-        <category>csapp</category>
+        <category>作业</category>
       </categories>
       <tags>
         <tag>作业</tag>
+        <tag>CSAPP</tag>
       </tags>
   </entry>
   <entry>
@@ -1423,6 +1652,7 @@ DFA 列出如下的状态跳转表，之后我们就可以采用 <strong>表驱�
       <tags>
         <tag>刷题</tag>
         <tag>代码</tag>
+        <tag>复试</tag>
       </tags>
   </entry>
   <entry>
@@ -1782,9 +2012,10 @@ bang 函数的地址 push 进栈中，然后使用 ret
 <p><img src="/post/ba783922/image-20221029210254503.png"></p>
 ]]></content>
       <categories>
-        <category>csapp</category>
+        <category>作业</category>
       </categories>
       <tags>
+        <tag>CSAPP</tag>
         <tag>实验</tag>
       </tags>
   </entry>
@@ -1885,10 +2116,11 @@ arrive”。从文件<code>road.in</code>中读入数据，第一行有四个数
       <tags>
         <tag>刷题</tag>
         <tag>代码</tag>
+        <tag>复试</tag>
       </tags>
   </entry>
   <entry>
-    <title>hexo+NexT主题配置备份及还原</title>
+    <title>Hexo+NexT主题配置备份及还原</title>
     <url>/post/3f7b24f8.html</url>
     <content><![CDATA[<p>第三次搭建github pages+hexo+NexT
 主题的博客了，之前总是因为各种原因中途放弃，这次一定要坚持！这里记录一下备份及今后还原的流程，方便之后的维护。</p>
@@ -1986,10 +2218,12 @@ Pages+hexo+NexT 博客搭建、备份及还原</a></p>
 工具 - 子模块</a></p>
 ]]></content>
       <categories>
-        <category>hexo</category>
+        <category>Hexo</category>
       </categories>
       <tags>
         <tag>备份</tag>
+        <tag>NexT</tag>
+        <tag>主题</tag>
       </tags>
   </entry>
 </search>

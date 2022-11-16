@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-pig.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-pig.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-pig.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="Rue56VcjrUaHiC0M1WyxObGCdA-Wkl0teZUEbdYG_-U">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ymzlt.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="本文为中科大研究生课程——《算法设计与分析》概率算法部分的习题作业。这门课我最喜欢的就是概率算法这部分，感觉提到的一些算法和例子都非常有趣。本文参考了网上一些前辈的资料，并结合自己的理解做出解答，现在分享出来作为参考。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="中科大概率算法作业">
+<meta property="og:url" content="https://ymzlt.github.io/post/34884d63.html">
+<meta property="og:site_name" content="YMZ&#39;s Blog">
+<meta property="og:description" content="本文为中科大研究生课程——《算法设计与分析》概率算法部分的习题作业。这门课我最喜欢的就是概率算法这部分，感觉提到的一些算法和例子都非常有趣。本文参考了网上一些前辈的资料，并结合自己的理解做出解答，现在分享出来作为参考。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ymzlt.github.io/post/34884d63/image-20221115133201303.png">
+<meta property="og:image" content="https://ymzlt.github.io/post/34884d63/image-20221115154747641.png">
+<meta property="og:image" content="https://ymzlt.github.io/post/34884d63/image-20221115154955453.png">
+<meta property="og:image" content="https://ymzlt.github.io/post/34884d63/image-20221115220055192.png">
+<meta property="og:image" content="https://ymzlt.github.io/post/34884d63/image-20221115225306352.png">
+<meta property="article:published_time" content="2022-11-16T04:54:15.000Z">
+<meta property="article:modified_time" content="2022-11-16T05:08:43.505Z">
+<meta property="article:author" content="YMZ">
+<meta property="article:tag" content="作业">
+<meta property="article:tag" content="概率">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ymzlt.github.io/post/34884d63/image-20221115133201303.png">
+
+<link rel="canonical" href="https://ymzlt.github.io/post/34884d63.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>中科大概率算法作业 | YMZ's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">YMZ's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">种一棵树最好是什么时候？</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ymzlt.github.io/post/34884d63.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="YMZ">
+      <meta itemprop="description" content="十年前和现在">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YMZ's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          中科大概率算法作业
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-11-16 12:54:15" itemprop="dateCreated datePublished" datetime="2022-11-16T12:54:15+08:00">2022-11-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BD%9C%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">作业</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/34884d63.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/34884d63.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>11k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>14 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本文为中科大研究生课程——《算法设计与分析》概率算法部分的习题作业。这门课我最喜欢的就是概率算法这部分，感觉提到的一些算法和例子都非常有趣。本文参考了网上一些前辈的资料，并结合自己的理解做出解答，现在分享出来作为参考。</p>
+<span id="more"></span>
+<h1 id="分析与解答">分析与解答</h1>
+<p><strong>Ex.1【P20】若将<span class="math inline">\(y\leftarrow
+uniform(0,1)\)</span>改为<span class="math inline">\(y\leftarrow
+x\)</span>，则上述的算法估计的值是什么？</strong></p>
+<blockquote>
+<p>求<span class="math inline">\(\pi\)</span>近似值的算法(右上<span class="math inline">\(\frac{1}{4}\)</span>象限为样本)</p>
+<p>Darts (n) { k <span class="math inline">\(\leftarrow\)</span> 0; for
+i <span class="math inline">\(\leftarrow\)</span> 1 to n do { x <span class="math inline">\(\leftarrow\)</span> uniform(0, 1); y <span class="math inline">\(\leftarrow\)</span> uniform(0, 1); //
+随机产生点(x,y) if (<span class="math inline">\(x^2 + y^2 ≤ 1\)</span>)
+then k++; // 圆内 } return 4k/n;<br>
+}</p>
+</blockquote>
+<p><span class="math display">\[
+4*\frac{k}{n}=4*\frac{\pi r^2}{4r^2}=\pi
+\]</span></p>
+<p><strong>解：</strong>如果将<span class="math inline">\(y\leftarrow
+uniform(0,1)\)</span>改为<span class="math inline">\(y\leftarrow
+x\)</span>，则算法变为</p>
+<blockquote>
+<p>Darts (n) { k <span class="math inline">\(\leftarrow\)</span> 0; for
+i <span class="math inline">\(\leftarrow\)</span> 1 to n do { x <span class="math inline">\(\leftarrow\)</span> uniform(0, 1);<br>
+y <span class="math inline">\(\leftarrow\)</span> x; // 随机产生点(x,y)
+if (<span class="math inline">\(2x^2≤ 1\)</span>) then k++; // <span class="math inline">\(x^2&lt;=\frac{1}{2}\)</span> } return 4k/n;<br>
+}</p>
+</blockquote>
+<p>当x=y时， 随机产生点(x,y)都位于<span class="math inline">\(y=x,0\le x
+\le 1\)</span>的线段上，长度为1，而只有<span class="math inline">\(0\le
+x \le \frac{\sqrt{2}}{2}\)</span>范围内的点落在圆内，长度为<span class="math inline">\(\frac{\sqrt{2}}{2}\)</span>,所以算法估计的值为：
+<span class="math display">\[
+4*\frac{k}{n}=4*\frac{\sqrt{2}}{2}=2\sqrt{2}
+\]</span></p>
+<ul>
+<li>实验代码</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Darts</span>(<span class="params">n</span>):</span><br><span class="line">    k = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        x = random.uniform(<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">        y = x</span><br><span class="line">        <span class="keyword">if</span> x*x+y*y &lt;= <span class="number">1</span>:</span><br><span class="line">            k = k+<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">4</span>*k/n</span><br><span class="line"></span><br><span class="line">n = <span class="number">1000000</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;n:&quot;</span>,n)</span><br><span class="line"><span class="built_in">print</span>(Darts(n))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实验结果</li>
+</ul>
+<blockquote>
+<p>n=1000000 2.828896</p>
+</blockquote>
+<p><strong>Ex.2【P23】在机器上用<span class="math inline">\(4\int_{0}^{1}\sqrt[]{1-x^2}dx\)</span>估计π值，给出不同的n值及精度。</strong></p>
+<p><strong>解：</strong></p>
+<ul>
+<li>实验代码：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">HitorMisss</span>(<span class="params">func, n</span>):</span><br><span class="line">    k = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        x = random.uniform(<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">        y = random.uniform(<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> y &lt;= func(x):</span><br><span class="line">            k = k+<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> k/n</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func1</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> math.sqrt(<span class="number">1</span>-x*x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算不同n值下的pi估算值</span></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> [<span class="number">1000000</span>,<span class="number">10000000</span>,<span class="number">100000000</span>]:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;n = &#123;:&lt;10d&#125; pi = &#123;&#125;&quot;</span>.<span class="built_in">format</span>(n, <span class="number">4</span>*HitorMisss(func1, n)))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实验结果： π=3.141592654</li>
+</ul>
+<blockquote>
+<p>n = 1百万 pi = 3.142484（2位精确） n = 1千万 pi = 3.140752（2位精确）
+n = 1亿 pi = 3.14163212（3位精确）</p>
+</blockquote>
+<p><strong>Ex.3【P23】 设a, b, c和d是实数，且<span class="math inline">\(a ≤ b, c ≤ d, f:[a, b] → [c,
+d]\)</span>是一个连续函数，写一概率算法计算积分：</strong> <span class="math display">\[
+\int_{a}^{b}f(x)dx
+\]</span> 注意，函数的参数是a, b, c, d, n和f,
+其中f用函数指针实现，请选一连续函数做实验，并给出实验结果。</p>
+<p><strong>解：</strong>选取指数函数作为研究对象，<span class="math inline">\(f(x)=e^x,a=0,b=1,c=0,b=e\)</span>，计算<span class="math inline">\(\int_{0}^{1}e^xdx\)</span></p>
+<ul>
+<li><p>理论结果：</p>
+<p>根据牛顿-莱布尼兹公式<span class="math inline">\(F(x)=e^x\)</span>
+<span class="math display">\[
+\int_{0}^{1}e^xdx=F(1)-F(0)=e-1
+\]</span> e-1 = 1.718281828459045</p></li>
+<li><p>实验代码</p></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="comment"># 积分概率算法</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calculate</span>(<span class="params">func, n, a=<span class="number">0</span>, b=<span class="number">1</span>, c=<span class="number">0</span>, d=<span class="number">1</span></span>):</span><br><span class="line">    k = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        x = random.uniform(a, b)</span><br><span class="line">        y = random.uniform(c, d)  <span class="comment"># 随机生成矩形内的点(x,y)</span></span><br><span class="line">        <span class="keyword">if</span> y &lt;= func(x):</span><br><span class="line">            k = k+<span class="number">1</span></span><br><span class="line">    S_1 = (b-a)*(d-c)  <span class="comment"># 计算矩形面积</span></span><br><span class="line">    <span class="keyword">return</span> S_1*k/n</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func2</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> math.exp(x)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;e-1 = &quot;</span>, math.exp(<span class="number">1</span>)-<span class="number">1</span>)</span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> [<span class="number">1000000</span>, <span class="number">10000000</span>, <span class="number">100000000</span>]:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;n = &#123;:&lt;10d&#125; result = &#123;&#125;&quot;</span>.<span class="built_in">format</span>(</span><br><span class="line">        n, calculate(func2, n, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, math.exp(<span class="number">1</span>))))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实验结果</li>
+</ul>
+<blockquote>
+<p>e-1 = 1.718281828459045 n = 1000000（1百万） result =
+1.7169592244369005 (2精确度) n = 10000000 （1千万） result =
+1.7181025337739504 (3精确度) n = 100000000 （1亿） result =
+1.718124551856761 (3精确度)</p>
+</blockquote>
+<p>**Ex.4【P24】 设$,<span class="math inline">\(是(0,1)之间的常数，证明：** **若\)</span>I<span class="math inline">\(是\)</span>_{0}^{1}f(x)dx<span class="math inline">\(的正确值，h是由HitorMiss算法返回的值，则当\)</span>n$时有：<strong>
+<span class="math display">\[
+Prob[|h-I|\le \varepsilon] ≥ 1-\delta
+\]</span> </strong>上述的意义告诉我们：<span class="math inline">\(Prob[|h-I|\ge\varepsilon]\le\delta\)</span>,
+即：当<span class="math inline">\(n\ge
+\frac{I(1-I)}{\varepsilon^2\delta}\)</span>时，算法的计算结果的绝对误差超过<span class="math inline">\(\varepsilon\)</span>的概率不超过<span class="math inline">\(\delta\)</span>，因此我们根据给定<span class="math inline">\(\varepsilon\)</span>和<span class="math inline">\(\delta\)</span>可以确定算法迭代的次数<strong>
+<span class="math display">\[
+n=\frac{I(1-I)}{\varepsilon^{2} \delta} \leq\left[\frac{1}{4
+\varepsilon^{2} \delta}\right] \quad\left(\because I(1-I) \leq
+\frac{1}{4}\right)
+\]</span> </strong>解此问题时可用切比雪夫不等式，将<span class="math inline">\(I\)</span>看作是数学期望。**</p>
+<p><strong>解：</strong></p>
+<p>h 是一个随机变量，记其期望和方差为<span class="math inline">\(E(h)\)</span>和<span class="math inline">\(D(h)\)</span>。根据切比雪夫不等式 <span class="math display">\[
+Prob(|h-E(h)|\ge \varepsilon)\le \frac{D(h)}{\varepsilon^2}
+\]</span> 显然 <span class="math inline">\(E(h)=I\)</span>。另一方面，在
+HitorMiss 算法中，若随机取 n 个点，有 k 个点在积分范围内，则有 h=k /
+n。因为 n 个点中每一个点，其要么在积分范围内，要么不在积分范围内，因此 k
+服从于二项分布<span class="math inline">\(B(n, I)\)</span>，其中 <span class="math inline">\(I\)</span>为点落在积分范围内的概率， <span class="math inline">\(D(k)=n*I(1-I)\)</span>。又因为<span class="math inline">\(k=h*n\)</span>，所以 <span class="math inline">\(D(h)=I(1-I)/n\)</span></p>
+<p>当<span class="math inline">\(n\ge
+\frac{I(1-I)}{\varepsilon^2\delta}\)</span>时， <span class="math display">\[
+Prob(|h-E(h)|\le \varepsilon)\ge 1-\frac{D(h)}{\varepsilon^2}
+\]</span> 因为<span class="math inline">\(E(h)=I\)</span>且<span class="math inline">\(D(h)=I(1-I)/n\)</span>，所以： <span class="math display">\[
+Prob(|h-I|\le \varepsilon)\ge 1-\frac{I(1-I)}{n\varepsilon^2}\ge1-\delta
+\]</span></p>
+<p><strong>Ex.5【P36】
+用上述算法，估计整数子集1~n的大小，并分析n对估计值的影响。</strong></p>
+<ul>
+<li>实验代码</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用上述算法，估计整数子集1~n的大小，并分析n对估计值的影响。</span></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> choice</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line">REPEAT_COUNT = <span class="number">1000</span>  <span class="comment"># 重复次数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">SetCount</span>(<span class="params">X</span>):</span><br><span class="line">    k = <span class="number">0</span></span><br><span class="line">    S = <span class="built_in">set</span>()</span><br><span class="line">    a = choice(X)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        k = k + <span class="number">1</span></span><br><span class="line">        S.add(a)</span><br><span class="line">        a = choice(X)</span><br><span class="line">        <span class="keyword">if</span> a <span class="keyword">in</span> S:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * k * k / math.pi</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> [<span class="number">10</span>, <span class="number">1000</span>, <span class="number">10000</span>, <span class="number">1000000</span>]:</span><br><span class="line">    X = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">        X.append(i)</span><br><span class="line">    <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line">    Error_rate = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(REPEAT_COUNT):</span><br><span class="line">        <span class="built_in">sum</span> += SetCount(X)</span><br><span class="line">        Error_rate += math.fabs(SetCount(X) - n) / n  <span class="comment"># 计算每次估计值的误差</span></span><br><span class="line">    Estimate_N = <span class="built_in">sum</span>/REPEAT_COUNT  <span class="comment"># 计算n的估计值</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;n = &#123;:&lt;10d&#125; Estimate_N = &#123;:&lt;20.6f&#125; Error_rate = &#123;:.3%&#125;&quot;</span>.<span class="built_in">format</span>(</span><br><span class="line">        n, Estimate_N, Error_rate/n))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实验结果</li>
+</ul>
+<p>计算每次估计误差，重复1000次，求最后的平均误差，结果如下：</p>
+<figure>
+<img src="/post/34884d63/image-20221115133201303.png" alt="image-20221115133201303">
+<figcaption aria-hidden="true">image-20221115133201303</figcaption>
+</figure>
+<p>n 越大，每次估计误差越小，估值越准确。</p>
+<p><strong>Ex.6【P54】
+分析dlogRH的工作原理，指出该算法相应的u和v</strong></p>
+<p><strong>解：</strong> Sherwood 算法的一般过程：</p>
+<ul>
+<li><p>将被解的实例变换到一个随机实例。 //预处理函数 u</p></li>
+<li><p>用确定算法解此随机实例，得到一个解。</p></li>
+<li><p>将此解变换为对原实例的解。 //后处理函数 v</p></li>
+</ul>
+<p>dlogRH 对其中的 <span class="math inline">\(a=g^x \ mod \ p \
+\)</span>作随机预处理，得到与其对应的随机实例 c=u(x, r)，并且对 c
+使用确定性算法得到 y ，最后再把随机实例的结果 y 变换为输入实例 a 的解
+x=v(y, r)。其中</p>
+<p><span class="math display">\[
+u: u(x, r) = log_{g,p} c = (r+x) mod (p-1) \\
+v: v(y, r) = (y-r) mod (p-1)
+\]</span></p>
+<p><strong>Ex.7【P67】 写一Sherwood算法C，与算法A, B,
+D比较，给出实验结果。</strong></p>
+<p><strong>解：</strong></p>
+<ul>
+<li><p>算法 C :在 B 的基础上修改，不是取前<span class="math inline">\(\sqrt n\)</span>个元素作为基准，而是随机取<span class="math inline">\(\sqrt n\)</span>个元素作为基准。</p></li>
+<li><p>实验代码</p></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> sqrt</span><br><span class="line"></span><br><span class="line">n = <span class="number">10000</span></span><br><span class="line">val = []  <span class="comment"># 记录值数组</span></span><br><span class="line">ptr = []  <span class="comment"># 指针数组</span></span><br><span class="line">head = <span class="number">0</span>  <span class="comment"># 链头</span></span><br><span class="line">sa = []</span><br><span class="line">sb = []</span><br><span class="line">sc = []</span><br><span class="line">sd = []</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化静态链表数组 （链中指向数组编号从1开始 0表示结尾）</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, n):</span><br><span class="line">    val.append(i)</span><br><span class="line">random.shuffle(val) <span class="comment"># 将序列的所有元素随机排序 该行注释表示基本有序的静态链表</span></span><br><span class="line"><span class="comment"># 将指针数组按照值从小到大链接</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> val:</span><br><span class="line">    <span class="keyword">if</span> i != n - <span class="number">1</span>:</span><br><span class="line">        ptr.append(val.index(i + <span class="number">1</span>)) <span class="comment"># val.index() 查找数组中元素的序号</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        ptr.append(-<span class="number">1</span>)</span><br><span class="line">head = val.index(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">search</span>(<span class="params">x, i</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;从位置i开始查找x,返回x所在位置序号和查找长度&quot;&quot;&quot;</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> x &gt; val[i]:</span><br><span class="line">        i = ptr[i]</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> i, count </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">A</span>(<span class="params">x</span>):  <span class="comment"># o(n)</span></span><br><span class="line">    <span class="keyword">return</span> search(x, head)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">B</span>(<span class="params">x</span>):  <span class="comment"># o(sqrt(n))</span></span><br><span class="line">    i = head</span><br><span class="line">    <span class="built_in">max</span> = val[i]</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">int</span>(sqrt(n))):</span><br><span class="line">        y = val[j]</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">max</span> &lt; y &lt;= x:</span><br><span class="line">            i = j</span><br><span class="line">            <span class="built_in">max</span> = y</span><br><span class="line">    <span class="keyword">return</span> search(x, i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">C</span>(<span class="params">x</span>):  <span class="comment"># o(sqrt(n)) Sherwood</span></span><br><span class="line">    i = head</span><br><span class="line">    <span class="built_in">max</span> = val[i]</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">int</span>(sqrt(n))):</span><br><span class="line">        jj = random.randint(<span class="number">0</span>, n - <span class="number">1</span>)</span><br><span class="line">        y = val[jj]</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">max</span> &lt; y &lt;= x:</span><br><span class="line">            i = jj</span><br><span class="line">            <span class="built_in">max</span> = y</span><br><span class="line">    <span class="keyword">return</span> search(x, i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">D</span>(<span class="params">x</span>):  <span class="comment"># o(n)</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    i = random.randint(<span class="number">0</span>, n - <span class="number">1</span>)</span><br><span class="line">    y = val[i]</span><br><span class="line">    <span class="keyword">if</span> x &lt; y:</span><br><span class="line">        <span class="keyword">return</span> search(x, head)</span><br><span class="line">    <span class="keyword">elif</span> x &gt; y:</span><br><span class="line">        <span class="keyword">return</span> search(x, ptr[i])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> i, <span class="number">0</span></span><br><span class="line"></span><br><span class="line">REPEAT_COUNT = <span class="number">10000</span> <span class="comment"># 重复查找次数</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(REPEAT_COUNT):</span><br><span class="line">    x = random.randint(<span class="number">0</span>, n - <span class="number">1</span>)</span><br><span class="line">    sa.append(A(x)[<span class="number">1</span>])</span><br><span class="line">    sb.append(B(x)[<span class="number">1</span>])</span><br><span class="line">    sc.append(C(x)[<span class="number">1</span>])</span><br><span class="line">    sd.append(D(x)[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Algo A: average &#123;:&lt;10.3f&#125; worst &#123;:&lt;10d&#125;&quot;</span>.<span class="built_in">format</span>(<span class="built_in">sum</span>(sa) / <span class="built_in">len</span>(sa),<span class="built_in">max</span>(sa)))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Algo B: average &#123;:&lt;10.3f&#125; worst &#123;:&lt;10d&#125;&quot;</span>.<span class="built_in">format</span>(<span class="built_in">sum</span>(sb) / <span class="built_in">len</span>(sa),<span class="built_in">max</span>(sb)))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Algo C: average &#123;:&lt;10.3f&#125; worst &#123;:&lt;10d&#125;&quot;</span>.<span class="built_in">format</span>(<span class="built_in">sum</span>(sc) / <span class="built_in">len</span>(sa),<span class="built_in">max</span>(sc)))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Algo D: average &#123;:&lt;10.3f&#125; worst &#123;:&lt;10d&#125;&quot;</span>.<span class="built_in">format</span>(<span class="built_in">sum</span>(sd) / <span class="built_in">len</span>(sa),<span class="built_in">max</span>(sd)))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实验结果</li>
+</ul>
+<p>n=10000
+，随机生成静态有序链表，链表元素随机打乱，每次查询随机的元素，重复
+10000次，计算平均查找次数和最坏查找次数，结果如下：</p>
+<figure>
+<img src="/post/34884d63/image-20221115154747641.png" alt="image-20221115154747641">
+<figcaption aria-hidden="true">image-20221115154747641</figcaption>
+</figure>
+<p>n=10000
+，随机生成静态有序链表，链表元素按顺序排列，每次查询随机的元素，重复
+10000次，计算平均查找次数和最坏查找次数，结果如下：</p>
+<figure>
+<img src="/post/34884d63/image-20221115154955453.png" alt="image-20221115154955453">
+<figcaption aria-hidden="true">image-20221115154955453</figcaption>
+</figure>
+<p>从上述实验结果可以看到，在随机打乱的静态链表中，算法B,C的平均查找次数以及最坏查找次数远小于算法A,D；如果链表基本有序，随机化的
+Sherwood 算法 C 的表现与随机链表相同， 而未随机化的算法 B 退化成了 O(n)
+的算法。</p>
+<p><strong>Ex.8【P77】证明：当放置（k+1)th皇后时，若有多个位置是开放的,则算法QueensLV选中其中任一位置的概率相等。</strong></p>
+<p><strong>证明：</strong>当放置第（ k+1） th 皇后时，如果有 n
+个位置开放，依次记为{S1,S2,…,Sn}。当uniform(1,…,i)=1且对于所有
+j&gt;i有<span class="math inline">\(uniform(1,…,j)\ne0\)</span>时，Si被选中。
+uniform(1,…,i)=1的概率为 <span class="math inline">\(1/i\)</span>，<span class="math inline">\(uniform(1,…,j)\ne0\)</span>的概率为<span class="math inline">\(1-\frac{1}{j}=\frac{j-1}{j}\)</span>。所以Si被选中的概率为：
+<span class="math display">\[
+P_i=(\frac{1}{i}\times\frac{i}{i+1}\times...\times\frac{n-1}{n})=\frac{1}{n}
+\]</span> 所以算法QueensLV选中其中任一位置的概率相等。</p>
+<p><strong>Ex.9【P83】
+写一算法，求n=12~20时最优的StepVegas值。</strong></p>
+<ul>
+<li><p>实验思路</p>
+<p>迭代计算 p,s,e,求出每个stepVegas下的
+t（搜索的平均节点数），取t最小的stepVegas作为最优StepVegas值。</p></li>
+<li><p>实验代码</p></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 写一算法，求n=12~20时最优的StepVegas值</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line">try_count = []</span><br><span class="line">try_count.append(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">queensLV</span>(<span class="params">stepVegas, try_, n, try_count</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;贪心的LV算法(改进)&quot;&quot;&quot;</span></span><br><span class="line">    col = <span class="built_in">set</span>()</span><br><span class="line">    diag45 = <span class="built_in">set</span>()</span><br><span class="line">    diag135 = <span class="built_in">set</span>()</span><br><span class="line">    k = <span class="number">0</span>  <span class="comment"># 行号</span></span><br><span class="line">    <span class="keyword">while</span> k &lt; n:</span><br><span class="line">        <span class="keyword">if</span> k == stepVegas:  <span class="comment"># 完全使用回溯法</span></span><br><span class="line">            <span class="keyword">return</span> backtrace(k+<span class="number">1</span>, try_, col, diag45, diag135, try_count)</span><br><span class="line">        nb = <span class="number">0</span>  <span class="comment"># 计数器，nb值为（k+1)th皇后的open位置总数</span></span><br><span class="line">        j = <span class="number">0</span>  <span class="comment"># 记录随机摆放皇后的列位置</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n+<span class="number">1</span>):  <span class="comment"># i是列号, 试探（k+1,i）安全否</span></span><br><span class="line">            <span class="keyword">if</span> (i <span class="keyword">not</span> <span class="keyword">in</span> col) <span class="keyword">and</span> (i - k <span class="keyword">not</span> <span class="keyword">in</span> diag45) <span class="keyword">and</span> (i + k <span class="keyword">not</span> <span class="keyword">in</span> diag135):</span><br><span class="line">                <span class="comment"># 列i对（k+1）th皇后可用，但不一定马上将其放在第i列</span></span><br><span class="line">                nb += <span class="number">1</span></span><br><span class="line">                <span class="comment"># 在nb个安全的位置上随机选择1个位置j放置之</span></span><br><span class="line">                <span class="keyword">if</span> randint(<span class="number">1</span>, nb) == <span class="number">1</span>:  <span class="comment"># 或许放在第i列</span></span><br><span class="line">                    j = i</span><br><span class="line">        <span class="comment"># nb=0时无安全位置，第k+1个皇后尚未放好</span></span><br><span class="line">        <span class="keyword">if</span> nb &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="comment"># 在所有nb个安全位置上，(k+1)th皇后选择位置j的概率为1/nb</span></span><br><span class="line">            try_count[<span class="number">0</span>] += <span class="number">1</span>  <span class="comment"># 1个皇后放好算是搜索树上的1个结点</span></span><br><span class="line">            k += <span class="number">1</span>  <span class="comment"># try[1..k+1]是(k+1)-promising</span></span><br><span class="line">            try_[k] = j  <span class="comment"># 将选定的(k+1)th皇后放入</span></span><br><span class="line">            col.add(j)</span><br><span class="line">            diag45.add(j - k)</span><br><span class="line">            diag135.add(j + k)</span><br><span class="line">        <span class="keyword">else</span>:  <span class="comment"># 当前皇后找不到合适的位置</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">backtrace</span>(<span class="params">k, try_, col, diag45, diag135, try_count</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;传统的回溯法&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> k &gt; n:  <span class="comment"># k表示行号 行号大于n表示皇后放置结束</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n+<span class="number">1</span>):  <span class="comment"># 从当前列j起向后逐列试探 寻找安全列号</span></span><br><span class="line">        <span class="keyword">if</span> (j <span class="keyword">not</span> <span class="keyword">in</span> col) <span class="keyword">and</span> (j - k <span class="keyword">not</span> <span class="keyword">in</span> diag45) <span class="keyword">and</span> (j + k <span class="keyword">not</span> <span class="keyword">in</span> diag135):</span><br><span class="line">            <span class="comment"># 找到安全列j 放置(k+1)th皇后</span></span><br><span class="line">            try_[k] = j</span><br><span class="line">            col.add(j)</span><br><span class="line">            diag45.add(j - k)</span><br><span class="line">            diag135.add(j + k)</span><br><span class="line">            try_count[<span class="number">0</span>] += <span class="number">1</span>  <span class="comment"># 1个皇后放好算是搜索树上的1个结点</span></span><br><span class="line">            <span class="comment"># 探索下一行</span></span><br><span class="line">            <span class="keyword">if</span> backtrace(k+<span class="number">1</span>, try_, col, diag45, diag135, try_count):</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="keyword">else</span>:  <span class="comment"># 回溯 移去该行已放置的皇后</span></span><br><span class="line">                col.remove(j)</span><br><span class="line">                diag45.remove(j - k)</span><br><span class="line">                diag135.remove(j + k)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span>  <span class="comment"># 探索完所有列仍然没有符合要求的</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">REPEAT_COUNT = <span class="number">100</span>  <span class="comment"># 运行次数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;n\tbest_sv\ts\te\tp\tt\ttime(ms)&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">12</span>, <span class="number">21</span>):</span><br><span class="line">    best_sv = n</span><br><span class="line">    best_s = <span class="number">0</span></span><br><span class="line">    best_e = <span class="number">0</span></span><br><span class="line">    best_p = <span class="number">0</span></span><br><span class="line">    best_t = <span class="number">0</span></span><br><span class="line">    best_time= <span class="number">0</span></span><br><span class="line">    min_t = <span class="number">1000000</span></span><br><span class="line">    <span class="keyword">for</span> stepVegas <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, n+<span class="number">1</span>):</span><br><span class="line">        p_count = <span class="number">0</span>  <span class="comment"># 成功次数</span></span><br><span class="line">        s_count = <span class="number">0</span></span><br><span class="line">        e_count = <span class="number">0</span></span><br><span class="line">        t1 = time.time()</span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(REPEAT_COUNT):</span><br><span class="line">            try_count[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">            try_ = [-<span class="number">1</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n+<span class="number">1</span>)]  <span class="comment"># 序号1...k 初始化为-1</span></span><br><span class="line">            <span class="keyword">if</span> queensLV(stepVegas, try_, n, try_count):</span><br><span class="line">                p_count += <span class="number">1</span></span><br><span class="line">                s_count += try_count[<span class="number">0</span>]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                e_count += try_count[<span class="number">0</span>]</span><br><span class="line">        t2 = time.time()</span><br><span class="line">        total_time = (t2-t1)*<span class="number">1000</span></span><br><span class="line">        s = s_count/REPEAT_COUNT  <span class="comment"># 成功时搜索的结点的平均数</span></span><br><span class="line">        e = e_count/REPEAT_COUNT  <span class="comment"># 失败时搜索的结点的平均数</span></span><br><span class="line">        p = p_count/REPEAT_COUNT  <span class="comment"># 成功的概率（一次成功）</span></span><br><span class="line">        t = s+(<span class="number">1</span>-p)*e/(p+<span class="number">0.0001</span>)  <span class="comment"># 搜索的平均节点数</span></span><br><span class="line">        <span class="keyword">if</span> t &lt; min_t:</span><br><span class="line">            min_t = t</span><br><span class="line">            best_sv = stepVegas  <span class="comment"># 取最小化t的stepVegas</span></span><br><span class="line">            best_s = s</span><br><span class="line">            best_e = e</span><br><span class="line">            best_p = p</span><br><span class="line">            best_t = t</span><br><span class="line">            best_time = total_time</span><br><span class="line">        <span class="comment"># print(&quot;&#123;:&lt;10d&#125;&#123;:&lt;10d&#125;&#123;:&lt;10.4f&#125;&#123;:&lt;10.4f&#125;&#123;:&lt;10.4f&#125;&#123;:&lt;10.4f&#125;&#123;:&lt;15.6f&#125;&quot;.format(</span></span><br><span class="line">        <span class="comment">#     n, stepVegas, s, e, p, t, total_time))</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&#123;:&lt;10d&#125;&#123;:&lt;10d&#125;&#123;:&lt;10.4f&#125;&#123;:&lt;10.4f&#125;&#123;:&lt;10.4f&#125;&#123;:&lt;10.4f&#125;&#123;:&lt;15.6f&#125;&quot;</span>.<span class="built_in">format</span>(</span><br><span class="line">        n, best_sv, best_s, best_e, best_p, best_t, best_time))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>实验结果</li>
+</ul>
+<figure>
+<img src="/post/34884d63/image-20221115220055192.png" alt="image-20221115220055192">
+<figcaption aria-hidden="true">image-20221115220055192</figcaption>
+</figure>
+<p><strong>Ex.10【147】</strong></p>
+<blockquote>
+<p>PrintPrimes{ //打印1万以内的素数 print 2，3； n ←5； repeat if
+RepeatMillRab(n,$ _{}{n} $) then print n; n ←n+2; until n=10000; }</p>
+</blockquote>
+<p>与确定性算法相比较，并给出100~10000以内错误的比例。</p>
+<ul>
+<li>实验思路：分别在不同k值下对100~10000以内整数进行RepeatMillRab素性测试，得到的结果与确定性算法比较，记录错误个数，重复实验，得到平均错误个数和平均错误比例。</li>
+<li>实验代码</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># RepeatMillRab素性测试与确定性算法相比较，并给出100~10000以内错误的比例。</span></span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> sqrt, log10</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Btest</span>(<span class="params">a, n</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;返回真说明n是强伪素数或素数&quot;&quot;&quot;</span></span><br><span class="line">    s = <span class="number">0</span></span><br><span class="line">    t = n - <span class="number">1</span>  <span class="comment"># t开始为偶数</span></span><br><span class="line">    <span class="keyword">while</span> t % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">        s = s + <span class="number">1</span></span><br><span class="line">        t = t // <span class="number">2</span></span><br><span class="line">    x = a ** t % n</span><br><span class="line">    <span class="keyword">if</span> x == <span class="number">1</span> <span class="keyword">or</span> x == n - <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, s):</span><br><span class="line">        x = x ** <span class="number">2</span> % n</span><br><span class="line">        <span class="keyword">if</span> x == n - <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">MillRab</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Miller-Rabin测试:奇n&gt;4 返回真时表示素数 假表示合数&quot;&quot;&quot;</span></span><br><span class="line">    a = randint(<span class="number">2</span>, n - <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> Btest(a, n)  <span class="comment"># 测试n是否为强伪素数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">RepeatMillRab</span>(<span class="params">n, k</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;重复调用k次之后返回true&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k):</span><br><span class="line">        <span class="keyword">if</span> MillRab(n) == <span class="literal">False</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span>  <span class="comment"># 一定是合数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span>  <span class="comment"># 高概率为素数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_prime</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;确定性算法确定是否为素数&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="built_in">int</span>(sqrt(n)) + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> n % i == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">start = <span class="number">100</span></span><br><span class="line">end = <span class="number">10000</span></span><br><span class="line">REPEAT_COUNT = <span class="number">10</span>  <span class="comment"># 重复次数</span></span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">6</span>):</span><br><span class="line">    error = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(REPEAT_COUNT):</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(start, end):</span><br><span class="line">            <span class="keyword">if</span> RepeatMillRab(i, k) != is_prime(i):</span><br><span class="line">                error += <span class="number">1</span></span><br><span class="line">    error /= REPEAT_COUNT  <span class="comment"># 平均错误次数</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;k = &#123;:&lt;4d&#125; error times = &#123;:&lt;10.2f&#125; error rate = &#123;:&lt;10.6f&#125;&quot;</span>.<span class="built_in">format</span>(</span><br><span class="line">        k, error, error/(end-start)))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>实验结果</li>
+</ul>
+<figure>
+<img src="/post/34884d63/image-20221115225306352.png" alt="image-20221115225306352">
+<figcaption aria-hidden="true">image-20221115225306352</figcaption>
+</figure>
+<p>可以看到在k&gt;4以后错误比例基本为0了。</p>
+<h1 id="参考链接">参考链接</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://home.ustc.edu.cn/~zzy0929/CSAlg22/">课程主页</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/jackzhang11/article/details/109479996">算法作业之概率算法&amp;近似算法（中科大黄刘生总裁版）</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/1970633640/Design-and-Analysis-of-Algorithm">中国科学技术大学算法设计与分析课程作业</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">
+		-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+		</div>
+    
+</div>
+      
+    </div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%BD%9C%E4%B8%9A/" rel="tag"><i class="fa fa-tag"></i> 作业</a>
+              <a href="/tags/%E6%A6%82%E7%8E%87/" rel="tag"><i class="fa fa-tag"></i> 概率</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/18ce3915.html" rel="prev" title="高级数据库系统作业3">
+      <i class="fa fa-chevron-left"></i> 高级数据库系统作业3
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E6%9E%90%E4%B8%8E%E8%A7%A3%E7%AD%94"><span class="nav-number">1.</span> <span class="nav-text">分析与解答</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">2.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="YMZ"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">YMZ</p>
+  <div class="site-description" itemprop="description">十年前和现在</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/YMZLT" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;YMZLT" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:mzyang2000@163.com" title="E-Mail → mailto:mzyang2000@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YMZ</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">83k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:44</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'N15JmLdA2cagBn85yKSsAbOI-gzGzoHsz',
+      appKey     : '3vJcF2jNtl8bi0k492yvlyIh',
+      placeholder: "在此处输入评论",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
