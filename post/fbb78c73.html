@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-pig.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-pig.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-pig.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="Rue56VcjrUaHiC0M1WyxObGCdA-Wkl0teZUEbdYG_-U">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ymzlt.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="本文为中科大研究生课程——计算机系统作业4的题目解答记录。使用的教材为《深入理解计算机系统》（第3版）。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="中科大计算机系统作业4">
+<meta property="og:url" content="https://ymzlt.github.io/post/fbb78c73.html">
+<meta property="og:site_name" content="YMZ&#39;s Blog">
+<meta property="og:description" content="本文为中科大研究生课程——计算机系统作业4的题目解答记录。使用的教材为《深入理解计算机系统》（第3版）。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ymzlt.github.io/post/fbb78c73/hw4.svg">
+<meta property="og:image" content="https://ymzlt.github.io/post/fbb78c73/hw4-2.svg">
+<meta property="article:published_time" content="2022-12-04T08:21:55.000Z">
+<meta property="article:modified_time" content="2022-12-04T08:25:47.556Z">
+<meta property="article:author" content="YMZ">
+<meta property="article:tag" content="作业">
+<meta property="article:tag" content="CSAPP">
+<meta property="article:tag" content="链接">
+<meta property="article:tag" content="fork">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ymzlt.github.io/post/fbb78c73/hw4.svg">
+
+<link rel="canonical" href="https://ymzlt.github.io/post/fbb78c73.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>中科大计算机系统作业4 | YMZ's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">YMZ's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">种一棵树最好是什么时候？</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ymzlt.github.io/post/fbb78c73.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="YMZ">
+      <meta itemprop="description" content="十年前和现在">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YMZ's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          中科大计算机系统作业4
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-12-04 16:21:55" itemprop="dateCreated datePublished" datetime="2022-12-04T16:21:55+08:00">2022-12-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BD%9C%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">作业</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/fbb78c73.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/fbb78c73.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本文为中科大研究生课程——计算机系统作业4的题目解答记录。使用的教材为《深入理解计算机系统》（第3版）。</p>
+<span id="more"></span>
+<h1 id="题目与解答">题目与解答</h1>
+<h2 id="section">7.7</h2>
+<p>不改变任何变量名字，修改 7. 6. 1 节中的 bar5.c, 使得 foo5.c 输出 x 和
+y 的正确值（也就是整数 15213 和 15212 的十六进制表示）。</p>
+<p>7.6.1：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* foo5.c */</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">f</span><span class="params">(<span class="type">void</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> y = <span class="number">15212</span>;</span><br><span class="line"><span class="type">int</span> X = <span class="number">15213</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	f();</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;x = 0x%x y = 0x%x \n&quot;</span>,x, y);</span><br><span class="line">	<span class="keyword">return</span> O;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* bar5.c*/</span></span><br><span class="line"><span class="type">double</span> x;</span><br><span class="line"><span class="type">void</span> <span class="title function_">f</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    x = <span class="number">-0.0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>解：</strong>将bar5.c中的x声明为静态变量，使其链接为内部链接，只在当前文件中起作用</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* bar5.c (修改后)*/</span></span><br><span class="line"><span class="type">static</span> <span class="type">double</span> x; <span class="comment">// 将bar5.c中的x声明为静态变量，使其链接为内部链接，只在当前文件中起作用</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">f</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    x = <span class="number">-0.0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="section-1">7.8</h2>
+<p>在此题中， REF(x.i)----&gt;DEF(x.k) 表示链接器将任意对模块 i 中符号 x
+的引用与模块 k 中符号 x
+的定义相关联。在下面每个例子中，用这种符号来说明链接器是如何解析在每个模块中有多重定义的引用的。如果出现链接时错误（规则
+1) 写"错误（ERROR）"。如果链接器从定义中任意选择一个(规则 3)
+那么写"未知（unkown）"。</p>
+<p><strong>解：</strong></p>
+<p>A. 链接器选择定义在模块 1 中的强符号，而不是定义在模块 2
+中的弱符号（规则 2)</p>
+<ol type="a">
+<li><p>REF(main.1) -&gt; DEF(main.1)</p></li>
+<li><p>REF(main.2) -&gt; DEF(main.2)</p></li>
+</ol>
+<p>B. 模块1，2中的 x
+均为弱符号，如果有多个弱符号同名，那么从这些弱符号中任意选择一个（规则
+3) 。</p>
+<ol type="a">
+<li><p>REF(x.1) -&gt; DEF(unkown)</p></li>
+<li><p>REF(x.2) -&gt; DEF(unkown)</p></li>
+</ol>
+<p>C. 这是一个错误，因为每个模块都定义了一个强符号 x ( 规则 1) 。</p>
+<ol type="a">
+<li><p>REF(x.1) -&gt; DEF(ERROR)</p></li>
+<li><p>REF(x.2) -&gt; DEF(ERROR)</p></li>
+</ol>
+<h2 id="section-2">7.10</h2>
+<p>a 和 b 表示当前路径中的目标模块或静态库，而 a---&gt;b 表示 a 依赖于
+b, 也就是说 a 引用了一个 b
+定义的符号。对于下面的每个场景，给出使得静态链接器能够解析所有符号引用的最小的命令行（即含有最少数量的目标文件和库参数的命令）。</p>
+<ol type="A">
+<li><p>p.o---&gt;libx.a---&gt;p.o</p></li>
+<li><p>p.o---&gt;libx.a---&gt;liby.a 和 liby.a---&gt;libx.a</p></li>
+<li><p>p.o---&gt;libx.a---&gt;liby.a---&gt;libz.a 和
+liby.a---&gt;linx.a---&gt;libz.a</p></li>
+</ol>
+<p><strong>解：</strong></p>
+<ol type="A">
+<li></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc p.o libx.a</span><br></pre></td></tr></table></figure>
+<ol start="2" type="A">
+<li></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc p.o libx.a liby.a libx.a</span><br></pre></td></tr></table></figure>
+<ol start="3" type="A">
+<li></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc p.o libx.a liby.a libx.a libz.a </span><br></pre></td></tr></table></figure>
+<h2 id="section-3">7.12</h2>
+<p>考虑目标文件 m.o 中对函数 swap 的调用（作业题 7. 6) 。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">9: e8 00 00 00 00		callq e &lt;main+0xe&gt; swap()</span><br></pre></td></tr></table></figure>
+<p>具有如下重定位条目：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">r.offset = 0xa</span><br><span class="line">r.symbol = swap</span><br><span class="line">r.type = R_X86_64_PC32</span><br><span class="line">r.addend = -4</span><br></pre></td></tr></table></figure>
+<p>A. 假设链接器将 m.o 中的 .text 重定位到地址 0x4004e0, 把 swap
+重定位到地址 0x4004f8 。那么callq 指令中对 swap
+的重定位引用的值应该是什么？</p>
+<p>B. 假设链接器将 m.o 中的 .text 重定位到地址 0x4004d0, 把 swap
+重定位到地址 0x400500 。那么callq 指令中对 swap
+的重定位引用的值应该是什么？</p>
+<p><strong>解：</strong></p>
+<ol type="A">
+<li></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ADDR(s) = ADDR(.text) = 0x4004e0</span><br><span class="line">ADDR(r.symbol) = ADDR(swap) = 0x4004f8 </span><br></pre></td></tr></table></figure>
+<p>链接器首先计算引用的运行时地址：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">refaddr = ADDR(s) + r.offset</span><br><span class="line">		= 0x4004e0 + 0xa</span><br><span class="line">		= 0x4004ea</span><br></pre></td></tr></table></figure>
+<p>然后修改此引用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*refptr = (unsigned) (ADDR(r.symbol) + r.addend - refaddr)</span><br><span class="line">		= (unsigned) (0x4004f8 + (-4) - 0x4004ea)</span><br><span class="line">		= (unsigned) (0xa)</span><br></pre></td></tr></table></figure>
+<p>因此，得到的可执行目标文件中，对 swap 的 PC 相对引用的值为 0xa</p>
+<ol start="2" type="A">
+<li></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ADDR(s) = ADDR(.text) = 0x4004d0</span><br><span class="line">ADDR(r.symbol) = ADDR(swap) = 0x400500 </span><br></pre></td></tr></table></figure>
+<p>链接器首先计算引用的运行时地址：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">refaddr = ADDR(s) + r.offset</span><br><span class="line">		= 0x4004d0 + 0xa</span><br><span class="line">		= 0x4004da</span><br></pre></td></tr></table></figure>
+<p>然后修改此引用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*refptr = (unsigned) (ADDR(r.symbol) + r.addend - refaddr)</span><br><span class="line">		= (unsigned) (0x400500 + (-4) - 0x4004da)</span><br><span class="line">		= (unsigned) (0x22)</span><br></pre></td></tr></table></figure>
+<p>因此，得到的可执行目标文件中，对 swap 的 PC 相对引用的值为 0x22</p>
+<h2 id="section-4">8.13</h2>
+<p>下面程序的一种可能的输出是什么？</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* code/ecflforkprob3.c */</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;csapp.h&quot;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> x = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">if</span>(Fork()!=<span class="number">0</span>) <span class="comment">// Fork() 是 fork() 函数的错误处理包装函数</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;x=%d\n&quot;</span>,++x);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;x=%d\n&quot;</span>,--x);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>解：</strong></p>
+<ul>
+<li>fork
+函数只被调用一次，却会返回两次：一次是在调用进程（父进程）中，一次是在新创建的子进程中。在父进程中，
+fork 返回子进程的 PID 。在子进程中，fork 返回 0
+。父进程和子进程是并发运行的独立进程，都有自己的私有地址空间。</li>
+<li>当 fork 调用在第 6 行返回时，在父进程和子进程中 x 的值都为
+3，子进程在第 7 行加一并输出它的 x 的副本。相似地，父进程在第 8
+行减一并输出它的 x 的副本。</li>
+</ul>
+<p>所以最终可能输出：（保证4在3前面）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># case1:</span><br><span class="line">x=<span class="number">4</span>; <span class="comment">// 父进程执行第7行printf语句</span></span><br><span class="line">x=<span class="number">3</span>; <span class="comment">// 父进程执行第8行printf语句</span></span><br><span class="line">x=<span class="number">2</span>; <span class="comment">// 子进程执行第8行printf语句</span></span><br><span class="line"></span><br><span class="line"># case2:</span><br><span class="line">x=<span class="number">4</span>; <span class="comment">// 父进程执行第7行printf语句</span></span><br><span class="line">x=<span class="number">2</span>; <span class="comment">// 子进程执行第8行printf语句</span></span><br><span class="line">x=<span class="number">3</span>; <span class="comment">// 父进程执行第8行printf语句</span></span><br><span class="line"></span><br><span class="line"># case3:</span><br><span class="line">x=<span class="number">2</span>; <span class="comment">// 子进程执行第8行printf语句</span></span><br><span class="line">x=<span class="number">4</span>; <span class="comment">// 父进程执行第7行printf语句</span></span><br><span class="line">x=<span class="number">3</span>; <span class="comment">// 父进程执行第8行printf语句</span></span><br></pre></td></tr></table></figure>
+<h2 id="section-5">8.15</h2>
+<p>下面这个程序会输出多少个 "hello" 输出行？</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* code/ecf/forkprob6.c */</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;csapp.h&quot;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">doit</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(Fork()==<span class="number">0</span>)&#123;</span><br><span class="line">        Fork();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;hello\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    doit();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;hello\n&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>解：</strong></p>
+<p><img src="/post/fbb78c73/hw4.svg"></p>
+<p>所以共输出5个"hello"行</p>
+<h2 id="section-6">8.18</h2>
+<p>考虑下面的程序：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* code/ecflforkprob2.c */</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;csapp.h&quot;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">end</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;2&quot;</span>);fflush(<span class="built_in">stdout</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(Fork()==<span class="number">0</span>)</span><br><span class="line">        atexit(end);</span><br><span class="line">    <span class="keyword">if</span>(Fork()==<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;0&quot;</span>);fflush(<span class="built_in">stdout</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;1&quot;</span>);fflush(<span class="built_in">stdout</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>判断下面哪个输出是可能的。注意： atexit
+函数以一个指向函数的指针为输入，并将它添加到函数列表中（初始为空），当
+exit 函数被调用时，会调用该列表中的函数。</p>
+<p>A. 112002 B. 211020 C. 102120 D. 122001 E. 100212</p>
+<p><strong>解：</strong></p>
+<p><img src="/post/fbb78c73/hw4-2.svg"></p>
+<p>构成拓扑排序的只有ACE正确。</p>
+<p>B中的第一个不可能是2。D中的第一个1后面不可能有两个2。</p>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">
+		-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+		</div>
+    
+</div>
+      
+    </div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%BD%9C%E4%B8%9A/" rel="tag"><i class="fa fa-tag"></i> 作业</a>
+              <a href="/tags/CSAPP/" rel="tag"><i class="fa fa-tag"></i> CSAPP</a>
+              <a href="/tags/%E9%93%BE%E6%8E%A5/" rel="tag"><i class="fa fa-tag"></i> 链接</a>
+              <a href="/tags/fork/" rel="tag"><i class="fa fa-tag"></i> fork</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/65d319d0.html" rel="prev" title="中科大计算机系统作业3">
+      <i class="fa fa-chevron-left"></i> 中科大计算机系统作业3
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E4%B8%8E%E8%A7%A3%E7%AD%94"><span class="nav-number">1.</span> <span class="nav-text">题目与解答</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#section"><span class="nav-number">1.1.</span> <span class="nav-text">7.7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-1"><span class="nav-number">1.2.</span> <span class="nav-text">7.8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-2"><span class="nav-number">1.3.</span> <span class="nav-text">7.10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-3"><span class="nav-number">1.4.</span> <span class="nav-text">7.12</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-4"><span class="nav-number">1.5.</span> <span class="nav-text">8.13</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-5"><span class="nav-number">1.6.</span> <span class="nav-text">8.15</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-6"><span class="nav-number">1.7.</span> <span class="nav-text">8.18</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="YMZ"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">YMZ</p>
+  <div class="site-description" itemprop="description">十年前和现在</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/YMZLT" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;YMZLT" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:mzyang2000@163.com" title="E-Mail → mailto:mzyang2000@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YMZ</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">100k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:06</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'N15JmLdA2cagBn85yKSsAbOI-gzGzoHsz',
+      appKey     : '3vJcF2jNtl8bi0k492yvlyIh',
+      placeholder: "在此处输入评论",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
